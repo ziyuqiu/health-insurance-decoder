@@ -1,0 +1,32 @@
+<%= form_with(model: treatment, local: true) do |form| %>
+  <% if treatment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(treatment.errors.count, "error") %> prohibited this treatment from being saved:</h2>
+
+      <ul>
+      <% treatment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :treatment_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :resource_cateogry %>
+    <%= form.text_field :resource_cateogry, id: :treatment_resource_cateogry %>
+  </div>
+
+  <div class="field">
+    <%= form.label :disease_id %>
+    <%= form.number_field :disease_id, id: :treatment_disease_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

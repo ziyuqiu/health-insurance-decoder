@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plan.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @plan.category %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @plan.company_id %>
+</p>
+
+<p>
+  <strong>Integer:</strong>
+  <%= @plan.integer %>
+</p>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>
