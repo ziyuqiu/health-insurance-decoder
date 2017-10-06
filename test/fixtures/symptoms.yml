@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  frequency: MyString
-  integer: MyString
+  frequency: 1
 
 two:
   name: MyString
-  frequency: MyString
-  integer: MyString
+  frequency: 1

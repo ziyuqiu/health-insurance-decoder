@@ -3,11 +3,9 @@
 one:
   name: MyString
   category: MyString
-  company_id: MyString
-  integer: MyString
+  company_id: 1
 
 two:
   name: MyString
   category: MyString
-  company_id: MyString
-  integer: MyString
+  company_id: 1

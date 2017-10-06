@@ -8,7 +8,6 @@
       <th>Name</th>
       <th>Category</th>
       <th>Company</th>
-      <th>Integer</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +18,6 @@
         <td><%= plan.name %></td>
         <td><%= plan.category %></td>
         <td><%= plan.company_id %></td>
-        <td><%= plan.integer %></td>
         <td><%= link_to 'Show', plan %></td>
         <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
         <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

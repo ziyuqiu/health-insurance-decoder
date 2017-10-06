@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  contact_id: MyString
-  integer: MyString
+  contact_id: 1
 
 two:
   name: MyString
-  contact_id: MyString
-  integer: MyString
+  contact_id: 1
