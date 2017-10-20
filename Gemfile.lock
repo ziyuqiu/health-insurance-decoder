@@ -52,6 +52,8 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
     bindex (0.5.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -78,6 +80,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.2)
+    debug_inspector (0.0.3)
     erubi (1.6.1)
     execjs (2.7.0)
     faker (1.8.4)
@@ -216,6 +219,7 @@ DEPENDENCIES
   awesome_print
   bcrypt
   better_errors
+  binding_of_caller
   bootstrap-sass
   bootstrap-will_paginate
   byebug

@@ -71,3 +71,5 @@ gem 'jquery'
 gem 'jquery-rails'
 gem 'bcrypt'
 gem 'pg_search'
+
+gem 'binding_of_caller'

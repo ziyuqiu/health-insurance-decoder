@@ -7,8 +7,8 @@
 			</br></center>
 		</div>
 		<div class="alert alert-danger">Please <strong>sign in </strong>to view more.</div>
-		<center><button type="button" class="btn btn-primary btn-block">Log in</button></center>
-		<center><p class="text-primary">New user? Sign up!</p></center>	
+		<center><button type="button" class="btn btn-primary btn-block"><%= link_to "Sign in", login_path %></button></center>
+			<center><p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p></center>
 		<center><button type="button" class="btn btn-danger btn-block">Emergency Diagnosis</button></center>
 	</div>
 	<hr>
