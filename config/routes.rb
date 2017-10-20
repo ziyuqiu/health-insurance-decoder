@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :diseases
   resources :body_parts
   resources :symptoms
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   root 'users#index'
+  get '/body-diagram', to: 'body_parts#index'
 end

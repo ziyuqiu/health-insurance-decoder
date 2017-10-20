@@ -1,27 +1,25 @@
-<p id="notice"><%= notice %></p>
+<h1>Body Diagram</h1>
 
-<h1>Body Parts</h1>
+<p>Click on a body part to see a list of symptoms.</p>
 
+<div id="body-image">
+  <%= image_tag("female.png", alt: "Click on a body part to be diagnosed") %>
+</div>
+
+<div id="body-image-switches">
+  <!-- Unicode characters for Male, Intersex, Female: &#9794;  &#9893;  &#9792;-->
+  <%= link_to "Male", '#', class: "btn btn-md btn-primary" %>
+  <%= link_to "Intersex", '#', class: "btn btn-md btn-primary" %>
+  <%= link_to "Female", '#', class: "btn btn-md btn-primary disabled" %>
+</div>
+
+<div class="body-labels">
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @body_parts.each do |body_part| %>
       <tr>
-        <td><%= body_part.name %></td>
-        <td><%= link_to 'Show', body_part %></td>
-        <td><%= link_to 'Edit', edit_body_part_path(body_part) %></td>
-        <td><%= link_to 'Destroy', body_part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to body_part.name, '#' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Body Part', new_body_part_path %>
