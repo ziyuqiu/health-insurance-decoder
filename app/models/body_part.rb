@@ -1,4 +1,7 @@
 class BodyPart < ApplicationRecord
-  has_many :symptoms
-  has_many :diseases
+  validates :name, presence: true, length: { maximum: 75 }, uniqueness: true
+
+  has_many :body_part_symptom_diseases
+  has_many :symptoms, :through => :body_part_symptom_diseases
+  has_many :diseases, :through => :body_part_symptom_diseases
 end

@@ -1,7 +1,5 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+horn:
+  name: "Horn"
 
-one:
-  name: MyString
-
-two:
-  name: MyString
+tail:
+  name: "Tail"

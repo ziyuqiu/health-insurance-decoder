@@ -1,0 +1,147 @@
+[
+   {
+      "Body Part":"Head",
+      "Symptom":"Mild Pain",
+      "Disease":"Headache"
+   },
+   {
+      "Body Part":"Head",
+      "Symptom":"Severe Pain",
+      "Disease":"Migraine "
+   },
+   {
+      "Body Part":"Stomach",
+      "Symptom":"Nausea",
+      "Disease":"Migraine"
+   },
+   {
+      "Body Part":"Eye",
+      "Symptom":"Sensitive to light",
+      "Disease":"Migraine"
+   },
+   {
+      "Body Part":"Skin",
+      "Symptom":"Fever",
+      "Disease":"Seasonal Flu"
+   },
+   {
+      "Body Part":"Skin",
+      "Symptom":"Chills",
+      "Disease":"Seasonal Flu"
+   },
+   {
+      "Body Part":"Nose",
+      "Symptom":"Runny",
+      "Disease":"Seasonal Flu"
+   },
+   {
+      "Body Part":"Nose",
+      "Symptom":"Stuffy",
+      "Disease":"Seasonal Flu"
+   },
+   {
+      "Body Part":"Head",
+      "Symptom":"Mild Pain",
+      "Disease":"Seasonal Flu"
+   },
+   {
+      "Body Part":"Muscle",
+      "Symptom":"Fatigue",
+      "Disease":"Seasonal Flu"
+   },
+   {
+      "Body Part":"Stomach",
+      "Symptom":"Vomiting",
+      "Disease":"Seasonal Flu"
+   },
+   {
+      "Body Part":"Bowel",
+      "Symptom":"Diarrhea",
+      "Disease":"Seasonal Flu"
+   },
+   {
+      "Body Part":"Throat",
+      "Symptom":"Sore",
+      "Disease":"Seasonal Flu"
+   },
+   {
+      "Body Part":"Nose",
+      "Symptom":"Runny",
+      "Disease":"Common Cold"
+   },
+   {
+      "Body Part":"Throat",
+      "Symptom":"Cough",
+      "Disease":"Common Cold"
+   },
+   {
+      "Body Part":"Throat",
+      "Symptom":"Sore",
+      "Disease":"Common Cold"
+   },
+   {
+      "Body Part":"Skin",
+      "Symptom":"Warm",
+      "Disease":"Common Cold"
+   },
+   {
+      "Body Part":"Ear",
+      "Symptom":"Sensitive to sound",
+      "Disease":"Migraine"
+   },
+   {
+      "Body Part":"Eye",
+      "Symptom":"Blurred vision",
+      "Disease":"Migraine"
+   },
+   {
+      "Body Part":"Eye",
+      "Symptom":"Aura",
+      "Disease":"Migraine"
+   },
+   {
+      "Body Part":"Nose",
+      "Symptom":"Runny",
+      "Disease":"Hay Fever"
+   },
+   {
+      "Body Part":"Nose",
+      "Symptom":"Sneezing",
+      "Disease":"Hay Fever"
+   },
+   {
+      "Body Part":"Eye",
+      "Symptom":"Redness",
+      "Disease":"Hay Fever"
+   },
+   {
+      "Body Part":"Eye",
+      "Symptom":"Itch",
+      "Disease":"Hay Fever"
+   },
+   {
+      "Body Part":"Eye",
+      "Symptom":"Swelling",
+      "Disease":"Hay Fever"
+   },
+   {
+      "Body Part":"Chest",
+      "Symptom":"Tightness",
+      "Disease":"Asthma"
+   },
+   {
+      "Body Part":"Chest",
+      "Symptom":"Wheezing",
+      "Disease":"Asthma"
+   },
+   {
+      "Body Part":"Chest",
+      "Symptom":"Cough",
+      "Disease":"Asthma"
+   },
+   {
+      "Body Part":"Chest",
+      "Symptom":"Shortness of breath",
+      "Disease":"Asthma"
+   }
+]

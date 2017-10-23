@@ -1,0 +1,30 @@
+Body Part,Symptom,Disease
+Head,Mild Pain,Headache
+Head,Severe Pain,Migraine 
+Stomach,Nausea,Migraine
+Eye,Sensitive to light,Migraine
+Skin,Fever,Seasonal Flu
+Skin,Chills,Seasonal Flu
+Nose,Runny,Seasonal Flu
+Nose,Stuffy,Seasonal Flu
+Head,Mild Pain,Seasonal Flu
+Muscle,Fatigue,Seasonal Flu
+Stomach,Vomiting,Seasonal Flu
+Bowel,Diarrhea,Seasonal Flu
+Throat,Sore,Seasonal Flu
+Nose,Runny,Common Cold
+Throat,Cough,Common Cold
+Throat,Sore,Common Cold
+Skin,Warm,Common Cold
+Ear,Sensitive to sound,Migraine
+Eye,Blurred vision,Migraine
+Eye,Aura,Migraine
+Nose,Runny,Hay Fever
+Nose,Sneezing,Hay Fever
+Eye,Redness,Hay Fever
+Eye,Itch,Hay Fever
+Eye,Swelling,Hay Fever
+Chest,Tightness,Asthma
+Chest,Wheezing,Asthma
+Chest,Cough,Asthma
+Chest,Shortness of breath,Asthma
