@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem 'bcrypt'
 gem 'pg_search'
 gem 'binding_of_caller'
+gem 'rails-controller-testing'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
