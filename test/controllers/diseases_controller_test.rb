@@ -2,7 +2,7 @@ require 'test_helper'
 
 class DiseasesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @disease = diseases(:one)
+    @disease = diseases(:sniffle)
   end
 
   test "should get index" do
@@ -17,7 +17,7 @@ class DiseasesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create disease" do
     assert_difference('Disease.count') do
-      post diseases_url, params: { disease: { name: @disease.name } }
+      post diseases_url, params: { disease: { name: "The Itchies" } }
     end
 
     assert_redirected_to disease_url(Disease.last)
