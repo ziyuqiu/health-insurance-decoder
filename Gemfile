@@ -13,9 +13,16 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'json'
-# gem 'redis', '~> 3.0'
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'bootstrap-sass'
+gem 'awesome_print'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'jquery'
+gem 'jquery-rails'
+gem 'bcrypt'
+gem 'pg_search'
+gem 'binding_of_caller'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -41,15 +48,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'bootstrap-sass'
-gem 'awesome_print'
-gem 'faker'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
-gem 'jquery'
-gem 'jquery-rails'
-gem 'bcrypt'
-gem 'pg_search'
-
-gem 'binding_of_caller'
