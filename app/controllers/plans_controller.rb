@@ -36,6 +36,12 @@ class PlansController < ApplicationController
       end
     end
   end
+  
+#  def calculate
+#      patient_pay=0.0
+#      price=params[:price]
+#      if params[:inpatient]==true
+#  end
 
   # PATCH/PUT /plans/1
   # PATCH/PUT /plans/1.json
@@ -69,6 +75,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:name, :category, :company_id)
+        params.require(:plan).permit(:name, :category, :company_id, :coinsurance, :deductible, :out_of_pocket_max, :inpatient_copay, :outpatient_copay)
     end
 end

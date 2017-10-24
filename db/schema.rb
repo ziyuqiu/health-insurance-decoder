@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171006201824) do
+ActiveRecord::Schema.define(version: 20171020174645) do
 
   create_table "body_parts", force: :cascade do |t|
     t.string "name"
@@ -26,9 +26,13 @@ ActiveRecord::Schema.define(version: 20171006201824) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "phone_number"
-    t.string "email"
-    t.string "address"
+    t.string "phone"
+    t.string "street"
+    t.string "street2"
+    t.string "state"
+    t.string "country"
+    t.string "zipcode"
+    t.string "fax"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,6 +48,9 @@ ActiveRecord::Schema.define(version: 20171006201824) do
     t.string "specialty"
     t.string "open_hour"
     t.integer "contact_id"
+    t.string "email"
+    t.string "phone_number"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +59,11 @@ ActiveRecord::Schema.define(version: 20171006201824) do
     t.string "name"
     t.string "category"
     t.integer "company_id"
+    t.float "coinsurance"
+    t.float "deductible"
+    t.float "out_of_pocket_max"
+    t.float "inpatient_copay"
+    t.float "outpatient_copay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,6 +88,8 @@ ActiveRecord::Schema.define(version: 20171006201824) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "email"
   end
 
 end

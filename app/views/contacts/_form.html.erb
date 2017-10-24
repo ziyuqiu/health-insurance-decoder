@@ -12,18 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number, id: :contact_phone_number %>
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :contact_phone %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :contact_email %>
+    <%= form.label :street %>
+    <%= form.text_field :street, id: :contact_street %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :contact_address %>
+    <%= form.label :street2 %>
+    <%= form.text_field :street2, id: :contact_street2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :contact_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :contact_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode, id: :contact_zipcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fax %>
+    <%= form.text_field :fax, id: :contact_fax %>
   </div>
 
   <div class="actions">
