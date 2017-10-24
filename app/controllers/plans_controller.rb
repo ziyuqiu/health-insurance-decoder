@@ -36,12 +36,6 @@ class PlansController < ApplicationController
       end
     end
   end
-  
-#  def calculate
-#      patient_pay=0.0
-#      price=params[:price]
-#      if params[:inpatient]==true
-#  end
 
   # PATCH/PUT /plans/1
   # PATCH/PUT /plans/1.json
