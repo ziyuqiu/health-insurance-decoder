@@ -1,32 +1,37 @@
-<div class="row">
-  <div class="col-lg-6">
-    <h1>Body Diagram</h1>
+<p id="notice"><%= notice %></p>
 
-    <p>Click on a body part to see a list of symptoms.</p>
+<h1>Body Parts</h1>
 
-    <div id="body-image">
-      <%= image_tag("female.png", alt: "Click on a body part to be diagnosed") %>
-    </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Symptoms</th>
+      <th>Diseases</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
 
-    <div id="body-image-switches">
-      <!-- Unicode characters for Male, Intersex, Female: &#9794;  &#9893;  &#9792;-->
-      <%= link_to "Male", '#', class: "btn btn-md btn-primary" %>
-      <%= link_to "Intersex", '#', class: "btn btn-md btn-primary" %>
-      <%= link_to "Female", '#', class: "btn btn-md btn-primary disabled" %>
-    </div>
-  </div>
-
-  <div class="col-lg-6">
-    <div class="body-labels">
-      <table>
-	<tbody>
-	  <% @body_parts.each do |body_part| %>
-	  <tr>
-            <td><%= link_to body_part.name, '#' %></td>
-	  </tr>
+  <tbody>
+    <% @body_parts.each do |body_part| %>
+    <tr>
+        <td><%= body_part.id %></td>
+        <td><%= body_part.name %></td>
+	<td>
+	  <%= body_part.diseases.each do |disease| %>
+	    <p><%= disease.name %></p>
 	  <% end %>
-	</tbody>
-      </table>
-    </div>
-  </div>
-</div>
+	</td>
+	<td>
+          <%= body_part.symptoms.each do |symptom| %>
+	    <p><%= symptom.name %></p>
+	  <% end %>
+	</td>
+        <td><%= link_to 'Show', body_part %></td>
+        <td><%= link_to 'Edit', edit_body_part_path(body_part) %></td>
+        <td><%= link_to 'Destroy', body_part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

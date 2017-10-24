@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @body_part.name %>
-</p>
+<h1><%= @body_part.name %></h1>
 
-<%= link_to 'Edit', edit_body_part_path(@body_part) %> |
-<%= link_to 'Back', body_parts_path %>
+<p>What are your symptoms?</p>
+
+<ul>
+  <% @symptoms.each do |symptom| %>
+    <li><% symptom.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Go back', body_parts_path %>

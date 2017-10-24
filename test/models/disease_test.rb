@@ -24,4 +24,11 @@ class DiseaseTest < ActiveSupport::TestCase
     @disease.save
     assert_not duplicate_disease.valid?
   end
+
+  test "disease name should be unique pt 2" do
+    s = "Chicken Pox"
+    d1 = Disease.create(name: s)
+    d2 = Disease.create(name: s)
+    assert_not d2.valid?
+  end
 end

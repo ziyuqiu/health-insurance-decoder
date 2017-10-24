@@ -20,5 +20,6 @@ elms.each do |elm|
   bp = BodyPart.create(name: elm["Body Part"])
   s = Symptom.create(name: elm["Symptom"])
   d = Disease.create(name: elm["Disease"])
-  BodyPartSymptomDisease.create(body_part_id: bp.id, symptom_id: s.id, disease_id: d.id)
 end
+
+#BodyPartSymptomDisease.create(body_part_id: bp.id, symptom_id: s.id, disease_id: d.id)
