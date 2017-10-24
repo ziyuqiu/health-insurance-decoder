@@ -6,32 +6,19 @@
         </br>
       </center>
     </div>
-    <!--
     <div class="col-lg-12">
-      <div class="alert alert-danger">Please <strong>sign in </strong>to view more options.</div>
-      <div id="welcome-buttons">
-        <%= link_to "Sign in", login_path, class: "btn btn-primary btn-block" %>
-        <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
-        <%= link_to "Quick Diagnosis", body_diagram_path, class: "btn btn-danger btn-block" %>
-      </div>
+      <% if logged_in? %>
+        <div class="alert alert-success">You are logged in as <strong><%= current_user.name%></strong>.</div>
+        <div id="welcome-buttons">
+          <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-success btn-block" %>
+          <br />
+      <% else %>
+        <div class="alert alert-danger">Please <strong>sign in </strong>to view more.</div>
+	<div id="welcome-buttons">
+	  <%= link_to "Sign in", login_path, class: "btn btn-primary btn-block" %>
+	  <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
+      <% end %>
+      <%= link_to "Quick Diagnosis", body_diagram_path, class: "btn btn-danger btn-block" %>
     </div>
   </div>
--->
-		<div class="jumbotron">
-			<center><h1>Health Decoder</h1>
-			</br></center>
-		</div>
-		<% if logged_in? %>
-			<div class="alert alert-success">You are logged in as <strong><%= current_user.name%> </strong>.</div>
-			<center><button type="button" class="btn btn-success btn-block"><%= link_to "Log out", logout_path, method: :delete %></button></center> <br />
-		<% else %>
-			<div class="alert alert-danger">Please <strong>sign in </strong>to view more.</div>
-			<center><button type="button" class="btn btn-primary btn-block"><%= link_to "Sign in", login_path %></button></center>
-				<center><p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p></center>
-		<% end %>
-
-		<center><button type="button" class="btn btn-danger btn-block">Emergency Diagnosis</button></center>
-	</div>
-	<hr>
 </div>
-<hr>
