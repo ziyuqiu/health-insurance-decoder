@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'static_pages/log'
+  get 'logs/log'
 
   resources :facilities
   resources :plans
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get  '/signup', to: 'users#new'
   post '/signup',  to: 'users#create'
-  
+
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
