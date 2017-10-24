@@ -1,10 +1,9 @@
 <header>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <title>Health Decoder</title>
-  <nav class="navbar navbar-fixed-top navbar-inverse">
+  
+  <nav class="navbar navbar-fixed-top navbar-inverse"> 
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="/">Health Decoder</a>
@@ -12,6 +11,10 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home</a></li>
         <li><%= link_to "Users", users_url %></li>
+        <li><%= link_to "Log", 'static_pages/log' %></li>
+        <li><%= link_to "MyProfile",   '#' %></li>
+        <li><%= link_to "Help",   '#' %></li>
+    </ul>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>

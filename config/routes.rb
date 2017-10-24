@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/log'
+
   resources :facilities
   resources :plans
   resources :companies
