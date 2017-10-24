@@ -1,56 +1,56 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'rubygems'
 require 'json'
 
+
+# Clears the tables that will be seeded.
+def clean_db
+  BodyPart.delete_all
+  Symptom.delete_all
+  Disease.delete_all
+  BodyPartSymptomDisease.delete_all
+end
+
+
+# Returns true if a record in a table exists.
 def name_exists table, name
   return !table.where(name: name).empty?
 end
 
-BodyPart.delete_all
-Symptom.delete_all
-Disease.delete_all
-BodyPartSymptomDisease.delete_all
 
-s = open("./json/body_part_symptom_disease.json", 'r').read.to_s
-elms = JSON.parse(s)
+# Builds a new symptom, disease, or body part.
+def build_object table, name
+  if name_exists(table, name)
+    return
+  end
+  o = table.new(name: name)
+  if !o.valid?
+    return
+  end
+  o.save
+end
 
+
+# Builds a relationship tuple for a body part, symptom, and disease.
+def build_relationship bp, s, d
+end
+
+
+# BEGIN SEEDING
+
+clean_db
+
+elms = JSON.parse(open("./json/body_part_symptom_disease.json", 'r').read.to_s)
 
 elms.each do |elm|
   bp_name = elm["Body Part"].strip
   s_name = elm["Symptom"].strip
   d_name = elm["Disease"].strip
 
-  if name_exists(BodyPart, bp_name)
-  else
-    bp = BodyPart.create(name: bp_name)
-  end
+  build_object(BodyPart, bp_name)
+  build_object(Symptom, s_name)
+  build_object(Disease, d_name)
 
-  if name_exists(Symptom, s_name)
-  else
-    s = Symptom.create(name: s_name)
-  end
-  
-  if name_exists(Disease, d_name)
-  else
-    d = Disease.new(name: d_name)
-    if !d.valid?
-      # Do nothing.
-    else
-      puts "Creating new disease: #{d.name}"
-      d.save
-    end
-  end
-  
-  #bp = BodyPart.create(name: elm["Body Part"])
-  #s = Symptom.create(name: elm["Symptom"])
-  #d = Disease.create(name: elm["Disease"])
-  
+  build_relationship(bp_name, s_name, d_name)
 end
 
 #BodyPartSymptomDisease.create(body_part_id: bp.id, symptom_id: s.id, disease_id: d.id)
