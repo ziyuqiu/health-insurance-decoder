@@ -1,4 +1,4 @@
-# :hospital: :ambulance: Health Decoder 
+# :hospital: Health Decoder :ambulance:
 
 Service to help people utilize and understand their health insurance plans.
 
@@ -8,9 +8,10 @@ URL: https://health-insurance-decoder.herokuapp.com/
 
 Remote: https://git.heroku.com/health-insurance-decoder.git
 
-Resources: https://devcenter.heroku.com/categories/command-line
 
-## TODO Roadmap:
+## Project Roadmap:
+
+### Walking Skeleton
 
 - [x] [GIT] Setup a single git repo for your team.
 - [x] [DOCUMENTATION] Setup trello and begin using Kanban to keep track of tasks and commitments.
@@ -20,6 +21,7 @@ Resources: https://devcenter.heroku.com/categories/command-line
 - [x] [RUNSKEL] Get it running on your personal computers, checked into Git
 - [x] [HEROKUSKEL] Get it deployed in the cloud on Heroku
 
+### Showcase Version
 
 - [x] [STORYSDV] Prioritized story list for SDV. Add to trello. This is expected to be maintaiend as the project continues.
 - [ ] [PAPERSDV] Prepare a paper prototype of the key screens of your SDV, plus UX flows
