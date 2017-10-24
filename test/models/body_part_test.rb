@@ -32,7 +32,7 @@ class BodyPartTest < ActiveSupport::TestCase
     assert_equal @s.downcase, new_body_part.name
   end
 
-  test "validation should remove whitespace" do
+  test "validation should remove trailing whitespace from name" do
     new_body_part = BodyPart.create(name: @s_white)
     assert_equal @s.downcase, new_body_part.name
   end
