@@ -7,7 +7,7 @@
 		<% if logged_in? %>
 			<div class="alert alert-success">You are logged in as <strong><%= current_user.name%> </strong>.</div>
 
-			<%= render file: '/static_pages/log' %> <br />
+			<%= render file: 'logs/log' %> <br />
 			<br />
 			<br />
 			<center><button type="button" class="btn btn-success btn-block"><%= link_to "Log out", logout_path, method: :delete %></button></center> <br />
