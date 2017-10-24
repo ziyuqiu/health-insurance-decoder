@@ -16,7 +16,7 @@
       <div class = "col-md-8">
         <h4>
           <strong><%= @user.name %></strong>
-          <p><%= @user.contact_id %></p>
+          <p><%= @user.email %></p>
           <p><%= link_to 'Edit', edit_user_path(@user) %> |
           <%= link_to 'Delete', @user, method: :delete, data: { confirm: "You sure?" } %></p>
         </h4>
