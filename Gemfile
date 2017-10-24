@@ -62,8 +62,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-<<<<<<< HEAD
-=======
+
+
 
 gem 'bootstrap-sass'
 gem 'awesome_print'
@@ -75,5 +75,4 @@ gem 'jquery-rails'
 gem 'bcrypt'
 gem 'pg_search'
 
-
->>>>>>> 85ed0f6511852d29b15b26cdeedd17cce8ecc3a8
+gem 'binding_of_caller'
