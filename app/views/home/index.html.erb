@@ -7,11 +7,12 @@
 			</br></center>
 		</div>
 		<% if logged_in? %>
+			<div class="alert alert-success">You are logged in as <strong><%= current_user.name%> </strong>.</div>
+			<center><button type="button" class="btn btn-success btn-block"><%= link_to "Log out", logout_path, method: :delete %></button></center> <br />
+		<% else %>
 			<div class="alert alert-danger">Please <strong>sign in </strong>to view more.</div>
 			<center><button type="button" class="btn btn-primary btn-block"><%= link_to "Sign in", login_path %></button></center>
 				<center><p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p></center>
-		<% else %>
-			<div class="alert alert-success">You are logged in as <strong><%= current_user.name%> </strong>.</div>
 		<% end %>
 
 		<center><button type="button" class="btn btn-danger btn-block">Emergency Diagnosis</button></center>
