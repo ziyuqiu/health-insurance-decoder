@@ -3,6 +3,8 @@ require 'test_helper'
 class BodyPartTest < ActiveSupport::TestCase
   def setup
     @body_part = BodyPart.new(id: 1, name: "Head")
+    @s = "PAW"
+    @s_white = "   PAW     "
   end
 
   test "should be valid" do
@@ -23,5 +25,15 @@ class BodyPartTest < ActiveSupport::TestCase
     duplicate_part = @body_part.dup
     @body_part.save
     assert_not duplicate_part.valid?
+  end
+
+  test "name should be lowercase" do
+    new_body_part = BodyPart.create(name: @s)
+    assert_equal @s.downcase, new_body_part.name
+  end
+
+  test "validation should remove whitespace" do
+    new_body_part = BodyPart.create(name: @s_white)
+    assert_equal @s.downcase, new_body_part.name
   end
 end
