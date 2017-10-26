@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :symptoms
   
   root   'home#index'
+  
   get    '/signup',       to: 'users#new'
   post   '/signup',       to: 'users#create'
   
@@ -17,10 +18,11 @@ Rails.application.routes.draw do
   post   '/login',        to: 'sessions#create'
   delete '/logout',       to: 'sessions#destroy'
 
-  get    '/body-diagram', to: 'body_parts#diagram'
-  get    '/body-parts',   to: 'body_parts#index'
-  get    '/symptoms',     to: 'symptoms#index'
-  get    '/diseases',     to: 'diseases#index'
+  get    '/body-diagram/',      to: 'body_parts#diagram'
+  get    '/body-diagram/:type', to: 'body_parts#diagram'
+  get    '/body-parts',         to: 'body_parts#index'
+  get    '/symptoms',           to: 'symptoms#index'
+  get    '/diseases',           to: 'diseases#index'
 
   get    'logs/log'
 end
