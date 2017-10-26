@@ -76,6 +76,5 @@ elms.each do |elm|
   build_object(Disease, d_name)
 
   build_relationship(bp_name, s_name, d_name)
+  #BodyPartSymptomDisease.create(body_part_id: @bp.id, symptom_id: @s.id, disease_id: @d.id)
 end
-
-
