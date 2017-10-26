@@ -62,7 +62,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     follow_redirect!
     get root_url
     assert_select "div.alert-success", count: 1
-    assert_select "div.alert-success", "You are logged in as Harry Potter.", count: 1
+    assert_select "div.alert-success", "You are logged in as #{@user.name}.", count: 1
     assert_select "div.alert-danger", count: 0
 
     delete logout_path
