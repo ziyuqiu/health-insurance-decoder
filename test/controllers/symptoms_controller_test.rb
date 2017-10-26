@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SymptomsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @symptom = symptoms(:one)
+    @symptom = symptoms(:bloated)
   end
 
   test "should get index" do
@@ -17,7 +17,7 @@ class SymptomsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create symptom" do
     assert_difference('Symptom.count') do
-      post symptoms_url, params: { symptom: { frequency: @symptom.frequency, name: @symptom.name } }
+      post symptoms_url, params: { symptom: { frequency: 10, name: "Stomach cramps, ouch." } }
     end
 
     assert_redirected_to symptom_url(Symptom.last)
@@ -34,7 +34,7 @@ class SymptomsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update symptom" do
-    patch symptom_url(@symptom), params: { symptom: { frequency: @symptom.frequency, name: @symptom.name } }
+    patch symptom_url(@symptom), params: { symptom: { frequency: 100, name: "My head hurts." } }
     assert_redirected_to symptom_url(@symptom)
   end
 

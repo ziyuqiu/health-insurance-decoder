@@ -7,9 +7,15 @@ class BodyPartsController < ApplicationController
     @body_parts = BodyPart.all
   end
 
+  def diagram
+    @body_parts = BodyPart.all
+  end
+
   # GET /body_parts/1
   # GET /body_parts/1.json
   def show
+    @body_part = set_body_part
+    @symptoms = @body_part.symptoms
   end
 
   # GET /body_parts/new

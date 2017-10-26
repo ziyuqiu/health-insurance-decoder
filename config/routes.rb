@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'logs/log'
+
 
   resources :facilities
   resources :plans
@@ -10,14 +10,19 @@ Rails.application.routes.draw do
   resources :diseases
   resources :body_parts
   resources :symptoms
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  root   'home#index'
+  get    '/signup',       to: 'users#new'
+  post   '/signup',       to: 'users#create'
+  
+  get    '/login',        to: 'sessions#new'
+  post   '/login',        to: 'sessions#create'
+  delete '/logout',       to: 'sessions#destroy'
 
-  root 'home#index'
-  get  '/signup', to: 'users#new'
-  post '/signup',  to: 'users#create'
+  get    '/body-diagram', to: 'body_parts#diagram'
+  get    '/body-parts',   to: 'body_parts#index'
+  get    '/symptoms',     to: 'symptoms#index'
+  get    '/diseases',     to: 'diseases#index'
 
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
-
+  get    'logs/log'
 end

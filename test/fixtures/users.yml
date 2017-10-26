@@ -1,9 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
+potter:
   contact_id: 1
-  name: MyString
+  name: "Harry Potter"
+  email: "hpotter@hogwarts.magic"
+  password_digest: <%= User.digest('password') %>
 
-two:
-  contact_id: 1
-  name: MyString
+cage:
+  contact_id: 2
+  name: "Nicholas Cage"
+  email: "ncage@not-the-bees.com"
+  password_digest: <%= User.digest('password') %>  
