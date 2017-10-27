@@ -6,18 +6,33 @@
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @plan.category %>
+  <strong>Coinsurance:</strong>
+  <%= @plan.coinsurance %>
 </p>
 
 <p>
-  <strong>Company:</strong>
-  <%= @plan.company_id %>
+  <strong>Outpatient Copay:</strong>
+  <%= @plan.outpatient_copay %>
 </p>
 
+<p>
+  <strong>Inpatient Copay:</strong>
+  <%= @plan.inpatient_copay %>
+</p>
 
+<%= form_tag(controller: "plans", action: "calculate") do%>
+    <%= hidden_field_tag(:id, @plan.id)%>
+    <%= label_tag(:deductibletag, "Remaining Deductible")%>
+    <%= number_field_tag(:deductible)%>
+    <%= label_tag(:pricetag, "Price of Service")%>
+    <%= number_field_tag(:price)%>
+    <%= radio_button_tag(:inpatient, true)%>
+    <%= label_tag(:yesinpatient, "This is an inpatient service")%>
+    <%= radio_button_tag(:inpatient, false)%>
+    <%= label_tag(:noinpatient, "This is an outpatient service")%>
+    <%= submit_tag("Calculate")%>
+<%end%>
 
-<div>Out of Pocket Cost:<%=params[:patient_pay]%></div>
 
 
 <%= link_to 'Edit', edit_plan_path(@plan) %> |

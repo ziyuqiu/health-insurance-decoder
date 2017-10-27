@@ -25,4 +25,7 @@ Rails.application.routes.draw do
   get    '/diseases',           to: 'diseases#index'
 
   get    'logs/log'
+  
+  get    '/calculate', to: 'plans#calculate'
+  post   '/calculate', to: 'plans#calculate'
 end

@@ -19,4 +19,8 @@ class PlanTest < ActiveSupport::TestCase
     test "plan must have a name" do
         @plan.name.wont_be_nil
     end
+
+    test "calculate works" do
+        @plan.calculate(0, 100, true).must_equal(10)
+    end
 end
