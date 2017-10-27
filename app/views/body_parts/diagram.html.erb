@@ -22,7 +22,7 @@
 	<tbody>
 	  <% @body_parts.each do |body_part| %>
 	  <tr>
-            <td><%= link_to body_part.name, body_part %></td>
+            <td><%= link_to body_part.name.capitalize, body_part %></td>
 	  </tr>
 	  <% end %>
 	</tbody>

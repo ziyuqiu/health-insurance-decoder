@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @body_part.name %></h1>
+<h1><%= @body_part.name.capitalize %></h1>
 
 <p>What are your symptoms?</p>
 
 <ul>
   <% @symptoms.each do |symptom| %>
-    <li><% symptom.name %></li>
+    <li><%= symptom.name.capitalize %></li>
   <% end %>
 </ul>
 
-<%= link_to 'Go back', body_parts_path %>
+<%= link_to 'Go back', body_diagram_path %>

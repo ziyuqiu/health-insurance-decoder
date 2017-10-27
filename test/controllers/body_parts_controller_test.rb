@@ -46,4 +46,9 @@ class BodyPartsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to body_parts_url
   end
+
+  test "body diagram image switch" do
+    get body_diagram_url
+    assert_select "div#body-image", count: 1
+  end
 end
