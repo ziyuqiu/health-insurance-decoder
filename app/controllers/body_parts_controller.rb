@@ -31,6 +31,7 @@ class BodyPartsController < ApplicationController
   def show
     @body_part = set_body_part
     @symptoms = @body_part.symptoms
+    @diseases = @body_part.diseases
   end
 
   # GET /body_parts/new

@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @disease.name %>
-</p>
+<h1><%= @disease.name.capitalize %></h1>
 
-<%= link_to 'Edit', edit_disease_path(@disease) %> |
-<%= link_to 'Back', diseases_path %>
+<p>Here are some resources for this ailment:</p>
+
+<ul>
+  <li>*** To do after creation of treatment model ***</li>
+</ul>
+
+<p><%= link_to 'Back to body diagram', body_diagram_path %></p>
+
+<% if Rails.env.development? %>
+  <p><%= link_to 'View all ailments/diseases', diseases_path %></p>
+<% end %>

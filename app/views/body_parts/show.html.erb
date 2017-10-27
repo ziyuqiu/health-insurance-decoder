@@ -6,8 +6,12 @@
 
 <ul>
   <% @symptoms.each do |symptom| %>
-    <li><%= symptom.name.capitalize %></li>
+    <li><%= link_to symptom.name.capitalize, symptom %></li>
   <% end %>
 </ul>
 
-<%= link_to 'Go back', body_diagram_path %>
+<p><%= link_to 'Back to body diagram', body_diagram_path %></p>
+
+<% if Rails.env.development? %>
+  <p><%= link_to 'View all body parts', body_parts_path %></p>
+<% end %>

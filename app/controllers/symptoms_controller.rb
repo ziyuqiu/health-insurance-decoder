@@ -10,6 +10,9 @@ class SymptomsController < ApplicationController
   # GET /symptoms/1
   # GET /symptoms/1.json
   def show
+    @symptom = set_symptom
+    @diseases = @symptom.diseases
+    @body_parts = @symptom.body_parts
   end
 
   # GET /symptoms/new
