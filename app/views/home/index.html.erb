@@ -15,14 +15,16 @@
       
         <div id="welcome-buttons">
           <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-success btn-block" %>
-          <br />
+
       <% else %>
-        <div class="alert alert-danger">Please <strong>sign in </strong>to view more.</div>
+        <div class="alert alert-danger">
+	  Please <strong>sign in </strong>to view more.
+	</div>
 	<div id="welcome-buttons">
 	  <%= link_to "Sign in", login_path, class: "btn btn-primary btn-block" %>
 	  <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
       <% end %>
-      <%= link_to "Quick Diagnosis", body_diagram_path, class: "btn btn-danger btn-block" %>
+      <%= link_to "Quick Diagnosis", emergency_path, class: "btn btn-danger btn-block" %>
     </div>
   </div>
 </div>

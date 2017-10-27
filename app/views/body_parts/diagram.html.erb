@@ -1,32 +1,19 @@
-<div class="row">
-  <div class="col-lg-6">
-    <h1>Body Diagram</h1>
+<h1>Body Diagram</h1>
 
-    <p>Click on a body part to see a list of symptoms.</p>
+<p>Click on a body part to see a list of symptoms.</p>
 
-    <div id="body-image">
-      <%= image_tag(@image_tag, alt: "Click on a body part to see a list of symptoms") %>
-    </div>
-
-    <div id="body-image-switches">
-      <!-- Unicode characters for Male, Intersex, Female: &#9794;  &#9893;  &#9792;-->
-      <%= link_to "Male", '/body-diagram/m', class: @btn_m_classes %>
-      <%= link_to "Intersex", '/body-diagram/i', class: @btn_i_classes %>
-      <%= link_to "Female", '/body-diagram/f', class: @btn_f_classes  %>
-    </div>
+<div id="body-image">
+  <%= image_tag(@image_tag, alt: "Click on a body part to see a list of symptoms") %>
+  <div id="body-image-switches">
+    <!-- Unicode characters for Male, Intersex, Female: &#9794;  &#9893;  &#9792;-->
+    <%= link_to "Male", '/body-diagram/m', class: @btn_m_classes %>
+    <%= link_to "Intersex", '/body-diagram/i', class: @btn_i_classes %>
+    <%= link_to "Female", '/body-diagram/f', class: @btn_f_classes  %>
   </div>
+</div>
 
-  <div class="col-lg-6">
-    <div class="body-labels">
-      <table>
-	<tbody>
-	  <% @body_parts.each do |body_part| %>
-	  <tr>
-            <td><%= link_to body_part.name.capitalize, body_part %></td>
-	  </tr>
-	  <% end %>
-	</tbody>
-      </table>
-    </div>
-  </div>
+<div class="body-labels">
+  <% @body_parts.each do |body_part| %>
+    <p><%= link_to body_part.name.capitalize, body_part %></p>
+  <% end %>
 </div>
