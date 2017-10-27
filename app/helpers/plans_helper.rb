@@ -1,7 +1,7 @@
 module PlansHelper
     def calculate
         #calculating the patients out of pocket expenses for a medical service
-        plan=Plans.find_by(id:params[:id])
+        plan=Plan.find_by(id:params[:id])
         patient_pay=0.0
         price=params[:price]
         if params[:inpatient]==true
@@ -33,5 +33,6 @@ module PlansHelper
                 end
             end
         end
+        return patient_pay
     end
 end

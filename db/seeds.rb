@@ -31,32 +31,36 @@ end
 
 
 # Builds a relationship tuple for a body part, symptom, and disease.
-def build_relationship bp_n, s_n, d_n
-  bps = BodyPart.where(name: bp_n)
-  ss = Symptom.where(name: s_n)
-  ds = Disease.where(name: d_n)
+def build_relationship body_part_name, symptom_name, disease_name
+  #puts "Calling build relationship for: #{body_part_name}, #{symptom_name}, #{disease_name}"
+  body_part_set = BodyPart.where(name: body_part_name)
+  symptom_set = Symptom.where(name: symptom_name)
+  disease_set = Disease.where(name: disease_name)
 
   # If more than one object is found, or no objects found, then return, something went wrong.
-  if bps.size != 1
+  if body_part_set.size != 1
+    #puts "Body part not found. #{body_part_set.inspect}"
     return
-  elsif ss.size != 1
+  elsif symptom_set.size != 1
+    #puts "Symptom not found."
     return
-  elsif ds.size != 1
+  elsif disease_set.size != 1
+    #puts "Disease not found."
     return
   end
 
   # Grab the first and only element in the sets.
-  bp = bps.first
-  s = ss.first
-  d = ds.first
+  body_part = body_part_set.first
+  symptom = symptom_set.first
+  disease = disease_set.first
 
-  bpsd = BodyPartSymptomDisease.new(body_part_id: bp.id, symptom_id: s.id, disease_id: d.id)
-  if !bpsd.valid?
-    puts "#{bp_n}, #{s_n}, #{d_n} - not a valid tuple."
+  tuple = BodyPartSymptomDisease.new(body_part_id: body_part.id, symptom_id: symptom.id, disease_id: disease.id)
+  if !tuple.valid?
+    #puts "#{body_part_name}, #{symptom_name}, #{disease_name} - not a valid tuple."
     return
   end
-  puts "#{bp_n}, #{s_n}, #{d_n} - a valid tuple."
-  bpsd.save
+  #puts "#{body_part_name}, #{symptom_name}, #{disease_name} - a valid tuple."
+  tuple.save
 end
 
 
@@ -75,6 +79,6 @@ elms.each do |elm|
   build_object(Symptom, s_name)
   build_object(Disease, d_name)
 
-  build_relationship(bp_name, s_name, d_name)
-  #BodyPartSymptomDisease.create(body_part_id: @bp.id, symptom_id: @s.id, disease_id: @d.id)
+
+  build_relationship(bp_name.downcase, s_name.downcase, d_name.downcase)
 end

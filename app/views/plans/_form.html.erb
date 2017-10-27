@@ -17,13 +17,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category, id: :plan_category %>
+    <%= form.label :coinsurance %>
+    <%= form.text_field :coinsurance, id: :plan_coinsurance %>
   </div>
 
   <div class="field">
-    <%= form.label :company_id %>
-    <%= form.number_field :company_id, id: :plan_company_id %>
+    <%= form.label :outpatient_copay %>
+    <%= form.number_field :outpatient_copay, id: :plan_outpatient_copay %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inpatient_copay %>
+    <%= form.number_field :inpatient_copay, id: :plan_inpatient_copay %>
   </div>
 
   <div class="actions">
