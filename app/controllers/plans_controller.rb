@@ -60,6 +60,12 @@ class PlansController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def calculate
+      @plan=set_plan
+      patient_pay=@plan.calculate(params[:price].to_f,params[:deductible].to_f,params[:inpatient])
+      redirect_to @plan, amount:patient_pay
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
