@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020193115) do
+ActiveRecord::Schema.define(version: 20171027190012) do
 
   create_table "body_part_symptom_diseases", force: :cascade do |t|
     t.integer "body_part_id"
     t.integer "symptom_id"
     t.integer "disease_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "body_part_symptoms", force: :cascade do |t|
+    t.integer "body_part_id"
+    t.integer "symptom_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

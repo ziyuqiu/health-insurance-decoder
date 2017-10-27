@@ -54,13 +54,19 @@ def build_relationship body_part_name, symptom_name, disease_name
   symptom = symptom_set.first
   disease = disease_set.first
 
-  tuple = BodyPartSymptomDisease.new(body_part_id: body_part.id, symptom_id: symptom.id, disease_id: disease.id)
+  tuple = BodyPartSymptom.new(body_part_id: body_part.id, symptom_id: symptom.id)
   if !tuple.valid?
+    return
+  end
+  tuple.save
+
+  tuple2 = BodyPartSymptomDisease.new(body_part_id: body_part.id, symptom_id: symptom.id, disease_id: disease.id)
+  if !tuple2.valid?
     #puts "#{body_part_name}, #{symptom_name}, #{disease_name} - not a valid tuple."
     return
   end
   #puts "#{body_part_name}, #{symptom_name}, #{disease_name} - a valid tuple."
-  tuple.save
+  tuple2.save  
 end
 
 
