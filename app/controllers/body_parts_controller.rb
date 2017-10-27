@@ -9,6 +9,21 @@ class BodyPartsController < ApplicationController
 
   def diagram
     @body_parts = BodyPart.all
+    type = params[:type]
+    btn_classes = "btn btn-md btn-primary"
+    @btn_m_classes = btn_classes
+    @btn_i_classes = btn_classes
+    @btn_f_classes = btn_classes
+    if type == 'm'
+      @image_tag = 'male.png'
+      @btn_m_classes += " disabled"
+    elsif type == 'f'
+      @image_tag = 'female.png'
+      @btn_f_classes += " disabled"
+    elsif type == 'i' or type == nil
+      @image_tag = 'intersex.png'
+      @btn_i_classes += " disabled"
+    end
   end
 
   # GET /body_parts/1
@@ -16,6 +31,7 @@ class BodyPartsController < ApplicationController
   def show
     @body_part = set_body_part
     @symptoms = @body_part.symptoms
+    @diseases = @body_part.diseases
   end
 
   # GET /body_parts/new
@@ -75,6 +91,6 @@ class BodyPartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def body_part_params
-      params.require(:body_part).permit(:name)
+      params.require(:body_part).permit(:name, :type)
     end
 end

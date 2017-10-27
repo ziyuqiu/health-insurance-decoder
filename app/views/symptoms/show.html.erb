@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @symptom.name %>
-</p>
+<h1><%= @symptom.name.capitalize %></h1>
 
 <p>
   <strong>Frequency:</strong>
   <%= @symptom.frequency %>
 </p>
 
-<%= link_to 'Edit', edit_symptom_path(@symptom) %> |
-<%= link_to 'Back', symptoms_path %>
+<p>What sounds like your ailment?</p>
+
+<ul>
+  <% @diseases.each do |disease| %>
+    <li><%= link_to disease.name.capitalize, disease %></li>
+  <% end %>
+</ul>
+
+<p><%= link_to 'Back to body diagram', body_diagram_path %></p>
+
+<% if Rails.env.development? %>
+  <p><%= link_to 'View all symptoms', symptoms_path %></p>
+<% end %>
