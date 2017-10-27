@@ -33,5 +33,6 @@ module PlansHelper
                 end
             end
         end
+        return patient_pay
     end
 end

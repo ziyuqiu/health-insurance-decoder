@@ -15,5 +15,10 @@
   <%= @plan.company_id %>
 </p>
 
+
+
+<div>Out of Pocket Cost:<%=params[:patient_pay]%></div>
+
+
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
 <%= link_to 'Back', plans_path %>
