@@ -79,7 +79,6 @@ elms.each do |elm|
   build_object(Symptom, s_name)
   build_object(Disease, d_name)
 
+
   build_relationship(bp_name.downcase, s_name.downcase, d_name.downcase)
 end
-
-
