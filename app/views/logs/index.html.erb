@@ -34,9 +34,4 @@
 <% end %>
 
 </br>
-<script>
-  $("#slider1").change(function () {           
-     var newValue = $('#slider1').val();
-     $("#score").html(newValue);
-  });
-</script>
+<%= javascript_include_tag 'slider'%>
