@@ -18,7 +18,12 @@
               <span class="glyphicon glyphicon-search"></span>
             </button>
           </span>
-        </div> </br>
+        </div>
+        <div calss="calendar">
+          <%= month_calendar do |date| %>
+            <%= date.day %>
+          <% end %>
+        </div>
       </div>
       <div class="col-sm-9">
         <table class = "table table-striped">
