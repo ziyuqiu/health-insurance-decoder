@@ -1,11 +1,8 @@
-<!-- <h1>Log</h1> -->
-<!-- <title>Log Page</title> -->
-<!-- <div class="container"> -->
-<!--     <body> -->
-<!--     <div class="container-fluid">
- -->  
+<p id="notice"><%= notice %></p>
+
+<h1>Logs</h1>
 <% if logged_in? %>
-   <div class="row content">
+   <div class="row">
       <div class="col-sm-3 sidenav">
         <h4>Your Log</h4>
         <ul class="nav nav-pills nav-stacked">
@@ -23,6 +20,30 @@
           </span>
         </div> </br>
       </div>
+      <div class="col-sm-9">
+        <table class = "table table-striped">
+          <thead>
+            <tr>
+              <th>Symptom</th>
+              <th>Severity</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @logs.each do |log| %>
+              <tr>
+                <td><%= Symptom.find(log.symptom_id).name %></td>
+                <td><%= log.severity %></td>
+                <td><%= link_to 'Edit', edit_log_path(log) %></td>
+                <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to 'New Log', new_log_path %>
+        
+      </div>
   <!--   </body> -->
   </div>
 <% else %>
@@ -31,3 +52,5 @@
   <center><p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p></center>
 <% end %>
 
+
+<br>
