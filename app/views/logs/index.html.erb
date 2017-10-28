@@ -24,21 +24,7 @@
       </div>
       <div class="col-sm-9">
         <%= render "table" %>
-        <div class="container" style="background-color:aliceblue">
-          <h3 style="color:lightblue"> New Log </h3>
-          <%= form_for(@log) do |f| %>
-            <%= f.label :symptom_id %>
-            <select class="selectpicker" title="Please select your symptom..." id="sym-filter" name="symptom_id" data-live-search="true">
-                <% @symptoms.each do |sym| %>
-                    <option value= <%= sym.id %>> <%= sym.name %></option>
-                <% end %>
-            </select></br>
-            <%= f.label :severity %>
-            <span id="score" style="color:red; font-size: 16pt">5</span>
-            <%= f.range_field :severity, :min=>0, :max=>10, :class=>"slide", :id=>"slider1", style: "width :30%"%>  
-              <%= submit_tag "Record Log", class: "btn btn-large btn-primary" %>
-          <% end %>
-        </div>
+        <%= render "new" %>
       </div>
   </div>
 <% else %>
