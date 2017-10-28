@@ -1,9 +1,8 @@
-<h1>New Log</h1>
 
+<h1>New Log</h1>
 <%= form_for(@log) do |f| %>
 	<%= f.label :symptom_id %>
-	<select id="sym-filter" name="symptom_id">
-	    <option value="all">----Please Select Symptom----</option>
+	<select class="selectpicker" title="Please select your symptom..." id="sym-filter" name="symptom_id" data-live-search="true">
 	    <% @symptoms.each do |sym| %>
 	      	<option value= <%= sym.id %>> <%= sym.name %></option>
 	    <% end %>
@@ -16,10 +15,10 @@
 <% end %>
 
 <script>
-$("#slider1").change(function () {           
-   var newValue = $('#slider1').val();
-   $("#score").html(newValue);
-});
+	$("#slider1").change(function () {           
+	   var newValue = $('#slider1').val();
+	   $("#score").html(newValue);
+	});
 </script>
 
 <!--<%= render 'form', log: @log %>-->
