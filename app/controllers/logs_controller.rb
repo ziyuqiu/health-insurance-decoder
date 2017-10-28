@@ -7,6 +7,7 @@ class LogsController < ApplicationController
     @logs = Log.all
     @log = Log.new
     @symptoms = Symptom.all
+
   end
 
   # GET /logs/1

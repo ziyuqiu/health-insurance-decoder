@@ -1,22 +1,24 @@
 <h1>New Log</h1>
 
 <%= form_for(@log) do |f| %>
+	<%= f.label :symptom_id %>
 	<select id="sym-filter" name="symptom_id">
 	    <option value="all">----Please Select Symptom----</option>
 	    <% @symptoms.each do |sym| %>
 	      	<option value= <%= sym.id %>> <%= sym.name %></option>
 	    <% end %>
 	</select></br>
-
-	<%= f.range_field :severity, :min=>0, :max=>10, :class=>"slide", :id=>"slider1"%>
-	<text id="W1">5</text></br>
+	<%= f.label :severity %>
+	<span id="score" style="color:red; font-size: 16pt">5</span>
+	<%= f.range_field :severity, :min=>0, :max=>10, :class=>"slide", :id=>"slider1", style: "width :50%"%>
+	
     <%= submit_tag "Record Log", class: "btn btn-large btn-primary" %>
 <% end %>
 
 <script>
-$("#slider1").change(function () {                    
+$("#slider1").change(function () {           
    var newValue = $('#slider1').val();
-   $("#W1").html(newValue);
+   $("#score").html(newValue);
 });
 </script>
 
