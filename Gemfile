@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-admin'
 gem 'simple_calendar'
 gem 'bootstrap-select-rails'
+gem 'webpush'
+gem 'pushpad'
