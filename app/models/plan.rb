@@ -1,6 +1,6 @@
 class Plan < ApplicationRecord
 #    validates :coinsurance, presence:true
-#    belongs_to :user
+    belongs_to :user
 
     def calculate (price, deductible, inpatient)
         #calculating the patients out of pocket expenses for a medical service

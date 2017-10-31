@@ -20,12 +20,13 @@ Rails.application.routes.draw do
   delete '/logout',       to: 'sessions#destroy'
 
   get    '/emergency',          to: 'static_pages#emergency'
+  get    '/resources',          to: 'static_pages#resources'
   get    '/body-diagram/',      to: 'body_parts#diagram'
   get    '/body-diagram/:type', to: 'body_parts#diagram'
   get    '/body-parts',         to: 'body_parts#index'
   get    '/symptoms',           to: 'symptoms#index'
   get    '/diseases',           to: 'diseases#index'
   
-  get    '/calculate', to: 'plans#calculate'
+  get    '/calculate', to: 'plans#showcalc'
   post   '/calculate', to: 'plans#calculate'
 end
