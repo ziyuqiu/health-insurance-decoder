@@ -11,11 +11,13 @@
   <tbody>
     <% @logs.each do |log| %>
       <tr>
-        <td><%= Symptom.find(log.symptom_id).name %></td>
+        <td><%= link_to Symptom.find(log.symptom_id).name, edit_log_path(log) %></td>
         <td><%= log.severity %></td>
         <td><%= log.created_at %></td>
-        <td><%= link_to 'Edit', edit_log_path(log) %></td>
-        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to image_tag('cross.png', size: 10), log, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>
