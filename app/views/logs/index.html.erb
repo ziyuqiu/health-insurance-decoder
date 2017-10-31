@@ -1,43 +1,43 @@
 <% if logged_in? %>
-   <div class="row">
-      <div class="col-sm-4 sidenav">
-        <!-- <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search Log by Symptom">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>
-        </div> -->
-        <div>
-            <%= form_tag(log_path, method: "get") do %>
-              <div>
-                <%= text_field_tag(:symptom_name, "") %>
-              </div>
+  <div class="row">
+  
+    <!-- Logs sidebar with search -->
+    <div class="col-sm-4 sidenav">
+
+      <!-- Logs search form -->
+      <div>
+	<%= form_tag logs_path, method: "get" do %>
+          <div>
+	    <%= text_field_tag :symptom_name %>
+          </div>
             <%= submit_tag("Search") %>
-            <% end %>
-        </div>
-
-
-        <div calss="calendar">
-          <%= render "table" %>
-
-        </div>
+        <% end %>
       </div>
-      <div class="col-sm-8">
-        <%= month_calendar do |date| %>
-            <%= date.day %>
-          <% end %>
-        <%= render "new" %>
+
+      <!-- Logs display table -->
+      <div calss="calendar">
+        <%= render "table" %>
       </div>
-  </div>
+      
+    </div><!-- /logs sidebar -->
+
+    <!-- Calendar table -->
+    <div class="col-sm-8">
+      <%= month_calendar do |date| %>
+        <%= date.day %>
+      <% end %>
+      <%= render "new" %>
+    </div><!-- /calendar -->
+    
+  </div> <!-- /row -->
 <% else %>
-  <div class="alert alert-danger">Please <strong>sign in </strong>to view more.</div>
+  <div class="alert alert-danger">Please <strong>sign in</strong> to view more.</div>
   <%= link_to "Sign in", login_path, class: "btn btn-primary btn-block" %>
-  <center><p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p></center>
+  <center>
+    <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
+  </center>
 <% end %>
 
-</br>
 <%= javascript_include_tag 'slider'%>
 
 <script>

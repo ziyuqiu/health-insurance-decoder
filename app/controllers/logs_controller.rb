@@ -7,8 +7,12 @@ class LogsController < ApplicationController
     @logs = Log.all
     @log = Log.new
     @symptoms = Symptom.all
-    @result = @logs.where(symptom_name: params[:symptom_name])
-
+    
+    if params[:symptom_name] == ""
+      @search_results = Log.all
+    else
+      @search_results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
+    end
   end
 
   # GET /logs/1
@@ -79,6 +83,6 @@ class LogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_params
-      params.require(:log).permit(:symptom_id, :severity, :symptom_name)
+      params.require(:log).permit(:symptom_id, :severity)
     end
 end
