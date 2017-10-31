@@ -11,6 +11,7 @@ class LogsController < ApplicationController
       @results = @logs
     else
       @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
+
     end
   end
 
