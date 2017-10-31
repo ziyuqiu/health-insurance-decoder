@@ -7,6 +7,7 @@ class LogsController < ApplicationController
     @logs = Log.all
     @log = Log.new
     @symptoms = Symptom.all
+    @result = @logs.where(symptom_name: params[:symptom_name])
 
   end
 
@@ -66,6 +67,10 @@ class LogsController < ApplicationController
     end
   end
 
+  # def search
+  #   @results = Log.where(symptom_name = params[:symptom_name])
+  # end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_log
@@ -74,6 +79,6 @@ class LogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_params
-      params.require(:log).permit(:symptom_id, :severity)
+      params.require(:log).permit(:symptom_id, :severity, :symptom_name)
     end
 end
