@@ -27,6 +27,6 @@ Rails.application.routes.draw do
 
   get    'logs/log'
   
-  get    '/calculate', to: 'plans#calculate'
+  get    '/calculate', to: 'plans#showcalc'
   post   '/calculate', to: 'plans#calculate'
 end
