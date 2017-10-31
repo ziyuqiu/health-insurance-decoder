@@ -1,0 +1,22 @@
+<div class="container" style="background-color:aliceblue">
+
+	<h3 style="color:lightblue"> New Log </h3>
+	<%= form_for(@log) do |f| %>
+		<%= f.label :symptom_id %>
+		<select class="selectpicker" title="Please select your symptom..." id="sym-filter" name="symptom_id" data-live-search="true">
+		    <% @symptoms.each do |sym| %>
+		      	<option value= <%= sym.id %>> <%= sym.name %></option>
+		    <% end %>
+		</select>
+	    </br>
+	    <div id='slide-container' display='inline-block'>
+			<%= f.label :severity %>
+			<span id="score" style="color:red; font-size: 16pt">5</span>
+			<%= f.range_field :severity, :min=>0, :max=>10, :class=>"slide", :id=>"slider1", style: "width :20%"%>
+		</div>
+	    <%= submit_tag "Record Log", class: "btn btn-large btn-primary" %>
+	<% end %>
+</div>
+
+<!--<%= render 'form', log: @log %>-->
+
