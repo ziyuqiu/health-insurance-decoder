@@ -29,9 +29,13 @@
   </div>
 <% else %>
   <div class="alert alert-danger">Please <strong>sign in </strong>to view more.</div>
-  <center><button type="button" class="btn btn-primary btn-block"><%= link_to "Sign in", login_path %></button></center>
+  <%= link_to "Sign in", login_path, class: "btn btn-primary btn-block" %>
   <center><p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p></center>
 <% end %>
 
 </br>
 <%= javascript_include_tag 'slider'%>
+
+<!-- <script>
+  $('.selectpicker').selectpicker('refresh');
+</script> -->
