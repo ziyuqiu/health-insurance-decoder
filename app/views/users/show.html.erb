@@ -19,10 +19,11 @@
           <p><%= @user.email %></p>
           <p><strong>Plans:</strong></p>
           <p><%@user.plans.all.each do |plan|%>
-             Name:
+             <p>Name:
              <%= plan.name %>
-             <%=link_to 'Show', plan_path(plan)%>
+             <%=link_to 'Show', plan_path(plan)%></p>
           <%end%></p>
+          <p><%= link_to 'Create New Plan', new_plan_path%>
           <p><%= link_to 'Edit', edit_user_path(@user) %> |
           <%= link_to 'Delete', @user, method: :delete, data: { confirm: "You sure?" } %></p>
         </h4>
