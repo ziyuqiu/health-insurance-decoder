@@ -4,6 +4,11 @@ class Plan < ApplicationRecord
 
     def calculate (price, deductible, inpatient)
         #calculating the patients out of pocket expenses for a medical service
+        if inpatient=="true"
+            inpatient=true
+        else
+            inpatient=false
+        end
         patient_pay=0.0
         if inpatient==true
             if price<=inpatient_copay
