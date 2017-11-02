@@ -7,7 +7,12 @@ class LogsController < ApplicationController
     @logs = Log.all
     @log = Log.new
     @symptoms = Symptom.all
+    if params[:symptom_name] == ""
+      @results = @logs
+    else
+      @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
 
+    end
   end
 
   # GET /logs/1
@@ -65,6 +70,7 @@ class LogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

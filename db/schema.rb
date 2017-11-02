@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027204128) do
+ActiveRecord::Schema.define(version: 20171031202136) do
 
   create_table "body_part_symptom_diseases", force: :cascade do |t|
     t.integer "body_part_id"
@@ -81,6 +81,13 @@ ActiveRecord::Schema.define(version: 20171027204128) do
     t.float "outpatient_copay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "plans_users", id: false, force: :cascade do |t|
+    t.integer "plan_id"
+    t.integer "user_id"
+    t.index ["plan_id"], name: "index_plans_users_on_plan_id"
+    t.index ["user_id"], name: "index_plans_users_on_user_id"
   end
 
   create_table "symptoms", force: :cascade do |t|
