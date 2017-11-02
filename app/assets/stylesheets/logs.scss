@@ -8,7 +8,7 @@ $log-header: lightblue;
     height: auto;
     display: flex;
     flex-direction: column;
-    
+
     .new_log {
 	display: inline;
     }
@@ -48,13 +48,13 @@ $log-header: lightblue;
 	}
 
 	#severity-range {
-	    width: 100%;	
+	    width: 100%;
 	    display: inline-block;
 	    padding-top: 5px;
 	}
 
 	/* Log symptom form submit button */
-	
+
 	.btn {
 	    display: block;
 	    margin: 0 auto;
@@ -63,5 +63,5 @@ $log-header: lightblue;
 	#btn-invisible-label {
 	    color: aliceblue;
 	}
-    }    
+    }
 }
