@@ -3,7 +3,7 @@
 	<h3 style="color:lightblue"> New Log </h3>
 	<%= form_for(@log) do |f| %>
 		<%= f.label :symptom_id %>
-		<select class="selectpicker" title="Please select your symptom..." id="sym-filter" name="symptom_id" data-live-search="true">
+		<select class="selectpicker" title="Please select your symptom..." id="sym-filter" name="symptom_id" data-live-search="true" data-no-turbolink = "true">
 		    <% @symptoms.each do |sym| %>
 		      	<option value= <%= sym.id %>> <%= sym.name %></option>
 		    <% end %>
