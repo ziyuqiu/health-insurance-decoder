@@ -9,9 +9,8 @@
   </thead>
 
   <tbody>
-
+    
     <% @results.each do |log| %>
-
       <tr>
         <td><%= link_to Symptom.find(log.symptom_id).name, edit_log_path(log) %></td>
         <td><%= log.severity %></td>
