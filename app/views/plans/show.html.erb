@@ -20,7 +20,7 @@
   <%= @plan.inpatient_copay %>
 </p>
 
-<%= form_tag(controller: "plans", action: "calculate") do%>
+<%= form_tag(controller: "plans", action: "calculate", id: "cal-form") do%>
     <%= hidden_field_tag(:id, @plan.id)%>
     <%= label_tag(:deductibletag, "Remaining Deductible")%>
     <%= number_field_tag(:deductible)%>
@@ -33,7 +33,15 @@
     <%= submit_tag("Calculate")%>
 <%end%>
 
+<strong>Out Of Pocket Pay:<p id="out-pocket-pay">Need to be calculated.</p></strong>
 
+<script>
+  $("#cal-form").on('submit', function(e) {
+     e.preventDefault();
+     var newValue = ;
+     $("#out-pocket-pay").html(newValue);
+  });
+</script>
 
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
-<%= link_to 'Back', user_path(@plan.users.find(1)) %>
+<%= link_to 'Back', plan_path %>
