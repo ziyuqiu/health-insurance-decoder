@@ -17,7 +17,7 @@
         </div>
 
       <!-- Logs display table -->
-      <div calss="calendar">
+      <div calss="log_table">
         <%= render "table" %>
       </div>
 
@@ -25,9 +25,7 @@
 
     <!-- Calendar table -->
     <div class="col-sm-8">
-      <%= month_calendar do |date| %>
-        <%= date.day %>
-      <% end %>
+      <%= render "calendar" %>
       <%= render "new" %>
     </div><!-- /calendar -->
 
