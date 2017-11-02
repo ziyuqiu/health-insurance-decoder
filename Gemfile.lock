@@ -125,12 +125,9 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.12)
-    mail (2.6.6)
-      mime-types (>= 1.16, < 4)
+    mail (2.7.0)
+      mini_mime (>= 0.1.1)
     method_source (0.9.0)
-    mime-types (3.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0521)
     mini_mime (0.1.4)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
@@ -304,8 +301,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-<<<<<<< HEAD
-   1.16.0.pre.3
-=======
    1.16.0.pre.2
->>>>>>> a0836f7429d9df268142417a424e88fdab2f82b0

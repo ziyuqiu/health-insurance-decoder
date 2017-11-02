@@ -7,11 +7,9 @@ class LogsController < ApplicationController
     @logs = Log.all
     @log = Log.new
     @symptoms = Symptom.all
-    if params[:symptom_name] == ""
-      @results = @logs
-    else
+    @results = @logs
+    if !params[:symptom_name].nil?
       @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
-
     end
   end
 
