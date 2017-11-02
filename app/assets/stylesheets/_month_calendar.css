@@ -1,4 +1,4 @@
-.calendar td { height: 10px; width: 14.28%; }
+
 .simple-calendar {
 .day {}
 
@@ -22,3 +22,8 @@
 
 .has-events {}
 }
+.calendar-title {
+  font-size: 150%;
+  text-align: center;
+  border: 3px solid grey;
+ }
