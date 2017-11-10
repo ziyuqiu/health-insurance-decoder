@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171111202136) do
+=======
+ActiveRecord::Schema.define(version: 20171107192319) do
+>>>>>>> 79e0d5637ec8c846cd124afc40a1fd9435839117
 
   create_table "body_part_symptom_diseases", force: :cascade do |t|
     t.integer "body_part_id"
@@ -68,6 +72,7 @@ ActiveRecord::Schema.define(version: 20171111202136) do
     t.integer "severity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -112,7 +117,11 @@ ActiveRecord::Schema.define(version: 20171111202136) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "email"
+<<<<<<< HEAD
     t.string "picture"
+=======
+    t.integer "user_id"
+>>>>>>> 79e0d5637ec8c846cd124afc40a1fd9435839117
   end
 
 end

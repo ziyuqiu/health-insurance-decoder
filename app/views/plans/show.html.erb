@@ -20,28 +20,47 @@
   <%= @plan.inpatient_copay %>
 </p>
 
-<%= form_tag(controller: "plans", action: "calculate", id: "cal-form") do%>
-    <%= hidden_field_tag(:id, @plan.id)%>
-    <%= label_tag(:deductibletag, "Remaining Deductible")%>
-    <%= number_field_tag(:deductible)%>
-    <%= label_tag(:pricetag, "Price of Service")%>
-    <%= number_field_tag(:price)%>
-    <%= radio_button_tag(:inpatient, true)%>
-    <%= label_tag(:yesinpatient, "This is an inpatient service")%>
-    <%= radio_button_tag(:inpatient, false)%>
-    <%= label_tag(:noinpatient, "This is an outpatient service")%>
-    <%= submit_tag("Calculate")%>
-<%end%>
+<div id="cal-form">
+  <%= form_tag(controller: "plans", action: "calculate") do%>
+      <%= hidden_field_tag(:id, @plan.id)%>
+      <%= label_tag(:deductibletag, "Remaining Deductible")%>
+      <%= number_field_tag(:deductible)%>
+      <%= label_tag(:pricetag, "Price of Service")%>
+      <%= number_field_tag(:price)%>
+      <%= radio_button_tag(:inpatient, true)%>
+      <%= label_tag(:yesinpatient, "This is an inpatient service")%>
+      <%= radio_button_tag(:inpatient, false)%>
+      <%= label_tag(:noinpatient, "This is an outpatient service")%>
+      <%= submit_tag("Calculate")%>
+  <%end%>
+</div>
+<div class="dynamic" id = "cal-result">
+  <%=render partial:"showcalc" %>
+</div>
 
-<strong>Out Of Pocket Pay:<p id="out-pocket-pay">Need to be calculated.</p></strong>
-
-<script>
+<!-- <script>
   $("#cal-form").on('submit', function(e) {
      e.preventDefault();
-     var newValue = ;
-     $("#out-pocket-pay").html(newValue);
+     var newValue = $('#out-pocket-pay').val();
+     ajaxSubmitCalForm();
   });
-</script>
+  function ajaxSubmitCalForm(){
+  console.log($('#cal-form').serialize())
+  $.ajax({
+    url: '/calculate',
+    type: 'POST',
+    dataType: "json",
+    data: $('#cal-form').serialize(),
+    success: function (data) {
+
+      $('#cal-result').html(data.content);
+    },
+    complete: function (data) {
+      console.log(data)
+    }
+  });
+  }
+</script> -->
 
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
 <%= link_to 'Back', user_path(current_user) %>

@@ -2,13 +2,23 @@ require 'test_helper'
 
 class CompaniesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @company = companies(:one)
+    @company = companies(:barnes)
+    @mcdonalds = Company.new(
+      id: 3,
+      name: "McDonalds",
+      contact_id: 3
+    )
+  end
+
+  test "should be valid" do
+    assert @company.valid?
   end
 
   test "should get index" do
     get companies_url
     assert_response :success
   end
+  
 
   test "should get new" do
     get new_company_url
@@ -17,9 +27,8 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create company" do
     assert_difference('Company.count') do
-      post companies_url, params: { company: { contact_id: @company.contact_id, name: @company.name } }
+      post companies_url, params: { company: { contact_id: @mcdonalds.contact_id, name: @mcdonalds.name } }
     end
-
     assert_redirected_to company_url(Company.last)
   end
 

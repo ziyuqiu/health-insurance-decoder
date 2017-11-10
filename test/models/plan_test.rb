@@ -3,7 +3,8 @@ require 'test_helper'
 class PlanTest < ActiveSupport::TestCase
     def setup
         @user = User.new
-        @plan = Plan.new(name: "test", coinsurance:0.9, outpatient_copay:0.0, inpatient_copay:0.0)
+        #@plan = Plan.new(name: "test", coinsurance:0.9, outpatient_copay:0.0, inpatient_copay:0.0)
+        @plan = plans(:test)
         @expected_coinsurance=0.9
     end
         

@@ -7,7 +7,7 @@ class LogsController < ApplicationController
     @logs = Log.all
     @log = Log.new
     @symptoms = Symptom.all
-    @results = @logs
+    @results = @logs.where(:user_id => current_user.id)
     if !params[:symptom_name].nil?
       @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
     end
@@ -32,7 +32,7 @@ class LogsController < ApplicationController
   # POST /logs.json
   def create
   	puts log_params
-    @log = Log.new(:symptom_id => params[:symptom_id],:severity =>log_params[:severity])
+    @log = Log.new(:symptom_id => params[:symptom_id],:severity =>log_params[:severity], :user_id => current_user.id)
 
     respond_to do |format|
       if @log.save

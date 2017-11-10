@@ -63,13 +63,21 @@ class PlansController < ApplicationController
 
   def calculate
       @plan=set_plan
-      patient_pay=@plan.calculate(params[:price].to_f,params[:deductible].to_f,params[:inpatient])
-      session[:answer] = patient_pay
-      redirect_to calculate_path
+      @patient_pay=@plan.calculate(params[:price].to_f,params[:deductible].to_f,params[:inpatient])
+      session[:answer] = @patient_pay
+      # respond_to do |format|
+      #   format.js {
+      #     render json: { 
+      #       content: (render_to_string partial: 'result', layout: false )  
+      #     }
+      #   }  
+      # end
+      # redirect_to calculate_path
   end
 
-    def showcalc
-    end
+  def showcalc
+    render :partial => "showcalc"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
