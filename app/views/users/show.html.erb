@@ -8,15 +8,16 @@
 </br></br>
 <div class="row">
 
-  <div class="col-md-4">
-    <section class="user_info">
       <div class = "col-md-4">
-        <img class="img-circle" alt="Cinque Terre" size="150" <%= gravatar_for @user %>
+        <%= image_tag @user.picture.url if @user.picture? %>
       </div>
-      <div class = "col-md-8">
+      <div class = "col-md-3">
+      </div>
+      <div class = "col-md-5">
         <h4>
           <strong><%= @user.name %></strong>
           <p><%= @user.email %></p>
+
           <p><strong>Plans:</strong></p>
           <p><%@user.plans.all.each do |plan|%>
              <p>Name:
@@ -26,10 +27,18 @@
           <p><%= link_to 'Create New Plan', new_plan_path%>
           <p><%= link_to 'Edit', edit_user_path(@user) %> |
           <%= link_to 'Delete', @user, method: :delete, data: { confirm: "You sure?" } %></p>
+
+          <%= form_for(@user) do |f| %>
+          <span class="picture">
+            <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+          </span>
+          <%= f.submit "Done", class: "btn btn-primary btn-block" %>
+          <% end %>
+
+          <!-- <%= button_to "Upload New Profile Picture", :url => '/users/:id', :class => "inbox-sf-add-btn tip", :method => :post %> -->
+
         </h4>
       </div>
-    </section>
-  </div>
 </div>
 
 
