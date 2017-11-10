@@ -28,16 +28,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    # puts "debuggggggggg"
-    # puts params
-    # puts "debuggggggggg222"
-    # puts user_params
-    # puts "debuggggggggg333"
-    # puts params[:user][:avatar].headers
-    # puts "debuggggggggg444"
      @user = User.new(user_params)
-    # puts "debuggggggggg555"
-
     respond_to do |format|
       if @user.save
         puts "inifffffff"
@@ -100,9 +91,6 @@ class UsersController < ApplicationController
 
     # Confirms the correct user.
     def correct_user
-      puts "coreecttttttttttt"
-      puts current_user.id
-      puts params
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
