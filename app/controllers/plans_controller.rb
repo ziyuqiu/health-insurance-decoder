@@ -75,9 +75,9 @@ class PlansController < ApplicationController
       # redirect_to calculate_path
   end
 
-    def showcalc
-         render :partial => "/showcalc"
-    end
+  def showcalc
+    render :partial => "showcalc"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

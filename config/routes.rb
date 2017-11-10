@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get    '/body-parts',         to: 'body_parts#index'
   get    '/symptoms',           to: 'symptoms#index'
   get    '/diseases',           to: 'diseases#index'
-  
+
   get    '/calculate', to: 'plans#showcalc'
   post   '/calculate', to: 'plans#calculate'
 end

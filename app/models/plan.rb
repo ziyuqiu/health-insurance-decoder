@@ -1,5 +1,5 @@
 class Plan < ApplicationRecord
-#    validates :coinsurance, presence:true
+    # validates :coinsurance, presence:true
     has_and_belongs_to_many :users
 
     def calculate (price, deductible, inpatient)
