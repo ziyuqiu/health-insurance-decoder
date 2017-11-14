@@ -1,6 +1,8 @@
 class Plan < ApplicationRecord
     # validates :coinsurance, presence:true
     has_and_belongs_to_many :users
+    has_many :copays
+    has_many :treatments, through: :copays
 
     def calculate (price, deductible, inpatient)
         #calculating the patients out of pocket expenses for a medical service

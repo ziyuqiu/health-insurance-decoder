@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20171111202136) do
-=======
-ActiveRecord::Schema.define(version: 20171107192319) do
->>>>>>> 79e0d5637ec8c846cd124afc40a1fd9435839117
+ActiveRecord::Schema.define(version: 20171110205046) do
 
   create_table "body_part_symptom_diseases", force: :cascade do |t|
     t.integer "body_part_id"
@@ -45,6 +41,16 @@ ActiveRecord::Schema.define(version: 20171107192319) do
     t.string "country"
     t.string "zipcode"
     t.string "fax"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "copays", force: :cascade do |t|
+    t.float "in_network"
+    t.float "out_network"
+    t.integer "plan_id"
+    t.integer "treatment_id"
+    t.boolean "copay_or_coinsurance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -104,7 +110,7 @@ ActiveRecord::Schema.define(version: 20171107192319) do
 
   create_table "treatments", force: :cascade do |t|
     t.string "name"
-    t.string "resource_cateogry"
+    t.string "resource_category"
     t.integer "disease_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -117,11 +123,8 @@ ActiveRecord::Schema.define(version: 20171107192319) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "email"
-<<<<<<< HEAD
-    t.string "picture"
-=======
     t.integer "user_id"
->>>>>>> 79e0d5637ec8c846cd124afc40a1fd9435839117
+    t.string "picture"
   end
 
 end
