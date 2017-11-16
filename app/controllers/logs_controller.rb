@@ -7,10 +7,14 @@ class LogsController < ApplicationController
     @logs = Log.all
     @log = Log.new
     @symptoms = Symptom.all
-    @results = @logs.where(:user_id => current_user.id)
+    if current_user != nil
+      @results = @logs.where(:user_id => current_user.id)
+    end
     if !params[:symptom_name].nil?
       @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
     end
+    @visit = Visit.new
+    @visits = Visit.all
   end
 
   # GET /logs/1
@@ -32,8 +36,7 @@ class LogsController < ApplicationController
   # POST /logs.json
   def create
   	puts log_params
-    @log = Log.new(:symptom_id => params[:symptom_id],:severity =>log_params[:severity], :user_id => current_user.id)
-
+    @log = Log.new(:symptom_id => params[:symptom_id],:severity =>log_params[:severity], :user_id => current_user.id, :visit_id => -1)
     respond_to do |format|
       if @log.save
         format.html { redirect_to logs_path, notice: 'Log was successfully created.' }

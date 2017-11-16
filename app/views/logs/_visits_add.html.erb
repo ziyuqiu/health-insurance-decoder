@@ -1,0 +1,25 @@
+<div style="background-color: #e6fff">
+<%= simple_form_for @visit do |f| %>
+	<%= f.label 'What action did you take?' %></br>
+	<select class="selectpicker" data-width="fit" title="Visit Type" id="action-picker" name="vtype">
+		<option value= "Pill">Pill</option>
+		<option value= "Clinic">Clinic</option>
+		<option value= "Doctor">Doctor</option>
+		<option value= "Time">Time</option>
+	</select>
+	</br>
+	<%= f.label 'What symptoms were treated?' %></br>
+	<select class="selectpicker" data-width="fit" multiple title="Symptoms treated" id="action_symp" name="symptom_id">
+		<% @results.each do |log| %>
+		  <option value= <%= log.id %>> <%= Symptom.find(log.symptom_id).name.capitalize %></option>
+		<% end %>
+	</select>
+	</br>
+	<%= f.input :time, label: 'When was the visit?',
+						as: :date, 
+						start_year: Date.today.year - 10,
+                        end_year: Date.today.year, 
+                        order: [:month, :day, :year]%>
+    <%= f.submit 'Add Visit' %>
+<% end %>
+</div>

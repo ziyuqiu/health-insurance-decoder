@@ -13,12 +13,29 @@
             </span>
           </div>
           <% end %>
-      </div>  
+        
       <!-- Logs display table -->
       <div calss="log_table">
         <%= render "table" %>
       </div>  
-    </div><!-- /logs sidebar -->
+    </div>
+    <div class = "visits">
+      <% if not @visits.nil? %>
+        <% @visits.each do |v| %>
+          <td>  <%= v.vtype %> </td>
+          <td>  <%= v.time %> </td></br>
+          <td>  <% if not v.logs.nil? %>
+                  <% v.logs.each do |l| %> 
+                    <%= l.symptom_id %>
+                  <% end %>
+                <% end %>
+            </td> </br>
+          <% end %>
+        <% end %>
+        <%= render "visits_add" %>
+      </div>
+    </div>
+    <!-- /logs sidebar -->
     <!-- Calendar table -->
     <div class="col-sm-8">
       <%= render "calendar" %>
