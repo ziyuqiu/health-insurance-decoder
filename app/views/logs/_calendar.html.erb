@@ -1,0 +1,10 @@
+
+<%= month_calendar events: @logs do |date, logs| %>
+  <%= date.day %>
+
+  <% logs.each do |log| %>
+    <div>
+      <%= link_to Symptom.find(log.symptom_id).name, edit_log_path(log) %>
+    </div>
+  <% end %>
+<% end %>

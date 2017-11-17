@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
-  test "should get log" do
-    get logs_log_url
+
+  test "should get emergency note" do
+    get emergency_path
     assert_response :success
   end
-
 end

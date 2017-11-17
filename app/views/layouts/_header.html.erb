@@ -1,7 +1,7 @@
 <header>
   <%= csrf_meta_tags %>
-
-  <title>Health Decoder</title>
+  <section class="intro">
+    <title>Health Decoder</title>
 
   <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
@@ -11,8 +11,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home</a></li>
         <li><%= link_to "Users", users_url %></li>
-        <li><%= link_to "Log", logs_log_url %></li>
-        <li><%= link_to "Help",   '#' %></li>
+        <li><%= link_to "Log", logs_url %></li>
+        <li><%= link_to "Resources", resources_url %></li>
+        <li><%= link_to "Plans",   plans_path %></li>
     </ul>
       </ul>
       <ul class="nav navbar-nav navbar-right">

@@ -6,14 +6,61 @@
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @plan.category %>
+  <strong>Coinsurance:</strong>
+  <%= @plan.coinsurance %>
 </p>
 
 <p>
-  <strong>Company:</strong>
-  <%= @plan.company_id %>
+  <strong>Outpatient Copay:</strong>
+  <%= @plan.outpatient_copay %>
 </p>
 
+<p>
+  <strong>Inpatient Copay:</strong>
+  <%= @plan.inpatient_copay %>
+</p>
+
+<div id="cal-form">
+  <%= form_tag(controller: "plans", action: "calculate") do%>
+      <%= hidden_field_tag(:id, @plan.id)%>
+      <%= label_tag(:deductibletag, "Remaining Deductible")%>
+      <%= number_field_tag(:deductible)%>
+      <%= label_tag(:pricetag, "Price of Service")%>
+      <%= number_field_tag(:price)%>
+      <%= radio_button_tag(:inpatient, true)%>
+      <%= label_tag(:yesinpatient, "This is an inpatient service")%>
+      <%= radio_button_tag(:inpatient, false)%>
+      <%= label_tag(:noinpatient, "This is an outpatient service")%>
+      <%= submit_tag("Calculate")%>
+  <%end%>
+</div>
+<div class="dynamic" id = "cal-result">
+  <%=render partial:"showcalc" %>
+</div>
+
+<!-- <script>
+  $("#cal-form").on('submit', function(e) {
+     e.preventDefault();
+     var newValue = $('#out-pocket-pay').val();
+     ajaxSubmitCalForm();
+  });
+  function ajaxSubmitCalForm(){
+  console.log($('#cal-form').serialize())
+  $.ajax({
+    url: '/calculate',
+    type: 'POST',
+    dataType: "json",
+    data: $('#cal-form').serialize(),
+    success: function (data) {
+
+      $('#cal-result').html(data.content);
+    },
+    complete: function (data) {
+      console.log(data)
+    }
+  });
+  }
+</script> -->
+
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
-<%= link_to 'Back', plans_path %>
+<%= link_to 'Back', user_path(current_user) %>

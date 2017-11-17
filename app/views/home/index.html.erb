@@ -1,18 +1,17 @@
 <div class="row">
   <div class = "class profile">
-    <div class="jumbotron">
-      <center>
-	<h1>Health Decoder</h1>
-        </br>
-      </center>
+    <div >
+      <section class="large-title" >
+	         <h1>Health Decoder</h1>
+      </section>
     </div>
+
     <div class="col-lg-12">
       <% if logged_in? %>
       <div class="alert alert-success">You are logged in as <strong><%= current_user.name%></strong>.</div>
-	<%= render file: 'logs/log' %> <br />
 	<br />
 	<br />
-      
+
         <div id="welcome-buttons">
           <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-success btn-block" %>
 

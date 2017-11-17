@@ -1,0 +1,67 @@
+$light-blue: aliceblue;
+$log-header: lightblue;
+
+.log-submit-container {
+    background-color: $light-blue;
+    margin: 15px auto;
+    padding: 15px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    .new_log {
+	display: inline;
+    }
+
+    h3 {
+	color: $log-header;
+	margin: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid $log-header;
+    }
+
+    .log-controls {
+	height: 60px;
+	width: 33%;
+	padding: 0px 10px;
+	display: inline-block;
+	float: left;
+	margin: 10px 0;
+
+	#symptom-control-label {
+	    display: block;
+	}
+
+	#slide-container {
+	    text-align: center;
+	}
+
+	#severity-label {
+	    display: block;
+	    text-align: center;
+	}
+
+	#score {
+	    color: red;
+	    font-size: 15pt;
+	    line-height: 14px;
+	}
+
+	#severity-range {
+	    width: 100%;
+	    display: inline-block;
+	    padding-top: 5px;
+	}
+
+	/* Log symptom form submit button */
+
+	.btn {
+	    display: block;
+	    margin: 0 auto;
+	}
+
+	#btn-invisible-label {
+	    color: aliceblue;
+	}
+    }
+}

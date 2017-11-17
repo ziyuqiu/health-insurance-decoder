@@ -4,7 +4,10 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+gem 'carrierwave',             '1.1.0'
+gem 'mini_magick',             '4.7.0'
+gem 'fog',                     '1.40.0'
+gem 'paperclip', '~> 3.0'
 gem 'rails', '~> 5.1.4'
 gem 'minitest'
 gem 'bootstrap-sass', '3.3.7'
@@ -25,6 +28,7 @@ gem 'bcrypt'
 gem 'pg_search'
 gem 'binding_of_caller'
 gem 'rails-controller-testing'
+gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -53,3 +57,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-admin'
+gem 'simple_calendar'
+gem 'bootstrap-select-rails'
+gem 'webpush'
+gem 'pushpad'

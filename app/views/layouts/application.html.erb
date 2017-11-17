@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
@@ -14,8 +15,9 @@
       </br></br>
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>    
+      <% end %>
       <%= yield %>
     </div>
+
   </body>
 </html>

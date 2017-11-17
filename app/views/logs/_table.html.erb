@@ -1,0 +1,26 @@
+<table class = "table table-striped">
+  <thead>
+    <tr>
+      <!-- <th>User</th> -->
+      <th>Symptom</th>
+      <th>Severity</th>
+      <th>Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |log| %>
+      <tr>
+        <!--<td><%= log.user_id %></td>-->
+        <td><%= link_to Symptom.find(log.symptom_id).name, edit_log_path(log) %></td>
+        <td><%= log.severity %></td>
+        <td><%= log.created_at %></td>
+        <td>
+          <%= link_to image_tag('cross.png', size: 10), log, method: :delete%>
+        </td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :logs
   resources :facilities
   resources :plans
   resources :companies
@@ -8,22 +9,26 @@ Rails.application.routes.draw do
   resources :diseases
   resources :body_parts
   resources :symptoms
-  
+
   root   'home#index'
-  
+
   get    '/signup',       to: 'users#new'
   post   '/signup',       to: 'users#create'
-  
+
   get    '/login',        to: 'sessions#new'
   post   '/login',        to: 'sessions#create'
   delete '/logout',       to: 'sessions#destroy'
 
+  post '/users/:id',       to: 'users#update'
+
   get    '/emergency',          to: 'static_pages#emergency'
+  get    '/resources',          to: 'static_pages#resources'
   get    '/body-diagram/',      to: 'body_parts#diagram'
   get    '/body-diagram/:type', to: 'body_parts#diagram'
   get    '/body-parts',         to: 'body_parts#index'
   get    '/symptoms',           to: 'symptoms#index'
   get    '/diseases',           to: 'diseases#index'
 
-  get    'logs/log'
+  get    '/calculate', to: 'plans#showcalc'
+  post   '/calculate', to: 'plans#calculate'
 end

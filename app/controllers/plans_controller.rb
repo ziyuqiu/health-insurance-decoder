@@ -25,7 +25,7 @@ class PlansController < ApplicationController
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
-
+    @plan.users << current_user
     respond_to do |format|
       if @plan.save
         format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
@@ -59,6 +59,24 @@ class PlansController < ApplicationController
       format.html { redirect_to plans_url, notice: 'Plan was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def calculate
+      @plan=set_plan
+      @patient_pay=@plan.calculate(params[:price].to_f,params[:deductible].to_f,params[:inpatient])
+      session[:answer] = @patient_pay
+      # respond_to do |format|
+      #   format.js {
+      #     render json: { 
+      #       content: (render_to_string partial: 'result', layout: false )  
+      #     }
+      #   }  
+      # end
+      # redirect_to calculate_path
+  end
+
+  def showcalc
+    render :partial => "showcalc"
   end
 
   private
