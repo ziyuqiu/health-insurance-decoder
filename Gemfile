@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails',          '~> 5.1.4'
+gem 'ruby',           '2.2.4'
 gem 'bcrypt'
 gem 'faker'
 gem 'carrierwave',    '1.1.0'
