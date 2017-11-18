@@ -15,16 +15,19 @@
         <% end %>
         
         <!-- Logs display table -->
+        <h3>Log History</h3>
         <div calss="log_table">
           <%= render "table" %>
         </div>  
       </div>
 
       <div class = "visits">
+        <h3> Visits </h3>
+
         <% if not @visits.nil? %>
-          <% @visits.each do |v| %>
-            <td>  <%= v.vtype %> </td>
-            <td>  <%= v.time %> </td>
+          <% @visits.order(:time).each do |v| %>
+            <strong><td>  <%= v.vtype %> </td>
+            <td>  <%= v.time %> </td></strong>
             <td><%= link_to image_tag('cross.png', size: 10), v, method: :delete%></td></br>
             <div class = "visit_log" style="margin-left: 40px">  
               <% if not v.logs.nil? %>
