@@ -1,25 +1,32 @@
 <div style="background-color: #e6fff">
 <%= simple_form_for @visit do |f| %>
-	<%= f.label 'What action did you take?' %></br>
+	<%= f.label "Visit Time" %>
+	
+	<%= f.input :time, 	label: false,
+						as: :date, 
+						start_year: Date.today.year - 10,
+                        end_year: Date.today.year, 
+                        order: [:month, :day, :year]%>
+	<%= f.label 'Action' %>
+	<span style="margin-left: 180px">
+		<%= f.label 'Symptoms' %>
+	</span>
+	</br>
 	<select class="selectpicker" data-width="fit" title="Visit Type" id="action-picker" name="vtype">
 		<option value= "Pill">Pill</option>
 		<option value= "Clinic">Clinic</option>
 		<option value= "Doctor">Doctor</option>
 		<option value= "Time">Time</option>
 	</select>
-	</br>
-	<%= f.label 'What symptoms were treated?' %></br>
-	<select class="selectpicker" data-width="fit" multiple title="Symptoms treated" id="visit_symp" name="symptom_id">
-		<% @results.distinct(:symptom_id).pluck(:symptom_id).each do |id| %>
-		  <option value= <%= id %>> <%= Symptom.find(id).name.capitalize %></option>
-		<% end %>
-	</select>
-	</br>
-	<%= f.input :time, label: 'When was the visit?',
-						as: :date, 
-						start_year: Date.today.year - 10,
-                        end_year: Date.today.year, 
-                        order: [:month, :day, :year]%>
-    <%= f.submit 'Add Visit' %>
+	<span style="margin-left: 100px">
+		<select class="selectpicker" data-width="fit" multiple title="Symptoms treated" id="visit_symp" name="symptom_id" >
+			<% @results.distinct(:symptom_id).pluck(:symptom_id).each do |id| %>
+			  <option value= <%= id %>> <%= Symptom.find(id).name.capitalize %></option>
+			<% end %>
+		</select>
+	</span>
+	<span style="margin-left: 100px">
+	    <%= f.submit 'Add Visit' , class: "btn btn-large btn-primary"%>
+	</span>
 <% end %>
 </div>
