@@ -16,7 +16,7 @@
     <% @treatments.each do |treatment| %>
       <tr>
         <td><%= treatment.name %></td>
-        <td><%= treatment.resource_cateogry %></td>
+        <td><%= treatment.resource_category %></td>
         <td><%= treatment.disease_id %></td>
         <td><%= link_to 'Show', treatment %></td>
         <td><%= link_to 'Edit', edit_treatment_path(treatment) %></td>

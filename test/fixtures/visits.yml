@@ -1,9 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  type: 
-  time: 2017-11-16
-
-two:
-  type: 
-  time: 2017-11-16
+  id: 1
+  vtype: "Pill"
+  time: Sat, 18 Nov 2017,
