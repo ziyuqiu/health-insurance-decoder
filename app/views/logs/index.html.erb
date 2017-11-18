@@ -17,33 +17,14 @@
         <!-- Logs display table -->
         <h3>Log History</h3>
         <div calss="log_table">
-          <%= render "table" %>
+          <%= render "log_table" %>
         </div>  
       </div>
 
       <div class = "visits">
         <h3> Visits </h3>
-
-        <% if not @visits.nil? %>
-          <% @visits.order(:time).each do |v| %>
-            <strong><td>  <%= v.vtype %> </td>
-            <td>  <%= v.time %> </td></strong>
-            <td><%= link_to image_tag('cross.png', size: 10), v, method: :delete%></td></br>
-            <div class = "visit_log" style="margin-left: 40px">  
-              <% if not v.logs.nil? %>
-                <% v.logs.each do |l| %> 
-                  <!-- <%= Symptom.find(l.symptom_id).name %>-->
-                  <td><%= link_to Symptom.find(l.symptom_id).name, edit_log_path(l) %></td>
-                  <td><%= l.severity %></td>
-                  <td><%= l.created_at.to_date %></td>
-                  <td>
-                    <%= link_to image_tag('cross.png', size: 10), l, method: :delete%>
-                  </td></br>
-                <% end %>
-              <% end %>
-            </div>
-          <% end %>
-        <% end %>
+        <%= render "visit_table" %>
+        <h3> Add Visit </h3>
         <%= render "visits_add" %>
       </div>
     </div>
