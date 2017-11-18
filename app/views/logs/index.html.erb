@@ -8,28 +8,37 @@
             <%= text_field_tag(:symptom_name,'', class:'form-control') %>
             <span class="input-group-btn">
               <%= button_tag( :class => "btn btn-default") do %>
-               <span class='glyphicon glyphicon-search'></span>
+                <span class='glyphicon glyphicon-search'></span>
               <% end %>
             </span>
           </div>
-          <% end %>
+        <% end %>
         
-      <!-- Logs display table -->
-      <div calss="log_table">
-        <%= render "table" %>
-      </div>  
-    </div>
-    <div class = "visits">
-      <% if not @visits.nil? %>
-        <% @visits.each do |v| %>
-          <td>  <%= v.vtype %> </td>
-          <td>  <%= v.time %> </td></br>
-          <td>  <% if not v.logs.nil? %>
-                  <% v.logs.each do |l| %> 
-                    <%= l.symptom_id %>
-                  <% end %>
+        <!-- Logs display table -->
+        <div calss="log_table">
+          <%= render "table" %>
+        </div>  
+      </div>
+
+      <div class = "visits">
+        <% if not @visits.nil? %>
+          <% @visits.each do |v| %>
+            <td>  <%= v.vtype %> </td>
+            <td>  <%= v.time %> </td>
+            <td><%= link_to image_tag('cross.png', size: 10), v, method: :delete%></td></br>
+            <div class = "visit_log" style="margin-left: 40px">  
+              <% if not v.logs.nil? %>
+                <% v.logs.each do |l| %> 
+                  <!-- <%= Symptom.find(l.symptom_id).name %>-->
+                  <td><%= link_to Symptom.find(l.symptom_id).name, edit_log_path(l) %></td>
+                  <td><%= l.severity %></td>
+                  <td><%= l.created_at.to_date %></td>
+                  <td>
+                    <%= link_to image_tag('cross.png', size: 10), l, method: :delete%>
+                  </td></br>
                 <% end %>
-            </td> </br>
+              <% end %>
+            </div>
           <% end %>
         <% end %>
         <%= render "visits_add" %>

@@ -27,12 +27,18 @@ class VisitsController < ApplicationController
   def create
     # @visit = Visit.new(:time => visit_params[:time],:vtype => params[:vtype])
     @visit = Visit.new(visit_params)
+    @logs = Log.all
+    @results = @logs.where(:user_id => current_user.id)
+    @treated = @results.where(:symptom_id => params[:symptom_id])
+
     puts visit_params
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
         format.json { render :show, status: :created, location: @visit }
         @visit.update(:vtype =>params[:vtype])
+        @treated.update(:visit_id => @visit.id)
+        
       else
         format.html { render :new }
         format.json { render json: @visit.errors, status: :unprocessable_entity }
