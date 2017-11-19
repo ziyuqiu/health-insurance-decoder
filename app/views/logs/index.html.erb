@@ -10,12 +10,14 @@
         <div calss="log_table">
           <%= render "log_search_bar" %>
           <%= render "log_table" %>
+          <button class="btn btn-outline-info" onclick="newEntry(event, 'newLog')" id="defaultOpen"><Strong>New Log</Strong></button>
         </div>  
       </div>
 
       <div class = "visits" style="background-color: #e6fff2">
         <h3> Visits </h3>
         <%= render "visit_table" %>
+        <button class="btn btn-outline-info" onclick="newEntry(event, 'newVisit')"><Strong> New Visit </Strong></button>
         
       </div>
     </div>
