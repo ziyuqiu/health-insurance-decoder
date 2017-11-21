@@ -38,7 +38,6 @@ class UsersController < ApplicationController
         format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
       else
-        puts "inelsesssssssss"
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

@@ -7,13 +7,17 @@ Minitest::Reporters.use!
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!  
 
-    # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
   extend MiniTest::Spec::DSL
   
   def is_logged_in?
     !session[:user_id].nil?
+  end
+
+  def log_in_as(user)
+    session[:user_id] = user.id
   end
 end
 

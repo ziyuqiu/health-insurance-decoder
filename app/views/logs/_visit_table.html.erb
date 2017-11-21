@@ -1,0 +1,20 @@
+<% if not @visits.nil? %>
+  <% @visits.order(:time).each do |v| %>
+    <strong><td>  <%= v.vtype %> </td>
+    <td>  <%= v.time %> </td></strong>
+    <td><%= link_to image_tag('cross.png', size: 10), v, method: :delete%></td></br>
+    <div class = "visit_log" style="margin-left: 40px">  
+      <% if not v.logs.nil? %>
+        <% v.logs.each do |l| %> 
+          <!-- <%= Symptom.find(l.symptom_id).name %>-->
+          <td><%= link_to Symptom.find(l.symptom_id).name, edit_log_path(l) %></td>
+          <td><%= l.severity %></td>
+          <td><%= l.created_at.to_date %></td>
+          <td>
+            <%= link_to image_tag('cross.png', size: 10), l, method: :delete%>
+          </td></br>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
