@@ -72,84 +72,84 @@ def build_relationship body_part_name, symptom_name, disease_name
 end
 
 def setup_brandeis_plan
-    brandeis=Plan.new(name:"Brandeis Insurance Plan", coinsurance:0.0)
+    brandeis=Plan.new(name:"Brandeis Insurance Plan")
     brandeis.save
     treatment=Treatment.new(resource_category:"coinsurance", name:"Co insurance-you pay this amount of a bill
 after meeting your deductible and copay")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id], treatment_id:treatment[:id], in_network:0.0, out_network:0.2, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
-    treatment=Treatment.new(resource_category:"preventative", name:"Preventive services")
+    treatment=Treatment.new(resource_category:"preventative", name:"Preventive services/immunization")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:0.0, out_network:0.2, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"emergency", name:"Co-pay for emergency room visit")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:50.0, out_network:50.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:true)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"office_visit", name:"Co-pay for office visit")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:20.0, out_network:0.2, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"xray_labs_testing", name:"X-rays, labs, or testing")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:0.0, out_network:0.2, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"mri_ct_pet", name:"MRI, CT scan, or PET")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:25.0, out_network:0.2, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"mental_health", name:"Co-pay for Outpatient Mental Health")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:20.0, out_network:0.2, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"inpatient", name:"Inpatient Care")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:0.0, out_network:0.2, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
-    treatment=Treatment.new(resource_category:"tier_1", name:"Tier 1 Prescriptions")
+    treatment=Treatment.new(resource_category:"tier_1", name:"Generic Prescriptions")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:10.0, out_network:1.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"tier_2", name:"Tier 2 Prescriptions")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:25.0, out_network:1.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"tier_3", name:"Tier 3 Prescriptions")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:45.0, out_network:1.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"dental", name:"Dental Treatment for Injury to Natural Teeth")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:1.0, out_network:1.0, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"eye", name:"Eye Examination")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id])
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:0.0, out_network:0.2, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false)
     copay.save
     brandeis.copays << copay
     treatment.copays << copay

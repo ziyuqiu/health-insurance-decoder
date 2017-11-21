@@ -10,6 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+# <<<<<<< HEAD
+# ActiveRecord::Schema.define(version: 20171111202136) do
+# =======
 ActiveRecord::Schema.define(version: 20171116210948) do
 
   create_table "body_part_symptom_diseases", force: :cascade do |t|
@@ -57,7 +60,8 @@ ActiveRecord::Schema.define(version: 20171116210948) do
     t.float "out_network"
     t.integer "plan_id"
     t.integer "treatment_id"
-    t.boolean "copay_or_coinsurance"
+    t.boolean "copay_or_coinsurance_in"
+    t.boolean "copay_or_coinsurance_out"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,7 +97,6 @@ ActiveRecord::Schema.define(version: 20171116210948) do
     t.string "name"
     t.string "category"
     t.integer "company_id"
-    t.float "coinsurance"
     t.float "deductible"
     t.float "out_of_pocket_max"
     t.float "inpatient_copay"
@@ -131,6 +134,11 @@ ActiveRecord::Schema.define(version: 20171116210948) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "email"
+
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.integer "user_id"
     t.string "picture"
   end

@@ -5,7 +5,8 @@ class CreateCopays < ActiveRecord::Migration[5.1]
       t.float :out_network
       t.integer :plan_id
       t.integer :treatment_id
-      t.boolean :copay_or_coinsurance
+      t.boolean :copay_or_coinsurance_in
+      t.boolean :copay_or_coinsurance_out
 
       t.timestamps
     end

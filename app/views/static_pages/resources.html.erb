@@ -4,10 +4,12 @@
   <li><a class="tablinks" onclick="showTabContent(event, 'emer_lvl')">Emergency Level</a></li>
   <li><a class="tablinks" onclick="showTabContent(event, 'pain_lvl')">Pain Chart</a></li>
   <li><a class="tablinks" onclick="showTabContent(event, 'clinic_lst')">List of Nearby Clinics</a></li>
+  <li><a class="tablinks" onclick="showTabContent(event, 'group_lst')">List of Student Groups</a></li>
+  <li><a class="tablinks" onclick="showTabContent(event, 'events')">Events</a></li>
+
   <li><a href="#section1">Timeline</a></li>
   <li><a href="#section2">Symptoms</a></li>
   <li><a href="#section3">Reminders</a></li>
-  <li><a href="#section3">Create New Log</a></li>
 </ul>
 </div>
 <div class="col-sm-9" id = "contents">
@@ -20,6 +22,12 @@
 	<div id = "clinic_lst" class = "tabcontent">
 		<%= render file: "./static_pages/clinic_lst" %>
 	</div>
+  <div id = "group_lst" class = "tabcontent">
+    <%= render file: "./static_pages/stu_groups_lst" %>
+  </div>
+  <div id = "events" class = "tabcontent">
+    <%= render file: "./static_pages/events" %>
+  </div>
 </div>
 
 

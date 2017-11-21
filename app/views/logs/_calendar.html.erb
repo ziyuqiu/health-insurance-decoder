@@ -1,5 +1,5 @@
 
-<%= month_calendar events: @logs do |date, logs| %>
+<%= month_calendar events: @current_user.logs do |date, logs| %>
   <%= date.day %>
 
   <% logs.each do |log| %>
