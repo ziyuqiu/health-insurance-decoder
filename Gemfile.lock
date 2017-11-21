@@ -238,6 +238,7 @@ GEM
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     guard (2.14.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -436,6 +437,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   faker
   fog (= 1.40.0)
+  gmaps4rails
   guard
   guard-minitest
   jbuilder (~> 2.5)
@@ -473,4 +475,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.4
+   1.16.0.pre.3

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   post '/users/:id',       to: 'users#update'
 
+
+  get    '/map',          to: 'static_pages#map'
   get    '/emergency',          to: 'static_pages#emergency'
   get    '/resources',          to: 'static_pages#resources'
   get    '/body-diagram/',      to: 'body_parts#diagram'
