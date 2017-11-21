@@ -31,6 +31,8 @@ class UsersController < ApplicationController
      @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        puts "inifffffff"
+        @user.plans << Plan.find_by(name:"Brandeis Insurance Plan")
         log_in @user
         flash[:success] = "Welcome! User was successfully created."
         format.html { redirect_to @user }

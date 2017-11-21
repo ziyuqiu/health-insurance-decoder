@@ -5,38 +5,24 @@
   <%= @plan.name %>
 </p>
 
-<p>
-  <strong>Coinsurance:</strong>
-  <%= @plan.coinsurance %>
-</p>
 
-<p>
-  <strong>Outpatient Copay:</strong>
-  <%= @plan.outpatient_copay %>
-</p>
-
-<p>
-  <strong>Inpatient Copay:</strong>
-  <%= @plan.inpatient_copay %>
-</p>
-
-<div id="cal-form">
-  <%= form_tag(controller: "plans", action: "calculate") do%>
+<div id="cal-form" class="form">
+  <%= form_tag(calculate_path, controller: "plans", action: "calculate", remote:true) do%>
       <%= hidden_field_tag(:id, @plan.id)%>
-      <%= label_tag(:deductibletag, "Remaining Deductible")%>
-      <%= number_field_tag(:deductible)%>
-      <%= label_tag(:pricetag, "Price of Service")%>
-      <%= number_field_tag(:price)%>
-      <%= radio_button_tag(:inpatient, true)%>
-      <%= label_tag(:yesinpatient, "This is an inpatient service")%>
-      <%= radio_button_tag(:inpatient, false)%>
-      <%= label_tag(:noinpatient, "This is an outpatient service")%>
-      <%= submit_tag("Calculate")%>
+      <p><%= label_tag(:deductibletag, "Remaining Deductible")%>
+      <%= number_field_tag(:deductible)%></p>
+      <p><%= label_tag(:pricetag, "Price of Service")%>
+      <%= number_field_tag(:price)%></p>
+      <p><%= label_tag(:choicetag, "Category of Service")%>
+      <%= collection_select :treatment, :name, @plan.treatments.where.not(resource_category:"coinsurance"), :id, :name%></p>
+      <p><%= radio_button_tag(:network, true)%>
+      <%= label_tag(:yesnetwork, "This is an in network provider")%>
+      <%= radio_button_tag(:network, false)%>
+      <%= label_tag(:nonetwork, "This is an out of network provider")%></p>
+      <p><%= submit_tag("Calculate")%></p>
   <%end%>
 </div>
-<div class="dynamic" id = "cal-result">
-  <%=render partial:"showcalc" %>
-</div>
+<div id="out_of_pocket"></div>
 
 <!-- <script>
   $("#cal-form").on('submit', function(e) {
