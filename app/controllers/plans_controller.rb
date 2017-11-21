@@ -63,14 +63,18 @@ class PlansController < ApplicationController
 
   def calculate
       @plan=set_plan
-      @patient_pay=@plan.calculate(params[:price].to_f,params[:deductible].to_f,params[:inpatient])
+      copay=@plan.copays.find_by(treatment_id:params.fetch("treatment").fetch("name"))
+      @patient_pay=@plan.calculate(params[:price].to_f,params[:deductible].to_f,params[:network],copay)
       session[:answer] = @patient_pay
+      respond_to do |format|
+          format.js
+      end
       # respond_to do |format|
       #   format.js {
-      #     render json: { 
-      #       content: (render_to_string partial: 'result', layout: false )  
+      #     render json: {
+      #       content: (render_to_string partial: 'result', layout: false )
       #     }
-      #   }  
+      #   }
       # end
       # redirect_to calculate_path
   end
@@ -87,6 +91,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-        params.require(:plan).permit(:name, :category, :company_id, :coinsurance, :deductible, :out_of_pocket_max, :inpatient_copay, :outpatient_copay)
+        params.require(:plan).permit(:name, :category, :company_id, :deductible, :out_of_pocket_max, :inpatient_copay, :outpatient_copay)
     end
 end
