@@ -7,7 +7,7 @@
         
         <!-- Logs display table -->
         <h3>Log History</h3>
-        <div calss="log_table">
+        <div class="log_table">
           <%= render "log_search_bar" %>
           <%= render "log_table" %>
           <button class="btn btn-outline-info" onclick="newEntry(event, 'newLog')" id="defaultOpen"><Strong>New Log</Strong></button>
@@ -77,7 +77,7 @@
     
   }
   document.getElementById("defaultOpen").click();
-  
+
     // $('.selectpicker').selectpicker('refresh');
   $(document).on('turbolinks:load', function () {
     $('.selectpicker').each(function (i, el) {

@@ -12,14 +12,14 @@
 		<%= f.label 'Symptoms' %>
 	</span>
 	</br>
-	<select class="selectpicker" data-width="fit" title="Visit Type" id="action-picker" name="vtype" data-turbolinks="false">
+	<select class="selectpicker" data-width="fit" title="Visit Type" id="action-picker" name="vtype" >
 		<option value= "Pill">Pill</option>
 		<option value= "Clinic">Clinic</option>
 		<option value= "Doctor">Doctor</option>
 		<option value= "Time">Time</option>
 	</select>
 	<span style="margin-left: 100px">
-		<select class="selectpicker" data-width="fit" multiple title="Symptoms treated" id="visit_symp" name="symptom_id" data-turbolinks="false">
+		<select class="selectpicker" data-width="fit" multiple title="Symptoms treated" id="visit_symp" name="symptom_id">
 			<% @results.distinct(:symptom_id).pluck(:symptom_id).each do |id| %>
 			  <option value= <%= id %>> <%= Symptom.find(id).name.capitalize %></option>
 			<% end %>
