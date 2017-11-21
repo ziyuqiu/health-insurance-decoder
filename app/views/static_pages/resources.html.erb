@@ -1,9 +1,63 @@
 <h4>Resources</h4>
-  <div class="col-sm-4 sidenav">
-    <ul class="nav nav-pills nav-stacked">
-      <li class="active"><a href="#section1">Timeline</a></li>
-      <li><a href="#section2">Symptoms</a></li>
-      <li><a href="#section3">Reminders</a></li>
-      <li><a href="#section3">Create New Log</a></li>
-    </ul><br>
+<div class="col-sm-3 sidenav">
+<ul class="nav nav-pills nav-stacked">
+  <li><a class="tablinks" onclick="showTabContent(event, 'emer_lvl')">Emergency Level</a></li>
+  <li><a class="tablinks" onclick="showTabContent(event, 'pain_lvl')">Pain Chart</a></li>
+  <li><a class="tablinks" onclick="showTabContent(event, 'clinic_lst')">List of Nearby Clinics</a></li>
+  <li><a class="tablinks" onclick="showTabContent(event, 'group_lst')">List of Student Groups</a></li>
+  <li><a class="tablinks" onclick="showTabContent(event, 'events')">Events</a></li>
+
+  <li><a href="#section1">Timeline</a></li>
+  <li><a href="#section2">Symptoms</a></li>
+  <li><a href="#section3">Reminders</a></li>
+</ul>
+</div>
+<div class="col-sm-9" id = "contents">
+	<div id = "emer_lvl" class = "tabcontent">
+		<%= render file: "./static_pages/emergency_level" %>
+	</div>
+	<div id = "pain_lvl" class = "tabcontent">
+		<%= image_tag('pain_chart.gif')%>
+	</div>
+	<div id = "clinic_lst" class = "tabcontent">
+		<%= render file: "./static_pages/clinic_lst" %>
+	</div>
+  <div id = "group_lst" class = "tabcontent">
+    <%= render file: "./static_pages/stu_groups_lst" %>
   </div>
+  <div id = "events" class = "tabcontent">
+    <%= render file: "./static_pages/events" %>
+  </div>
+</div>
+
+
+<script>
+	$(document).ready(
+		function () {
+	    	$("#contents").hide();
+		}
+	);
+  function showTabContent(evt, typeName) {
+
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(typeName).style.display = "block";
+    evt.currentTarget.className += " active";
+    $("#contents").show();
+  }
+  // document.getElementById("defaultOpen").click();
+</script>

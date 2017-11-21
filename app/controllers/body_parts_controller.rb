@@ -9,11 +9,13 @@ class BodyPartsController < ApplicationController
 
   def diagram
     @body_parts = BodyPart.all
+    
     type = params[:type]
     btn_classes = "btn btn-md btn-primary"
     @btn_m_classes = btn_classes
     @btn_i_classes = btn_classes
     @btn_f_classes = btn_classes
+    
     if type == 'm'
       @image_tag = 'male.png'
       @btn_m_classes += " disabled"
@@ -24,6 +26,7 @@ class BodyPartsController < ApplicationController
       @image_tag = 'intersex.png'
       @btn_i_classes += " disabled"
     end
+    
   end
 
   # GET /body_parts/1

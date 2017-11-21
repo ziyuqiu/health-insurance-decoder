@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111202136) do
+# <<<<<<< HEAD
+# ActiveRecord::Schema.define(version: 20171111202136) do
+# =======
+ActiveRecord::Schema.define(version: 20171116210948) do
 
   create_table "body_part_symptom_diseases", force: :cascade do |t|
     t.integer "body_part_id"
@@ -45,6 +48,17 @@ ActiveRecord::Schema.define(version: 20171111202136) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "copays", force: :cascade do |t|
+    t.float "in_network"
+    t.float "out_network"
+    t.integer "plan_id"
+    t.integer "treatment_id"
+    t.boolean "copay_or_coinsurance_in"
+    t.boolean "copay_or_coinsurance_out"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "diseases", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -69,13 +83,13 @@ ActiveRecord::Schema.define(version: 20171111202136) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "visit_id"
   end
 
   create_table "plans", force: :cascade do |t|
     t.string "name"
     t.string "category"
     t.integer "company_id"
-    t.float "coinsurance"
     t.float "deductible"
     t.float "out_of_pocket_max"
     t.float "inpatient_copay"
@@ -100,7 +114,7 @@ ActiveRecord::Schema.define(version: 20171111202136) do
 
   create_table "treatments", force: :cascade do |t|
     t.string "name"
-    t.string "resource_cateogry"
+    t.string "resource_category"
     t.integer "disease_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -113,12 +127,20 @@ ActiveRecord::Schema.define(version: 20171111202136) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "email"
+
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string "picture"
     t.integer "user_id"
+    t.string "picture"
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.date "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "vtype"
   end
 
 end

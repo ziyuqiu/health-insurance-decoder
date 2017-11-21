@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :visits
   resources :logs
   resources :facilities
   resources :plans
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
 
   post '/users/:id',       to: 'users#update'
 
+
+  get    '/map',          to: 'static_pages#map'
   get    '/emergency',          to: 'static_pages#emergency'
   get    '/resources',          to: 'static_pages#resources'
   get    '/body-diagram/',      to: 'body_parts#diagram'
@@ -29,6 +32,6 @@ Rails.application.routes.draw do
   get    '/symptoms',           to: 'symptoms#index'
   get    '/diseases',           to: 'diseases#index'
 
-  get    '/calculate', to: 'plans#showcalc'
-  post   '/calculate', to: 'plans#calculate'
+  get    'calculate', to: 'plans#showcalc'
+  post   'calculate', to: 'plans#calculate'
 end

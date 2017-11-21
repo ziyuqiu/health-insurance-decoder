@@ -1,11 +1,5 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
-  resource_cateogry: MyString
-  disease_id: 1
-
-two:
-  name: MyString
-  resource_cateogry: MyString
+  id: 1
+  name: "Doctor's visit"
+  resource_category: "Test"
   disease_id: 1

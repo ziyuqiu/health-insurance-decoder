@@ -17,7 +17,7 @@ class TreatmentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create treatment" do
     assert_difference('Treatment.count') do
-      post treatments_url, params: { treatment: { disease_id: @treatment.disease_id, name: @treatment.name, resource_cateogry: @treatment.resource_cateogry } }
+      post treatments_url, params: { treatment: { disease_id: @treatment.disease_id, name: @treatment.name, resource_category: @treatment.resource_category } }
     end
 
     assert_redirected_to treatment_url(Treatment.last)
@@ -34,7 +34,7 @@ class TreatmentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update treatment" do
-    patch treatment_url(@treatment), params: { treatment: { disease_id: @treatment.disease_id, name: @treatment.name, resource_cateogry: @treatment.resource_cateogry } }
+    patch treatment_url(@treatment), params: { treatment: { disease_id: @treatment.disease_id, name: @treatment.name, resource_category: @treatment.resource_category } }
     assert_redirected_to treatment_url(@treatment)
   end
 
