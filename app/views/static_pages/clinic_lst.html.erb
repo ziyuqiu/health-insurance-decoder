@@ -2,59 +2,32 @@
   	<div class = "col-md-8" >
   		<div id="sidebar_builder" style='width: 100%; height: 400px;'></div>
   	</div>
-	<div class = "col-md-4" id='sidebar_container' style= "background-color: aliceblue;">
+	<div class = "col-md-4" id='sidebar' style= "background-color: aliceblue;">
 		<div class="tab">
 	        <button class="tablinks2" onclick="switchContent(event, 'urgent-care')" id="defaultOpen"><Strong>Urgent</Strong></button>
 	        <button class="tablinks2" onclick="switchContent(event, 'less-urgent')"><Strong> Non Urgent </Strong></button>
 	    </div>
 
 	    <div id="urgent-care" class="tabcontent2">
-	        <h4>URGENT CARE/WALK-IN CENTERS</h4>
-			<p style="color: red">URGENT CARE IS FOR NON LIFE THREATENING URGENT HEALTH NEEDS SUCH AS X RAYS, IV HYDRATION, OR STITCHES</p>
+	        <h4>URGENT CARE/<br/>
+	        	WALK-IN CENTERS</h4>
+			<p style="color: red">
+			Urgent care is for non-life threatening urgent health needs such as x-rays, IV hydration, or stitches </p>
+			<div id="sidebar_container"></div>
 	    </div>
 
 	    <div id="less-urgent" class="tabcontent2">
-	        <h4>LESS URGENT OFF-CAMPUS MINOR ILLNESS</h3>
+	        <h4>LESS URGENT CARE</h4>
+	        <p style="color: red"> For minor illness and injury assessment, labs and tests.</p>
+	        <div id="sidebar_container"></div>
 	    </div>
+
 	    </br>
 	</div>
 </div>
 
 <div class = "row">
-	<Strong style="color: blue">Newton Wellesley Hospital's Waltham Urgent Care Center</Strong></br>
-	<p>
-	Located in the Children's Hospital Building
-	(5 minutes from campus)
-	9 Hope Ave.
-	Waltham, Mass. 02453
-	(617) 243-5981
-	Mapquest
-
-	Bring your insurance information.
-
-	Walk-In Hours
-	Monday through Saturday
-	9 a.m. to 7 p.m.
-
-	Sunday
-	9 a.m. to 2 p.m.
-	</p>
-	<Strong style="color: blue">AFC</Strong></br>
-	<p>
-	1030 Main Street
-	Waltham, MA 02451
-	(781) 894-6900
-
-	Bring your insurance information.
-
-	Walk-In Hours
-	Daily
-	8 a.m. to  8 p.m.
-	</p>
-	<h3>OTHER LESS URGENT  OFF-CAMPUS MINOR ILLNESS AND INJURY ASSESSMENT:</h3>
-
 	<Strong style="color: blue">CVS Minute Clinics</Strong></br>
-	For minor illness and injury assessment, labs and tests.
 	1-866-389-2727
 
 	Locations
@@ -104,23 +77,33 @@
 	  });
 	};
 
-	handler = Gmaps.build('Google');
-	handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
-	  var json_array = [
-	    { lat: 42.3692639, lng: -71.249348, name: 'Newton Wellesley Hospital Waltham Urgent Care Center', infowindow: "Newton Wellesley Hospital's Waltham Urgent Care Center" },
-	    { lat: 42.375749, lng: -71.252918, name: 'AFC', infowindow: "AFC" }
-	  ];
+	function draw(clinicType){
+		handler = Gmaps.build('Google');
 
-	  var markers = handler.addMarkers(json_array);
+		if (clinicType = "urgent"){
+			var json_array = [
+		    { 	lat: 42.3692639, 
+		    	lng: -71.249348, 
+		    	name: 'Newton Wellesley Hospital Waltham Urgent Care Center',
+		    	infowindow: "<h4>Newton Wellesley Hospital<br /> Waltham Urgent Care Center</h4><strong> Location: </strong> <br />Located in the Children Hospital Building <br /> 9 Hope Ave. <br /> Waltham, Mass. 02453 <br /> <strong>Contact: </strong><br />(617) 243-5981 <br /> <strong>Walk-In Hours: </strong><br /><i>Monday through Saturday </i><br /> 9 a.m. to 7 p.m. <br /> <i>Sunday </i><br /> 9 a.m. to 2 p.m. <br /> <strong> Note: </strong> <br />Bring your insurance information. <br />" },
+		    { lat: 42.375749, lng: -71.252918, name: 'American Family Care', infowindow: "<h4>AFC(American Family Care)</h4><strong> Location: </strong> <br />1030 Main Street <br /> Waltham, MA 02451 <br /> <strong>Contact: </strong><br />(781) 894-6900 <br /> <strong>Walk-In Hours: </strong><br /><i>Daily </i><br /> 8 a.m. to  8 p.m.<br /> <strong> Note: </strong> <br />Bring your insurance information. <br />" }
+		  ];
+		}
 
-	  _.each(json_array, function(json, index){
-	    json.marker = markers[index];
-	  });
+		handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
 
-	  createSidebar(json_array);
-	  handler.bounds.extendWith(markers);
-	  handler.fitMapToBounds();
-	});
+		  var markers = handler.addMarkers(json_array);
+
+		  _.each(json_array, function(json, index){
+		    json.marker = markers[index];
+		  });
+
+		  createSidebar(json_array);
+		  handler.bounds.extendWith(markers);
+		  handler.fitMapToBounds();
+		});
+	}
+	draw("urgent");
 </script>
 
 <script>
