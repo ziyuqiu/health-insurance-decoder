@@ -9,11 +9,18 @@
 <div class="row">
 
       <div class = "col-md-4">
+        <%= image_tag("default_prof_pic.png", :alt => "img missing", :size => "125", :id => "logo") if not @user.picture? %>
         <%= image_tag @user.picture.url if @user.picture? %>
+        </br></br>
+        <%= form_for(@user) do |f| %>
+            <%= f.label "Edit Profile Picture:"%>
+            <span class="picture">
+              <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+            </span></br>
+            <%= f.submit "Upload Picture", class: "btn btn-primary" %>
+          <% end %>
       </div>
-      <div class = "col-md-3">
-      </div>
-      <div class = "col-md-5">
+      <div class = "col-md-8">
         <h4>
           <strong><%= @user.name %></strong>
           <p><%= @user.email %></p>
@@ -28,12 +35,7 @@
           <p><%= link_to 'Edit', edit_user_path(@user) %> |
           <%= link_to 'Delete', @user, method: :delete, data: { confirm: "You sure?" } %></p>
 
-          <%= form_for(@user) do |f| %>
-          <span class="picture">
-            <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-          </span>
-          <%= f.submit "Done", class: "btn btn-primary btn-block" %>
-          <% end %>
+          
         </h4>
       </div>
 </div>

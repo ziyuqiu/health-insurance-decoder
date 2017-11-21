@@ -1,5 +1,5 @@
 <div class="log-submit-container">
-  <h3>New Log</h3>
+  <!-- <h3>New Log</h3> -->
   
   <!-- Health log submit form -->  
   <%= form_for(@log) do |f| %>
@@ -8,7 +8,7 @@
       <span id="symptom-control-label">
         <%= f.label :symptom_id %>
       </span>
-      <select class="selectpicker" title="What is your symptom?" id="sym-filter" name="symptom_id" data-live-search="true">
+      <select class="selectpicker" title="Symptom" id="sym-filter" name="symptom_id" data-live-search="true" data-width="fit">
         <% @symptoms.each do |sym| %>
           <option value= <%= sym.id %>> <%= sym.name.capitalize %></option>
         <% end %>

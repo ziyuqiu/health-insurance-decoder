@@ -3,7 +3,7 @@
 <Center><h1>Sign up</h1></Center>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-6">
+  <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user, url:signup_path) do |f| %>
       <%= render 'shared/error_messages' %>
 
@@ -19,9 +19,11 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+      <%= f.label "Profile Picture" %>
       <span class="picture">
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
       </span>
+      </br>
 
       <%= f.submit "Create my account", class: "btn btn-primary btn-block" %>
     <% end %>
