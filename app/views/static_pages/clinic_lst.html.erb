@@ -4,7 +4,7 @@
   	</div>
 	<div class = "col-md-4" id='sidebar' style= "background-color: aliceblue;">
 		<div class="tab">
-	        <button class="tablinks2" onclick="switchContent(event, 'urgent')" id="defaultOpen"><Strong>Urgent</Strong></button>
+	        <button class="tablinks2" onclick="switchContent(event, 'urgent')" id="defaultOpen2"><Strong>Urgent</Strong></button>
 	        <button class="tablinks2" onclick="switchContent(event, 'non-urgent')"><Strong> Non Urgent </Strong></button>
 	    </div>
 
@@ -60,6 +60,7 @@
 	};
 
 	function createSidebar(json_array){
+		$('#sidebar_container').empty();
 
 	  _.each(json_array, function(json){
 	    var $li = $( createSidebarLi(json) );
@@ -109,7 +110,6 @@
 	// var non-urgent_markers = draw("non-urgent");
 
   	function switchContent(evt, typeName) {
-  		// document.getElementByClass('#sidebar_container').empty();
 
 	    // Declare all variables
 	    var i, tabcontent2, tablinks2;
@@ -132,7 +132,7 @@
 	    draw(typeName);
 
 	}
-  	document.getElementById("defaultOpen").click();
+  	 document.getElementById("defaultOpen2").click();
 </script>
 
 <style>
