@@ -19,13 +19,13 @@ function newEntry(evt, typeName) {
   evt.currentTarget.className += " active";
   
 }
-document.getElementById("defaultOpen").click();
+
 
   // $('.selectpicker').selectpicker('refresh');
-$(document).on('turbolinks:load', function () {
-  $('.selectpicker').each(function (i, el) {
-    if (!$(el).parent().hasClass('bootstrap-select')) {
-      $(el).selectpicker('refresh');
-    }
-  });
-});
+// $(document).on('turbolinks:load', function () {
+//   $('.selectpicker').each(function (i, el) {
+//     if (!$(el).parent().hasClass('bootstrap-select')) {
+//       $(el).selectpicker('refresh');
+//     }
+//   });
+// });

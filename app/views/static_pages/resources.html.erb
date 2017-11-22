@@ -30,3 +30,11 @@
   </div>
 </div>
 <%= javascript_include_tag 'resources' %>
+<script>
+  $(document).ready(
+    function () {
+        $("#contents").hide();
+      document.getElementById("defaultOpen").click();
+    }
+  );
+</script>

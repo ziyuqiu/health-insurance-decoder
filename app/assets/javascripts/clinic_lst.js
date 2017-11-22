@@ -100,4 +100,4 @@ function draw(clinicType){
     draw(typeName);
 
 }
-	 document.getElementById("defaultOpen2").click();
+

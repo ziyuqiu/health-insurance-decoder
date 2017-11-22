@@ -1,9 +1,4 @@
-$(document).ready(
-	function () {
-    	$("#contents").hide();
-    document.getElementById("defaultOpen").click();
-	}
-);
+
 function showTabContent(evt, typeName) {
 
 // Declare all variables
