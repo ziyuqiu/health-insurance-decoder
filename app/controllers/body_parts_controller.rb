@@ -9,24 +9,12 @@ class BodyPartsController < ApplicationController
 
   def diagram
     @body_parts = BodyPart.all
-    
-    type = params[:type]
-    btn_classes = "btn btn-md btn-primary"
-    @btn_m_classes = btn_classes
-    @btn_i_classes = btn_classes
-    @btn_f_classes = btn_classes
-    
-    if type == 'm'
-      @image_tag = 'male.png'
-      @btn_m_classes += " disabled"
-    elsif type == 'f'
-      @image_tag = 'female.png'
-      @btn_f_classes += " disabled"
-    elsif type == 'i' or type == nil
-      @image_tag = 'intersex.png'
-      @btn_i_classes += " disabled"
+  end
+
+  def do_display_symptoms
+    respond_to do |format|
+      format.js {}
     end
-    
   end
 
   # GET /body_parts/1
