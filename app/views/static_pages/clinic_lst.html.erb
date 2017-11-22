@@ -4,24 +4,23 @@
   	</div>
 	<div class = "col-md-4" id='sidebar' style= "background-color: aliceblue;">
 		<div class="tab">
-	        <button class="tablinks2" onclick="switchContent(event, 'urgent-care')" id="defaultOpen"><Strong>Urgent</Strong></button>
-	        <button class="tablinks2" onclick="switchContent(event, 'less-urgent')"><Strong> Non Urgent </Strong></button>
+	        <button class="tablinks2" onclick="switchContent(event, 'urgent')" id="defaultOpen"><Strong>Urgent</Strong></button>
+	        <button class="tablinks2" onclick="switchContent(event, 'non-urgent')"><Strong> Non Urgent </Strong></button>
 	    </div>
 
-	    <div id="urgent-care" class="tabcontent2">
+	    <div id="urgent" class="tabcontent2">
 	        <h4>URGENT CARE/<br/>
 	        	WALK-IN CENTERS</h4>
 			<p style="color: red">
 			Urgent care is for non-life threatening urgent health needs such as x-rays, IV hydration, or stitches </p>
-			<div id="sidebar_container"></div>
 	    </div>
 
-	    <div id="less-urgent" class="tabcontent2">
+	    <div id="non-urgent" class="tabcontent2">
 	        <h4>LESS URGENT CARE</h4>
 	        <p style="color: red"> For minor illness and injury assessment, labs and tests.</p>
-	        <div id="sidebar_container"></div>
+	        
 	    </div>
-
+	    <div id="sidebar_container"></div>
 	    </br>
 	</div>
 </div>
@@ -29,25 +28,16 @@
 <div class = "row">
 	<Strong style="color: blue">CVS Minute Clinics</Strong></br>
 	1-866-389-2727
-
 	Locations
-
 	Newton, 978 Boylston St
-
 	Cambridge, 211 Alewife Brook Pkwy
-
 	Cambridge, 36 White Street
-
 	Medford, 85 High Street
-
 	Hours
-
 	Monday through Friday
 	8a.m. to 7 p.m., closed 1-2 p.m. for lunch
-
 	Saturday
 	9 a.m. -5:30 p.m., closed 1-1:30 p.m. for lunch
-
 	Sunday 10 a.m. -5:30 p.m., closed 1-1:30 p.m. for lunch
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -70,6 +60,7 @@
 	};
 
 	function createSidebar(json_array){
+
 	  _.each(json_array, function(json){
 	    var $li = $( createSidebarLi(json) );
 	    $li.appendTo('#sidebar_container');
@@ -79,14 +70,23 @@
 
 	function draw(clinicType){
 		handler = Gmaps.build('Google');
-
-		if (clinicType = "urgent"){
+		if (clinicType == "urgent"){
 			var json_array = [
 		    { 	lat: 42.3692639, 
 		    	lng: -71.249348, 
 		    	name: 'Newton Wellesley Hospital Waltham Urgent Care Center',
 		    	infowindow: "<h4>Newton Wellesley Hospital<br /> Waltham Urgent Care Center</h4><strong> Location: </strong> <br />Located in the Children Hospital Building <br /> 9 Hope Ave. <br /> Waltham, Mass. 02453 <br /> <strong>Contact: </strong><br />(617) 243-5981 <br /> <strong>Walk-In Hours: </strong><br /><i>Monday through Saturday </i><br /> 9 a.m. to 7 p.m. <br /> <i>Sunday </i><br /> 9 a.m. to 2 p.m. <br /> <strong> Note: </strong> <br />Bring your insurance information. <br />" },
-		    { lat: 42.375749, lng: -71.252918, name: 'American Family Care', infowindow: "<h4>AFC(American Family Care)</h4><strong> Location: </strong> <br />1030 Main Street <br /> Waltham, MA 02451 <br /> <strong>Contact: </strong><br />(781) 894-6900 <br /> <strong>Walk-In Hours: </strong><br /><i>Daily </i><br /> 8 a.m. to  8 p.m.<br /> <strong> Note: </strong> <br />Bring your insurance information. <br />" }
+		    { 	lat: 42.375749, 
+		    	lng: -71.252918, 
+		    	name: 'American Family Care', 
+		    	infowindow: "<h4>AFC(American Family Care)</h4><strong> Location: </strong> <br />1030 Main Street <br /> Waltham, MA 02451 <br /> <strong>Contact: </strong><br />(781) 894-6900 <br /> <strong>Walk-In Hours: </strong><br /><i>Daily </i><br /> 8 a.m. to  8 p.m.<br /> <strong> Note: </strong> <br />Bring your insurance information. <br />" }
+		  	];
+		} else if (clinicType == "non-urgent"){
+			var json_array = [
+		    { 	lat: 42.31809, 
+		    	lng: -71.2112, 
+		    	name: 'CVS (Newton)',
+		    	infowindow: "<h4>CVS (Newton)</h4><strong>Location: </strong> <br />978 Boylston St <br /> Newton, MA <br /> <strong>Contact: </strong><br />1-866-389-2727 <br /> <strong>Hours: </strong><br /><i>Monday through Friday </i><br/>8a.m. to 7 p.m., closed 1-2 p.m. for lunch<br/><i>Saturday</i><br/>9 a.m. -5:30 p.m. (closed 1-1:30 p.m.) <i>Sunday </i> <br />10 a.m. -5:30 p.m.(closed 1-1:30 p.m.)<br /> <strong> Note: </strong> <br />Bring your insurance information. <br />" }
 		  ];
 		}
 
@@ -98,39 +98,41 @@
 		    json.marker = markers[index];
 		  });
 
+		  
 		  createSidebar(json_array);
 		  handler.bounds.extendWith(markers);
 		  handler.fitMapToBounds();
 		});
 	}
-	draw("urgent");
-</script>
+	
+	// var urgent_markers = draw("urgent");
+	// var non-urgent_markers = draw("non-urgent");
 
-<script>
+  	function switchContent(evt, typeName) {
+  		// document.getElementByClass('#sidebar_container').empty();
 
+	    // Declare all variables
+	    var i, tabcontent2, tablinks2;
 
-  function switchContent(evt, typeName) {
-    // Declare all variables
-    var i, tabcontent2, tablinks2;
+	    // Get all elements with class="tabcontent2" and hide them
+	    tabcontent2 = document.getElementsByClassName("tabcontent2");
+	    for (i = 0; i < tabcontent2.length; i++) {
+	        tabcontent2[i].style.display = "none";
+	    }
 
-    // Get all elements with class="tabcontent2" and hide them
-    tabcontent2 = document.getElementsByClassName("tabcontent2");
-    for (i = 0; i < tabcontent2.length; i++) {
-        tabcontent2[i].style.display = "none";
-    }
+	    // Get all elements with class="tablinks2" and remove the class "active"
+	    tablinks2 = document.getElementsByClassName("tablinks2");
+	    for (i = 0; i < tablinks2.length; i++) {
+	        tablinks2[i].className = tablinks2[i].className.replace(" active", "");
+	    }
 
-    // Get all elements with class="tablinks2" and remove the class "active"
-    tablinks2 = document.getElementsByClassName("tablinks2");
-    for (i = 0; i < tablinks2.length; i++) {
-        tablinks2[i].className = tablinks2[i].className.replace(" active", "");
-    }
+	    // Show the current tab, and add an "active" class to the button that opened the tab
+	    document.getElementById(typeName).style.display = "block";
+	    evt.currentTarget.className += " active";
+	    draw(typeName);
 
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(typeName).style.display = "block";
-    evt.currentTarget.className += " active";
-    
-  }
-  document.getElementById("defaultOpen").click();
+	}
+  	document.getElementById("defaultOpen").click();
 </script>
 
 <style>
