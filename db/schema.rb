@@ -10,15 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# <<<<<<< HEAD
-# ActiveRecord::Schema.define(version: 20171111202136) do
-# =======
 ActiveRecord::Schema.define(version: 20171116210948) do
 
   create_table "body_part_symptom_diseases", force: :cascade do |t|
     t.integer "body_part_id"
     t.integer "symptom_id"
     t.integer "disease_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "body_part_symptoms", force: :cascade do |t|
+    t.integer "body_part_id"
+    t.integer "symptom_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -127,11 +131,6 @@ ActiveRecord::Schema.define(version: 20171116210948) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "email"
-
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.integer "user_id"
     t.string "picture"
   end
