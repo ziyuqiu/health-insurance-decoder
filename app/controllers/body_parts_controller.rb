@@ -11,9 +11,19 @@ class BodyPartsController < ApplicationController
     @body_parts = BodyPart.all
   end
 
-  def do_display_symptoms
+  def load_symptoms
+    @body_part = BodyPart.find(params[:bp_id])
+    @symptoms = @body_part.symptoms
     respond_to do |format|
-      format.js {}
+      format.js
+    end
+  end
+
+  def load_ailments
+    @symptom = Symptom.find(params[:symptom_id])
+    @ailments = @symptom.diseases
+    respond_to do |format|
+      format.js
     end
   end
 

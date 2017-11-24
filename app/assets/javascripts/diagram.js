@@ -1,5 +1,3 @@
-console.log("Hello, body diagram.");
-
 var addHighlight = function($button) {
     $button.addClass('btn_active').removeClass('btn_muted');    
 }
@@ -23,6 +21,7 @@ var initBodyImageSwitches = function() {
 }
 
 $(document).ready(function(){
+    console.log("Hello, body diagram.");    
     
     initBodyImageSwitches();
 
