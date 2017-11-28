@@ -43,13 +43,10 @@ class VisitsController < ApplicationController
     puts visit_params
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+        format.html { redirect_to logs_path }
         format.json { render :show, status: :created, location: @visit }
         @visit.update(:vtype =>params[:vtype])
-        @treated.update(:visit_id => @visit.id)
-
-
-        
+        @treated.update(:visit_id => @visit.id)        
       else
         format.html { render :new }
         format.json { render json: @visit.errors, status: :unprocessable_entity }
