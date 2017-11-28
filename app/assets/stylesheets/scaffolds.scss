@@ -20,15 +20,15 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #337ab7;
 
   &:visited {
-    color: #666;
+      color: #337ab7;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+      color: #78a8d0;
+      text-decoration: none;
   }
 }
 

@@ -3,7 +3,7 @@
 <ul class="nav nav-pills nav-stacked">
   <li><a class="tablinks" onclick="showTabContent(event, 'emer_lvl')">Emergency Level</a></li>
   <li><a class="tablinks" onclick="showTabContent(event, 'pain_lvl')">Pain Chart</a></li>
-  <li><a class="tablinks" onclick="showTabContent(event, 'clinic_lst')">List of Nearby Clinics</a></li>
+  <li><a class="tablinks" onclick="showTabContent(event, 'clinic_lst')" id="defaultOpen">List of Nearby Clinics</a></li>
   <li><a class="tablinks" onclick="showTabContent(event, 'group_lst')">List of Student Groups</a></li>
   <li><a class="tablinks" onclick="showTabContent(event, 'events')">Events</a></li>
 
@@ -29,35 +29,12 @@
     <%= render file: "./static_pages/events" %>
   </div>
 </div>
-
-
+<%= javascript_include_tag 'resources' %>
 <script>
-	$(document).ready(
-		function () {
-	    	$("#contents").hide();
-		}
-	);
-  function showTabContent(evt, typeName) {
-
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+  $(document).ready(
+    function () {
+        $("#contents").hide();
+      document.getElementById("defaultOpen").click();
     }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(typeName).style.display = "block";
-    evt.currentTarget.className += " active";
-    $("#contents").show();
-  }
-  // document.getElementById("defaultOpen").click();
+  );
 </script>

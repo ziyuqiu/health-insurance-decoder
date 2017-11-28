@@ -1,4 +1,43 @@
 #body-image {
-    float:left;
+    float: left;
+    height: 333px;
+    width: 116px;
+}
+
+#diagram_results {
+    visibility: visible;
+}
+
+#body-image-switches {
+    display: block;
+    clear: both;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    width: 116px;
+}
+
+.btn_base {
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.btn_active {
+    background-color: #337ab7;
+}
+
+.btn_muted {
+    background-color: #78a8d0;
+    cursor: pointer;      
+}
+
+.malebg {
+    background-image: url("male.png");    
+}
+
+.femalebg {
+    background-image: url("female.png");    
 }
 

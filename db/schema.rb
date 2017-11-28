@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20171116210948) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "body_part_symptoms", force: :cascade do |t|
+    t.integer "body_part_id"
+    t.integer "symptom_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "body_parts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
