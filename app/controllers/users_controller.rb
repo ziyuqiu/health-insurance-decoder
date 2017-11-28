@@ -31,8 +31,9 @@ class UsersController < ApplicationController
      @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        puts "inifffffff"
-        @user.plans << Plan.find_by(name:"Brandeis Insurance Plan")
+        unless Plan.find_by(name:"Brandeis Insurance Plan").nil?
+            @user.plans << Plan.find_by(name:"Brandeis Insurance Plan")
+        end
         log_in @user
         flash[:success] = "Welcome! User was successfully created."
         format.html { redirect_to @user }
