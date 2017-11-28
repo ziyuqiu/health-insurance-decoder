@@ -29,19 +29,24 @@ class VisitsController < ApplicationController
     @visit = Visit.new(visit_params)
     @logs = Log.all
     @results = @logs.where(:user_id => current_user.id)
-    @treated = @results.where(:symptom_id => params[:symptom_id])
+    @treated = @results.where(:symptom_id => params[:symptom_id], :visit_id =>-1)
+    
+    puts "-------------------------------------------------------------"
+    puts "Params:"
     puts params
+    puts "params[:symptom_id]:"
     puts params[:symptom_id]
+    puts "treated:"
     puts @treated
+    puts "-------------------------------------------------------------"
 
     puts visit_params
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+        format.html { redirect_to logs_path }
         format.json { render :show, status: :created, location: @visit }
         @visit.update(:vtype =>params[:vtype])
-        @treated.update(:visit_id => @visit.id)
-        
+        @treated.update(:visit_id => @visit.id)        
       else
         format.html { render :new }
         format.json { render json: @visit.errors, status: :unprocessable_entity }
@@ -68,7 +73,7 @@ class VisitsController < ApplicationController
   def destroy
     @visit.destroy
     respond_to do |format|
-      format.html { redirect_to visits_url, notice: 'Visit was successfully destroyed.' }
+      format.html { redirect_to logs_path}
       format.json { head :no_content }
     end
   end

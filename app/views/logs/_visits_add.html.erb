@@ -19,7 +19,7 @@
 		<option value= "Time">Time</option>
 	</select>
 	<span style="margin-left: 100px">
-		<select class="selectpicker" data-width="fit" multiple title="Symptoms treated" id="visit_symp" name="symptom_id">
+		<select multiple class="selectpicker" data-width="fit"  title="Symptoms treated" id="visit_symp" name="symptom_id" data-actions-box="true">
 			<% @results.distinct(:symptom_id).pluck(:symptom_id).each do |id| %>
 			  <option value= <%= id %>> <%= Symptom.find(id).name.capitalize %></option>
 			<% end %>
