@@ -45,6 +45,6 @@ class VisitsControllerTest < ActionDispatch::IntegrationTest
       delete visit_url(@visit)
     end
 
-    assert_redirected_to visits_url
+    assert_redirected_to logs_url
   end
 end
