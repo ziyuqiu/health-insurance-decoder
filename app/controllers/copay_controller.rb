@@ -14,6 +14,6 @@ class CopayController < ApplicationController
 
     private
     def copay_params
-        params.require(:copay).permit(:plan_id, :treatment_id, :in_network, :out_network, :copay_or_coinsurance)
+        params.require(:copay).permit(:plan_id, :treatment_id, :in_network, :out_network, :copay_or_coinsurance_in, :copay_or_coinsurance_out, :note)
     end
 end

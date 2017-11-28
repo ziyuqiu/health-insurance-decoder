@@ -1,7 +1,6 @@
 happy:
   name: Happy HealthCare
   category: FooBar
-  coinsurance: 0.9
   deductible: 0.5
   out_of_pocket_max: 2000
   outpatient_copay: 0.0
@@ -9,6 +8,5 @@ happy:
 
 test:
   name: Test Plan
-  coinsurance: 0.9
   outpatient_copay: 0.0
   inpatient_copay: 0.0
