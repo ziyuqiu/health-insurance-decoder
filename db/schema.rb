@@ -57,7 +57,9 @@ ActiveRecord::Schema.define(version: 20171116210948) do
     t.float "out_network"
     t.integer "plan_id"
     t.integer "treatment_id"
-    t.boolean "copay_or_coinsurance"
+    t.boolean "copay_or_coinsurance_in"
+    t.boolean "copay_or_coinsurance_out"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

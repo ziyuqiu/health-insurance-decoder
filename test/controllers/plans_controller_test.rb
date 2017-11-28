@@ -6,12 +6,11 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
     @company = companies(:dunkin)
     @bestest_care_plan = @company.plans.build(
       name: "Bestest Health Care :)",
-      coinsurance: 0.9,
       outpatient_copay: 0.0,
-      inpatient_copay: 0.0    
+      inpatient_copay: 0.0
     )
   end
-  
+
   test "should be valid first" do
     assert @plan.valid?
   end
@@ -19,13 +18,13 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
   test "should be valid second" do
     assert @bestest_care_plan.valid?
   end
-  
-=begin  
+
+=begin
   test "should get index" do
     get plans_url
     assert_response :success
   end
-  
+
   test "should get new" do
     get new_plan_url
     assert_response :success
@@ -38,7 +37,7 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to plan_url(Plan.last)
   end
-  
+
   test "should show plan" do
     get plan_url(@plan)
     assert_response :success

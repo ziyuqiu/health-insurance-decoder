@@ -3,9 +3,11 @@
 one:
   in_network: 1.5
   out_network: 1.5
-  copay_or_coinsurance: false
+  copay_or_coinsurance_in: false
+  copay_or_coinsurance_out: false
 
 two:
   in_network: 1.5
   out_network: 1.5
-  copay_or_coinsurance: false
+  copay_or_coinsurance_in: false
+  copay_or_coinsurance_out: false
