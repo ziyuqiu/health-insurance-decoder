@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get    '/map',          to: 'static_pages#map'
   get    '/emergency',    to: 'static_pages#emergency'
   get    '/resources',    to: 'static_pages#resources'
-  
+
   get    '/body-diagram/',       to: 'body_parts#diagram'
   get    '/body-parts',          to: 'body_parts#index'
   get    '/symptoms',            to: 'symptoms#index'
@@ -35,4 +35,13 @@ Rails.application.routes.draw do
 
   get    'calculate', to: 'plans#showcalc'
   post   'calculate', to: 'plans#calculate'
+#google login
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  #get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  #resources :sessions, only: [:create, :destroy]
+  resource :home, only: [:show, :index]
+
+  #root to: "home#show"
 end

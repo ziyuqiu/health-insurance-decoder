@@ -38,6 +38,8 @@ gem 'webpush'
 gem 'pushpad'
 gem 'gmaps4rails'
 
+#google login API
+gem "omniauth-google-oauth2", "~> 0.2.1"
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

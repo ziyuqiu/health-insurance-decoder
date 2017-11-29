@@ -29,4 +29,16 @@ class User < ApplicationRecord
       errors.add(:picture, "should be less than 5MB")
     end
   end
+
+  def self.from_omniauth(auth)
+    puts "user model from omniauth"
+    where(provider: auth.provider, user_id: auth.user_id).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.user_id = auth.user_id
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
+  end
 end

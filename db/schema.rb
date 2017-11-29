@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116210948) do
+ActiveRecord::Schema.define(version: 20171127175637) do
 
   create_table "body_part_symptom_diseases", force: :cascade do |t|
     t.integer "body_part_id"
@@ -133,6 +133,9 @@ ActiveRecord::Schema.define(version: 20171116210948) do
     t.string "email"
     t.integer "user_id"
     t.string "picture"
+    t.string "provider"
+    t.string "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
   create_table "visits", force: :cascade do |t|
