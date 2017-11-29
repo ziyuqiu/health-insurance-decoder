@@ -13,17 +13,17 @@
 	<br />
 
         <div id="welcome-buttons">
-          <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-success btn-block" %>
+          <%= button_to "Log out", logout_path, method: :delete, class: " mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
 
       <% else %>
         <div class="alert alert-danger">
 	  Please <strong>sign in </strong>to view more.
 	</div>
 	<div id="welcome-buttons">
-	  <%= link_to "Sign in", login_path, class: "btn btn-primary btn-block" %>
+	  <%= button_to "Sign in", login_path, :method => "get", class: " mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
 	  <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
       <% end %>
-      <%= link_to "Quick Diagnosis", body_diagram_path, class: "btn btn-danger btn-block" %>
+      <%= button_to "Quick Diagnosis", body_diagram_path, :method => "get", class: " mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
     </div>
   </div>
 </div>
