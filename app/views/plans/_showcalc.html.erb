@@ -1,1 +1,4 @@
-<strong id="out-pocket-pay">Out Of Pocket Pay: <%=session[:answer]%></strong>
+<p><strong id="out-pocket-pay">Out Of Pocket Pay:</strong><%=session[:answer]%></p>
+<%if !session[:note].nil?%>
+    <p><strong id="notes">Note: </strong><%=session[:note]%></p>
+<%end%>

@@ -66,6 +66,7 @@ class PlansController < ApplicationController
       copay=@plan.copays.find_by(treatment_id:params.fetch("treatment").fetch("name"))
       @patient_pay=@plan.calculate(params[:price].to_f,params[:deductible].to_f,params[:network],copay)
       session[:answer] = @patient_pay
+      session[:note]=copay.note
       respond_to do |format|
           format.js
       end

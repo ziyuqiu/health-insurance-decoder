@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20171116210948) do
     t.integer "treatment_id"
     t.boolean "copay_or_coinsurance_in"
     t.boolean "copay_or_coinsurance_out"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -94,6 +95,7 @@ ActiveRecord::Schema.define(version: 20171116210948) do
     t.string "name"
     t.string "category"
     t.integer "company_id"
+    t.float "coinsurance"
     t.float "deductible"
     t.float "out_of_pocket_max"
     t.float "inpatient_copay"

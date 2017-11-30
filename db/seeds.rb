@@ -125,31 +125,31 @@ after meeting your deductible and copay")
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"tier_1", name:"Generic Prescriptions")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:10.0, out_network:1.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:10.0, out_network:1.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false, note:"Not covered out of network")
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
-    treatment=Treatment.new(resource_category:"tier_2", name:"Tier 2 Prescriptions")
+    treatment=Treatment.new(resource_category:"tier_2", name:"Brand Prescriptions")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:25.0, out_network:1.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:25.0, out_network:1.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false, note:"Not covered out of network")
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
-    treatment=Treatment.new(resource_category:"tier_3", name:"Tier 3 Prescriptions")
+    treatment=Treatment.new(resource_category:"tier_3", name:"Specialty Brand Prescriptions")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:45.0, out_network:1.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:45.0, out_network:1.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false, note:"Not covered out of network")
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"dental", name:"Dental Treatment for Injury to Natural Teeth")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:1.0, out_network:1.0, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false)
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:1.0, out_network:1.0, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false, note:"Not covered")
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
     treatment=Treatment.new(resource_category:"eye", name:"Eye Examination")
     treatment.save
-    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:0.0, out_network:0.2, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false)
+    copay=Copay.new(plan_id:brandeis[:id],treatment_id:treatment[:id], in_network:0.0, out_network:0.2, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false, note:"One covered every two years")
     copay.save
     brandeis.copays << copay
     treatment.copays << copay
