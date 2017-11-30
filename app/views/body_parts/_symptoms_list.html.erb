@@ -4,6 +4,11 @@
 
 <ul>
   <% @symptoms.each do |symptom| %>
+  <!--
     <li><%= link_to symptom.name.capitalize, fetch_ailments_path(:symptom_id => symptom.id), :remote => true %></li>
+    -->
+<%= button_to fetch_ailments_path(:symptom_id => symptom.id), :remote => true, class: "mdl-chip" do %>
+  <span class="mdl-chip__text"><%= symptom.name.capitalize %></span>
+<% end %>  
   <% end %>
 </ul>
