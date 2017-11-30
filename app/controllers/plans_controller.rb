@@ -25,7 +25,9 @@ class PlansController < ApplicationController
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
-    @plan.users << current_user
+    unless current_user.nil?
+        @plan.users << current_user
+    end
     respond_to do |format|
       if @plan.save
         format.html { redirect_to @plan, notice: 'Plan was successfully created.' }

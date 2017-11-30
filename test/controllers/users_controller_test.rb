@@ -30,7 +30,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert flash.empty?
     assert_redirected_to root_url
   end
-  
+
   #test "should update user" do
     #patch user_url(@user), params: { user: { contact_id: @user.contact_id, name: @user.name } }
     #assert_redirected_to user_url(@user)
