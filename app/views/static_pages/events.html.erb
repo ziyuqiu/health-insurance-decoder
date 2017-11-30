@@ -1,7 +1,31 @@
+<table class = "table table-striped">
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Event</th>
+			<th>Location</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @events.each do |event| %>
+			<tr>
+				<td><%= raw event[:date] %></td>
+				<td><%= raw event[:time] %></td>
+				<td><a href=”<%= raw event[:link] %>”><strong><%= event[:title] %></strong></a></td>
+				<td><%= raw event[:location] %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
 <% @events.each do |event| %>
-  <h3><%= raw event[:date] %></h3>
+  <!-- <h3><%= raw event[:category] %></h3> -->
   <a href=”<%= raw event[:link] %>”><p><strong><%= event[:title] %></strong></p></a>
-  <strong>Date</strong>
-  <p><%= raw event[:description].split("<br/>").first %></p>
-  <p><%= raw event[:description].split("<br/>",2).last %></p>
+  <p><%= raw event[:weekday] %></p>
+  <p><%= raw event[:date] %></p>
+  <p><%= raw event[:time] %></p>
+  <p><%= raw event[:description] %></p>
+  <p><%= raw event[:location] %></p>
+  <p><%= raw event[:other] %></p>
 <% end %>
