@@ -1,5 +1,7 @@
-<%= @events.each do |event| %>
-  <a href=”<%= event[:link] %>”><p><strong><%= event[:title] %></strong></p></a>
-  <%= raw event[:description] %>
-  </p>
+<% @events.each do |event| %>
+  <h3><%= raw event[:date] %></h3>
+  <a href=”<%= raw event[:link] %>”><p><strong><%= event[:title] %></strong></p></a>
+  <strong>Date</strong>
+  <p><%= raw event[:description].split("<br/>").first %></p>
+  <p><%= raw event[:description].split("<br/>",2).last %></p>
 <% end %>
