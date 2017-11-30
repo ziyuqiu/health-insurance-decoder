@@ -1,22 +1,5 @@
-def news
-  require ‘rss’
-  require ‘open-uri’
-  rss_results = []
-  rss = RSS::Parser.parse(open(‘http://feeds.feedburner.com/CoinDesk?format=xml').read, false).items[0..5]
-  
-  rss.each do |result|
-    result = { title: result.title, date: result.pubDate, link: result.link, description: result.description }
-    rss_results.push(result)
-  end
-    return rss_results
-end
-
-<%= @news.each do |article| %>
-  <div class=”col-md-4 article-padding”>
-  <a href=”<%= article[:link] %>”><p><strong><%= article[:title] %></strong></p></a>
-  <small><p style=”margin-top:-10px”> <%= article[:date].strftime(“Published: %F”) %> | <a href=”<%= article[:link] %>”><em>Source: CoinDesk</em></a></a></p></small>
-  <p>
-  <%= article[:description] %>
+<%= @events.each do |event| %>
+  <a href=”<%= event[:link] %>”><p><strong><%= event[:title] %></strong></p></a>
+  <%= raw event[:description] %>
   </p>
-  </div>
 <% end %>
