@@ -19,7 +19,7 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
     assert @bestest_care_plan.valid?
   end
 
-=begin
+
   test "should get index" do
     get plans_url
     assert_response :success
@@ -32,7 +32,7 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
 
   test "should create plan" do
     assert_difference('Plan.count') do
-      post plans_url, params: { plan: { category: @bestest_care_plan.category, company_id: @bestest_care_plan.company_id, name: @plan.name } }
+      post plans_url, params: { plan: { name: @plan.name } }
     end
 
     assert_redirected_to plan_url(Plan.last)
@@ -65,5 +65,4 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
     get calculate_path
     assert_response :success
   end
-=end
 end
