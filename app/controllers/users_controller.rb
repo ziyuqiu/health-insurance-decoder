@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: :destroy
+  #before_action :admin_user,     only: :destroy
   # GET /users
   # GET /users.json
   def index
@@ -61,9 +61,10 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     # @user.destroy
-
-    User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    if (User.find(params[:id])==current_user)
+        User.find(params[:id]).destroy
+        flash[:success] = "User deleted"
+    end
     redirect_to users_url
 
   end
@@ -96,8 +97,8 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user?(@user)
     end
 
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
-    end
+    #def admin_user
+    #  redirect_to(root_url) unless current_user(@user)#.admin?
+    #end
 
 end
