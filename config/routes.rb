@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   post   '/users/:id',    to: 'users#update'
   get    '/map',          to: 'static_pages#map'
   get    '/resources',    to: 'static_pages#resources'
-  
+
   get    '/body-diagram/',       to: 'body_parts#diagram'
   get    '/body-parts',          to: 'body_parts#index'
   get    '/symptoms',            to: 'symptoms#index'
@@ -33,4 +33,6 @@ Rails.application.routes.draw do
 
   get    'calculate', to: 'plans#showcalc'
   post   'calculate', to: 'plans#calculate'
+
+  get    'print', to: 'logs#print'
 end
