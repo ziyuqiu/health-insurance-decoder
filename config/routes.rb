@@ -28,9 +28,14 @@ Rails.application.routes.draw do
   get    '/body-parts',          to: 'body_parts#index'
   get    '/symptoms',            to: 'symptoms#index'
   get    '/diseases',            to: 'diseases#index'
-  post    '/fetch_symptoms',      to: 'body_parts#load_symptoms', as: 'fetch_symptoms'
-  post    '/fetch_ailments',      to: 'body_parts#load_ailments', as: 'fetch_ailments'
-  post    '/fetch_treatment',     to: 'body_parts#load_treatment', as: 'fetch_treatment'
+
+  #post   '/fetch/:what',         to: 'body_parts#load'
+  
+  post    '/fetch_diagram',       to: 'body_parts#load_diagram'
+  post    '/fetch_symptoms',      to: 'body_parts#load_symptoms'
+  post    '/fetch_ailments',      to: 'body_parts#load_ailments'
+  post    '/fetch_treatment',     to: 'body_parts#load_treatment'
+
 
   get    'calculate', to: 'plans#showcalc'
   post   'calculate', to: 'plans#calculate'
