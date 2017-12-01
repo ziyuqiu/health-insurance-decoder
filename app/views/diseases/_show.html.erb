@@ -1,0 +1,13 @@
+<h1><%= @disease.name.capitalize %></h1>
+<p>Here are some resources to treat this ailment:</p>
+<p>*** To do after creation of treatment model ***</p>
+<%= button_to body_diagram_path, :remote => true, class: "mdl-chip" do %>
+  <span class="mdl-chip__text">Back</span>
+<% end %>
+  
+<span class="mdl-chip mdl-chip--deletable">
+  <span class="mdl-chip__text">Clear</span>
+  <%= button_to body_diagram_path, :remote => true, class: "mdl-chip__action" do %>
+    <i class="material-icons">cancel</i>
+  <% end %>
+</span>

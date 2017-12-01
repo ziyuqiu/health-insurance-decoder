@@ -1,10 +1,14 @@
 <div class="row">
-  <center><h1>Self Diagnosis Tool</h1></center>
-  <hr />
+  <center>
+    <h1>Self Diagnosis Tool</h1>
+    <p><strong>This diagnosis tool is for non-emergency services only.</strong>  In the event of an emergency call 911 or campus public safety at 1-781-736-3333</p>
+  </center>
+</div>
+
+<div class="row">
   <div class="col-md-4 body-diagram-block">
     <h2>Body Diagram</h2>
     <p>Click on a body part to see a list of symptoms.</p>
-
     <div class="row">
       <div class="col-md-6">
 	<div id="body-image"></div>
@@ -20,15 +24,13 @@
       </div>
     </div>
   </div>
-  
   <div class="col-md-4" id="diagram_results_symptoms">
     <%= render partial: 'symptoms_placeholder' %>
   </div>
-
   <div class="col-md-4" id="diagram_results_ailments">
     <%= render partial: 'ailments_placeholder' %>
   </div>
 </div>
-<hr />
-<center><p><strong>This diagnosis tool is for non-emergency services only.</strong>  In the event of an emergency call 911 or campus public safety at 1-781-736-3333</p></center>
-
+<div class="row" id="diagram_results_treatment">
+  <%= render partial: 'treatment_placeholder' %>
+</div>

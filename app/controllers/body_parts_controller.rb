@@ -12,6 +12,7 @@ class BodyPartsController < ApplicationController
   end
 
   def load_symptoms
+    @bp_id = params[:bp_id]
     @body_part = BodyPart.find(params[:bp_id])
     @symptoms = @body_part.symptoms
     respond_to do |format|
@@ -22,6 +23,20 @@ class BodyPartsController < ApplicationController
   def load_ailments
     @symptom = Symptom.find(params[:symptom_id])
     @ailments = @symptom.diseases
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def load_result
+    @disease = Disease.find(params[:disease_id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def load_treatment
+    @disease = Disease.find(params[:disease_id])
     respond_to do |format|
       format.js
     end

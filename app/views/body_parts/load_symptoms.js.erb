@@ -1,1 +1,2 @@
-$("#diagram_results_symptoms").html("<%= escape_javascript(render partial: 'symptoms_list', locals: { symptoms: @symptoms } ) %>");
+$("#diagram_results_symptoms").html("<%= escape_javascript(render partial: 'symptoms_list') %>");
+$("#diagram_results_ailments").html("<%= escape_javascript(render partial: 'ailments_placeholder') %>");

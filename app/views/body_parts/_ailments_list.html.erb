@@ -1,9 +1,3 @@
 <h1><%= @symptom.name.capitalize %></h1>
-
 <p>What is the closest to your symptom?</p>
-
-<ul>
-  <% @ailments.each do |ailment| %>
-    <li><%= link_to ailment.name.capitalize, ailment %></li>
-  <% end %>
-</ul>
+<%= render @ailments %>

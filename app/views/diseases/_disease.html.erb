@@ -1,0 +1,3 @@
+<%= button_to fetch_treatment_path(:disease_id => disease.id), :remote => true, class: "mdl-chip" do %>
+  <span class="mdl-chip__text"><%= disease.name.capitalize %></span>
+<% end %>
