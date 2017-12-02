@@ -75,9 +75,15 @@
   });
 
   $('#event .mdl-card__title-text').html("Upcoming Events")
+  $('#event').on('click', function(){
+     window.location = "/resources";
+  });
 
   $('#log .mdl-card__title-text').html("Symptom Logs")
   $('#log .mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect').html("View Logs")
+  $('#log').on('click', function(){
+     window.location = "/logs";
+  });
 
 </script>
 <style>
