@@ -18,7 +18,8 @@
 			</tr>
 			<tr class="description-panel" id = <%= raw event[:link] %> >
 				<td colspan="5">
-					<p><%= raw event[:description] %></p>
+					<p><strong>Description:</strong><br/><%= raw event[:description] %></p>
+					<p><%= raw event[:other] %></p>
 				</td>
 			</tr>
 
@@ -42,9 +43,6 @@
 	for (i = 0; i < panels.length; i++) {
 	    panels[i].style.display = "none";
 	}
-	console.log();
-	 // $(".description-panel").hide();
-
 	function showDescription(evt, eventName) {
 		var des = document.getElementById(eventName);
 		if (des.style.display =="none"){
@@ -54,8 +52,6 @@
 		} else {
 			des.style.display = "none";
 			document.getElementById(eventName+'switch').innerHTML = "Show Details";
-
 		}
-
 	}
 </script>
