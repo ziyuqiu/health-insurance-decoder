@@ -3,22 +3,23 @@
  <!-- Logs sidebar with search -->
     <div class="col-sm-4 sidenav">
       <div style="background-color: #fffae6">
-        
-        
+
+
         <!-- Logs display table -->
         <h3>Log History</h3>
         <div class="log_table">
           <%= render "log_search_bar" %>
           <%= render "log_table" %>
           <button class="btn btn-outline-info" onclick="newEntry(event, 'newLog')" id="defaultOpen"><Strong>New Log</Strong></button>
-        </div>  
+          <%=link_to "<button class='btn btn-outline-info'><Strong>Print</Strong></button>".html_safe, print_path%>
+        </div>
       </div>
 
       <div class = "visits" style="background-color: #e6fff2">
         <h3> Visits </h3>
         <%= render "visit_table" %>
         <button class="btn btn-outline-info" onclick="newEntry(event, 'newVisit')"><Strong> New Visit </Strong></button>
-        
+
       </div>
     </div>
     <!-- /logs sidebar -->
@@ -34,7 +35,7 @@
       </div>
 
       <div id="newVisit" class="tabcontent">
-        <%= render "visits_add" %> 
+        <%= render "visits_add" %>
       </div>
       </br>
       <div class = "col-sm-12">
@@ -87,7 +88,7 @@
   /* Create an active/current tablink class */
   div.tab button.active {
       color: white;
-      
+
       background-color: #548abe;
   }
 
