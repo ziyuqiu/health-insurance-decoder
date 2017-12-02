@@ -16,12 +16,13 @@
       <%= button_to "Quick Diagnosis", body_diagram_path, :method => "get", class: " mdl-button mdl-js-button mdl-button--accent" %>
     </div>
 </div>
+<div class="chart-container" style="position: relative; height:20vh; width:40vw">
+    <%= render 'layouts/chart' %>
+    <%= render 'layouts/chart2' %>
+</div>
+
 <div class="col-lg-9" id="card-container">
-  <!-- <div class="chart-container" style="position: relative; height:20vh; width:40vw">
-      <%= render 'layouts/chart' %>
-      <%= render 'layouts/chart2' %>
-  </div> -->
-  
+
   <div class="row">
     <!-- Emergency -->
     <div class="col-md-3" id="emergency">
