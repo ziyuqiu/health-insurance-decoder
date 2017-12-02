@@ -3,7 +3,7 @@
   <!-- <header class="mdl-layout__header"> -->
     <div class="mdl-layout__header-row">
     <!-- <title>Health Decoder</title> -->
-      <span class="mdl-layout-title"><a href="/">Health Decoder</a></span>
+      <span class="mdl-layout-title">Health Decoder</span>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         <a class="mdl-navigation__link" href="/">Home</a>
         <a class="mdl-navigation__link" href="/users">Users</a>
@@ -50,3 +50,9 @@
       </nav>
     </div>
 </div>
+
+<script>
+  $('.mdl-layout-title').on('click', function(){
+     window.location = "/";
+  });
+</script>
