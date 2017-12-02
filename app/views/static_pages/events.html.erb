@@ -12,7 +12,7 @@
 			<tr>
 				<td><%= raw event[:date] %></td>
 				<td><%= raw event[:time] %></td>
-				<td><a href=”<%= raw event[:link] %>”><strong><%= event[:title] %></strong></a></td>
+				<td><a href=<%= raw event[:link] %>><strong><%= event[:title] %></strong></a></td>
 				<td><%= raw event[:location] %></td>
 				<td><a class="description-switch" onclick="showDescription(event, '<%= raw event[:link] %>')" id = <%= raw event[:link]+'switch' %>> Show Details <span class="glyphicon glyphicon-chevron-down"></span></a></td>
 			</tr>
@@ -26,17 +26,6 @@
 		<% end %>
 	</tbody>
 </table>
-
-<% @events.each do |event| %>
-  <!-- <h3><%= raw event[:category] %></h3> -->
-  <a href=”<%= raw event[:link] %>”><p><strong><%= event[:title] %></strong></p></a>
-  <p><%= raw event[:weekday] %></p>
-  <p><%= raw event[:date] %></p>
-  <p><%= raw event[:time] %></p>
-  <p><%= raw event[:description] %></p>
-  <p><%= raw event[:location] %></p>
-  <p><%= raw event[:other] %></p>
-<% end %>
 
 <script>
 	var panels = document.getElementsByClassName("description-panel")
