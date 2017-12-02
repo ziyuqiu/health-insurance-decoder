@@ -14,7 +14,7 @@
 				<td><%= raw event[:time] %></td>
 				<td><a href=”<%= raw event[:link] %>”><strong><%= event[:title] %></strong></a></td>
 				<td><%= raw event[:location] %></td>
-				<td><a class="description-switch" onclick="showDescription(event, '<%= raw event[:link] %>')" id = <%= raw event[:link]+'switch' %>> Show Details </a></td>
+				<td><a class="description-switch" onclick="showDescription(event, '<%= raw event[:link] %>')" id = <%= raw event[:link]+'switch' %>> Show Details <span class="glyphicon glyphicon-chevron-down"></span></a></td>
 			</tr>
 			<tr class="description-panel" id = <%= raw event[:link] %> >
 				<td colspan="5">
@@ -48,10 +48,10 @@
 		if (des.style.display =="none"){
 			des.colSpan = "5";
 			des.style.display="table-row";
-			document.getElementById(eventName+'switch').innerHTML = "Hide Details";
+			document.getElementById(eventName+'switch').innerHTML = "Hide Details<span class='glyphicon glyphicon-chevron-up'></span>";
 		} else {
 			des.style.display = "none";
-			document.getElementById(eventName+'switch').innerHTML = "Show Details";
+			document.getElementById(eventName+'switch').innerHTML = "Show Details<span class='glyphicon glyphicon-chevron-down'></span>";
 		}
 	}
 </script>
