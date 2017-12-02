@@ -22,8 +22,21 @@
     <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
   <% end %>
 </div>
-<div class="col-lg-9"> 
-  <div class="row" id="card-container">
+
+<div class="col-lg-9" id="card-container">
+
+  <div class="row">
+    <div class="chart-container" style="position: relative; height:40vh; width:40vw">
+        <div class="col-md-6">
+          <%= render 'layouts/chart' %>
+        </div>
+        <div class="col-md-6">
+          <%= render 'layouts/chart2' %>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
     <!-- Quick Diagnosis -->
       <div class="col-md-4" id="diagnosis">
         <%=render "home/card"%>

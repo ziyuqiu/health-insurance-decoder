@@ -9,12 +9,12 @@ var symptoms = [];
 var lineChartData = {}; //declare an object
 lineChartData.datasets = []; //add 'datasets' array element to object
 <% Log.all.each do |log| %>
-  console.log("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
+  //console.log("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
   dates.push("<%= escape_javascript(log.created_at.strftime("%m-%d")) %>");
   symptoms.push("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
 <%end%>
-console.log(dates);
-console.log(symptoms);
+//console.log(dates);
+//console.log(symptoms);
 lineChartData.labels = dates; //add 'labels' element to object (X axis)
 //var myChart2 = new Chart(ctx).Line(lineChartData);
 

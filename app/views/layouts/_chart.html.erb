@@ -2,24 +2,33 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script>
 var ctx = document.getElementById("myChart").getContext('2d');
-var datas = [1, 5, 3, 5, 2, 3];
-var times = [];
-var symptoms = [];
-var dataMap = new Map();
+var datas = [2, 1, 1, 2, 3, 1];
+var symptoms = ["sensitive to sound", "sneezing", "nausea", "mild pain", "chills", "vomiting"];
+var dataMap = {};
 <% Log.all.each do |log| %>
-  console.log("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
-  symptoms.push("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
+  var s = "<%= escape_javascript(Symptom.find(log.symptom_id).name) %>";
+  // console.log(s);
+  if (s in dataMap){
+    dataMap[s] = dataMap[s]+1;
+  }
+  else{
+    dataMap[s] = 1;
+    console.log("new:"+s);
+  }
 <%end%>
-  console.log(symptoms);
+  console.log(dataMap);
+  console.log(Object.keys(dataMap));
+  console.log(Object.keys(dataMap).map(function(key){return dataMap[key];}));
 
 var myChart = new Chart(ctx, {
 
     type: 'radar',
     data: {
-        labels: symptoms,
+        labels: Object.keys(dataMap),
         datasets: [{
             label: 'Symptom Chart',
-            data: datas,
+            data : datas,
+            data: Object.keys(dataMap).map(function(key){return dataMap[key];}),
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(54, 162, 235, 1)',
             borderWidth: 1
