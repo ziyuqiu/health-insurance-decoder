@@ -1,24 +1,67 @@
-  <div class="col-lg-12">
-      <% if logged_in? %>
-    	<br />
-    	<br />
-        <div id="welcome-buttons">
-          <%= button_to "Log out", logout_path, method: :delete, class: " mdl-button mdl-js-button mdl-button--primary" %>
-
-      <% else %>
-        <div class="alert alert-danger">
-	  Please <strong>sign in </strong>to view more.
-	</div>
-	<div id="welcome-buttons">
-	  <%= button_to "Sign in", login_path, :method => "get", class: " mdl-button mdl-js-button mdl-button--primary" %>
-	  <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
-      <% end %>
+<br /><br />
+<div class="col-lg-3">
+  <% if logged_in? %>
+	  <br />
+	  <br />
+    <div id="welcome-buttons">
+      <%= button_to "Log out", logout_path, method: :delete, class: " mdl-button mdl-js-button mdl-button--primary" %>
+  <% else %>
+    <div class="alert alert-danger">
+      Please <strong>sign in </strong>to view more.
+     </div>
+     <div id="welcome-buttons">
+      <%= button_to "Sign in", login_path, :method => "get", class: " mdl-button mdl-js-button mdl-button--primary" %>
+      <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
+  <% end %>
       <%= button_to "Quick Diagnosis", body_diagram_path, :method => "get", class: " mdl-button mdl-js-button mdl-button--accent" %>
     </div>
-
 </div>
+<div class="col-lg-9" id="card-container">
+  <!-- <div class="chart-container" style="position: relative; height:20vh; width:40vw">
+      <%= render 'layouts/chart' %>
+      <%= render 'layouts/chart2' %>
+  </div> -->
+  
+  <div class="row">
+    <!-- Emergency -->
+    <div class="col-md-3" id="emergency">
+      <%=render "home/card"%>
+    </div>
+    <!-- Quick Diagnosis -->
+    <div class="col-md-3" id="diagnosis">
+      <%=render "home/card"%>
+    </div>
+    <!-- Upcoming Event -->
+    <div class="col-md-3" id="event">
+      <%=render "home/card"%>
+    </div>
+    <!-- Log -->
+    <div class="col-md-3" id="log">
+      <%=render "home/card"%>
+    </div>
 
-<div class="chart-container" style="position: relative; height:20vh; width:40vw">
-    <%= render 'layouts/chart' %>
-    <%= render 'layouts/chart2' %>
+  </div>
 </div>
+<script>
+  $('#emergency .mdl-card__title-text').html("Emergency")
+  $('#emergency .mdl-card__supporting-text').html("In the event of an emergency call 911 or campus public safety at 1-781-736-3333.")
+
+  $('#diagnosis .mdl-card__title-text').html("Quick Diagnosis")
+  $('#diagnosis .mdl-card__supporting-text').html("Self Diagnosis! <br/> NON EMERGENCY ONLY.")
+  $('#event .mdl-card__title-text').html("Upcoming Events")
+
+  $('#log .mdl-card__title-text').html("Symptom Logs")
+  $('#log .mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect').html("View Logs")
+
+</script>
+<style>
+  .demo-card-square.mdl-card {
+    width: 320px;
+    height: 320px;
+  }
+  .demo-card-square > .mdl-card__title {
+    color: #fff;
+    background:#46B6AC;
+  }
+
+</style>
