@@ -18,6 +18,18 @@ class LogsController < ApplicationController
     @visits = Visit.all
   end
 
+  # def print
+  #     @logs = Log.all
+  #     @log=Log.new
+  #     @symptoms = Symptom.all
+  #     if current_user != nil
+  #       @results = @logs.where(:user_id => current_user.id, :visit_id => -1)
+  #     end
+  #     if !params[:symptom_name].nil?
+  #       @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
+  #     end
+  # end
+
   # GET /logs/1
   # GET /logs/1.json
   def show
