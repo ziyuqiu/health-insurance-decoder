@@ -14,7 +14,14 @@
 				<td><%= raw event[:time] %></td>
 				<td><a href=”<%= raw event[:link] %>”><strong><%= event[:title] %></strong></a></td>
 				<td><%= raw event[:location] %></td>
+				<td><a class="description-switch" onclick="showDescription(event, '<%= raw event[:link] %>')" id = <%= raw event[:link]+'switch' %>> Show Details </a></td>
 			</tr>
+			<tr class="description-panel" id = <%= raw event[:link] %> >
+				<td colspan="5">
+					<p><%= raw event[:description] %></p>
+				</td>
+			</tr>
+
 		<% end %>
 	</tbody>
 </table>
@@ -29,3 +36,26 @@
   <p><%= raw event[:location] %></p>
   <p><%= raw event[:other] %></p>
 <% end %>
+
+<script>
+	var panels = document.getElementsByClassName("description-panel")
+	for (i = 0; i < panels.length; i++) {
+	    panels[i].style.display = "none";
+	}
+	console.log();
+	 // $(".description-panel").hide();
+
+	function showDescription(evt, eventName) {
+		var des = document.getElementById(eventName);
+		if (des.style.display =="none"){
+			des.colSpan = "5";
+			des.style.display="table-row";
+			document.getElementById(eventName+'switch').innerHTML = "Hide Details";
+		} else {
+			des.style.display = "none";
+			document.getElementById(eventName+'switch').innerHTML = "Show Details";
+
+		}
+
+	}
+</script>
