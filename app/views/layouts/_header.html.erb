@@ -10,7 +10,6 @@
       <span class="mdl-layout-title">Health Decoder</span>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         <a class="mdl-navigation__link" href="/">Home</a>
-        <a class="mdl-navigation__link" href="/users">Users</a>
         <a class="mdl-navigation__link" href="/logs">Log</a>
         <a class="mdl-navigation__link" href="/resources">Resources</a>
         <a class="mdl-navigation__link" href="/plans">Plans</a>
@@ -30,7 +29,19 @@
       </div>
       <% if logged_in? %>
 
-        <li class="dropdown">
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">settings</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+              <li class="mdl-menu__item" id="profile">Edit Profile</li>
+              <!-- <li class="mdl-menu__item"><%= link_to "Settings", edit_user_path(current_user) %></li> -->
+              <li class="mdl-menu__item"><%= link_to "Log out", logout_path, method: :delete %></li>
+              <!-- <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li> -->
+            </ul>
+          
+
+        <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">
             Account <b class="caret"></b>
           </a>
@@ -40,7 +51,7 @@
             <li class="divider"></li>
             <li><%= link_to "Log out", logout_path, method: :delete %></li>
           </ul>
-        </li>
+        </li> -->
       <% else %>
         <li><%= link_to login_path do %><span class="glyphicon glyphicon-user"></span> Log In <% end %> </li>
       <% end %>
@@ -60,10 +71,18 @@
     .mdl-navigation__link:hover {
       border-bottom: 4px solid #8bc34a;
     }
+    .mdl-menu__item{
+      font-family: "Roboto","Helvetica","Arial",sans-serif;
+    }
 </style>
 
 <script>
   $('.mdl-layout-title').on('click', function(){
      window.location = "/";
+  });
+
+  $('#profile').on('click', function(){
+    var path = "<%=edit_user_path(current_user)%>";
+     window.location = path;
   });
 </script>
