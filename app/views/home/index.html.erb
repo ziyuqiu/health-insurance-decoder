@@ -17,16 +17,18 @@
     </div>
 </div>
 <div class="col-lg-9" id="card-container">
-  <!-- <div class="chart-container" style="position: relative; height:20vh; width:40vw">
-      <%= render 'layouts/chart' %>
-      <%= render 'layouts/chart2' %>
-  </div> -->
+  <div class="row">
+    <div class="chart-container" style="position: relative; height:40vh; width:40vw">
+        <div class="col-md-6">
+          <%= render 'layouts/chart' %>
+        </div>
+        <div class="col-md-6">
+          <%= render 'layouts/chart2' %>
+        </div>
+    </div>
+  </div>
   
   <div class="row">
-    <!-- Emergency -->
-    <div class="col-md-3" id="emergency">
-      <%=render "home/card"%>
-    </div>
     <!-- Quick Diagnosis -->
     <div class="col-md-3" id="diagnosis">
       <%=render "home/card"%>
@@ -43,8 +45,6 @@
   </div>
 </div>
 <script>
-  $('#emergency .mdl-card__title-text').html("Emergency")
-  $('#emergency .mdl-card__supporting-text').html("In the event of an emergency call 911 or campus public safety at 1-781-736-3333.")
 
   $('#diagnosis .mdl-card__title-text').html("Quick Diagnosis")
   $('#diagnosis .mdl-card__supporting-text').html("Self Diagnosis! <br/> NON EMERGENCY ONLY.")
@@ -56,8 +56,8 @@
 </script>
 <style>
   .demo-card-square.mdl-card {
-    width: 320px;
-    height: 320px;
+    width: 20vw;
+    height: 20vw;
   }
   .demo-card-square > .mdl-card__title {
     color: #fff;
