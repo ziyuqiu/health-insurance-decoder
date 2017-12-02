@@ -1,6 +1,10 @@
 <%= csrf_meta_tags %>
 <!-- <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header", width ="100"> -->
   <!-- <header class="mdl-layout__header"> -->
+
+
+
+
     <div class="mdl-layout__header-row">
     <!-- <title>Health Decoder</title> -->
       <span class="mdl-layout-title">Health Decoder</span>
@@ -25,6 +29,7 @@
         </div>
       </div>
       <% if logged_in? %>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">
             Account <b class="caret"></b>
@@ -50,6 +55,12 @@
       </nav>
     </div>
 </div>
+
+<style>
+    .mdl-navigation__link:hover {
+      border-bottom: 4px solid #8bc34a;
+    }
+</style>
 
 <script>
   $('.mdl-layout-title').on('click', function(){
