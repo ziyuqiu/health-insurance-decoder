@@ -77,7 +77,7 @@ function draw(clinicType){
 // var urgent_markers = draw("urgent");
 // var non-urgent_markers = draw("non-urgent");
 
-	function switchContent(evt, typeName) {
+function switchContent(evt, typeName) {
 
     // Declare all variables
     var i, tabcontent2, tablinks2;
