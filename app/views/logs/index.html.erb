@@ -3,8 +3,6 @@
  <!-- Logs sidebar with search -->
     <div class="col-sm-4 sidenav">
       <div style="background-color: #fffae6">
-
-
         <!-- Logs display table -->
         <h3>Log History</h3>
         <div class="log_table">
@@ -16,7 +14,6 @@
  -->          <button onclick="printData()" class ="btn btn-outline-info" >TEST</button>
         </div>
       </div>
-
       <div class = "visits" style="background-color: #e6fff2">
         <h3> Visits </h3>
         <%= render "visit_table" %>
@@ -31,11 +28,9 @@
         <button class="tablinks" onclick="newEntry(event, 'newLog')" id="defaultOpen"><Strong>New Log</Strong></button>
         <button class="tablinks" onclick="newEntry(event, 'newVisit')"><Strong> New Visit </Strong></button>
       </div>
-
       <div id="newLog" class="tabcontent">
         <%= render "new" %>
       </div>
-
       <div id="newVisit" class="tabcontent">
         <%= render "visits_add" %>
       </div>
