@@ -10,8 +10,10 @@
         <div class="log_table">
           <%= render "log_search_bar" %>
           <%= render "log_table" %>
+          <div  style="display:none"><%= render "printer_friendly_log_table" %> </div>
           <button class="btn btn-outline-info" onclick="newEntry(event, 'newLog')" id="defaultOpen"><Strong>New Log</Strong></button>
-          <%=link_to "<button class='btn btn-outline-info'><Strong>Print</Strong></button>".html_safe, print_path%>
+<!--           <%=link_to "<button class='btn btn-outline-info'><Strong>Print</Strong></button>".html_safe, print_path%>
+ -->          <button onclick="printData()" class ="btn btn-outline-info" >TEST</button>
         </div>
       </div>
 
@@ -58,6 +60,14 @@
   $(document).ready(function(){
     document.getElementById("defaultOpen").click();
   })
+
+  function printData(){
+     var divToPrint=document.getElementById("printTable");
+     newWin= window.open("");
+     newWin.document.write(divToPrint.outerHTML);
+     newWin.print();
+     newWin.close();
+  }
 </script>
 
 
