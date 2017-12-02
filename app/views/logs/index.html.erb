@@ -11,7 +11,13 @@
           <div  style="display:none"><%= render "printer_friendly_log_table" %> </div>
           <button class="btn btn-outline-info" onclick="newEntry(event, 'newLog')" id="defaultOpen"><Strong>New Log</Strong></button>
           <!-- <%=link_to "<button class='btn btn-outline-info'><Strong>Print</Strong></button>".html_safe, print_path%> -->
-          <i class="material-icons" onclick="printData()" >printer</i>
+
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" onclick="printData()">printer</i>
+            <span class="mdl-button__ripple-container" onclick="printData()"><span class="mdl-ripple is-animating" style="width: 92.5097px; height: 92.5097px; transform: translate(-50%, -50%) translate(13px, 17px);"></span></span>
+          </button>
+<!--           <i class="material-icons" onclick="printData()" >printer</i> -->
+          
           <div class="row">
             
           </div>
@@ -84,7 +90,8 @@
       border: none;
       outline: none;
       cursor: pointer;
-      padding: 10px 20%;
+      padding: 10px;
+      width: 32.75vw;
       transition: 0.3s;
   }
 
