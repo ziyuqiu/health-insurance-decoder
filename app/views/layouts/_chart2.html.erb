@@ -1,0 +1,54 @@
+<canvas id="myChart2" width="100" height="100"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+var ctx2 = document.getElementById("myChart2").getContext('2d');
+var datas2 = [12, 19, 3, 5, 2, 3];
+var datas3 = [1, 32, 3, 6, 9, 1];
+var dates = [];
+var symptoms = [];
+var lineChartData = {}; //declare an object
+lineChartData.datasets = []; //add 'datasets' array element to object
+<% Log.all.each do |log| %>
+  console.log("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
+  dates.push("<%= escape_javascript(log.created_at.strftime("%m-%d")) %>");
+  symptoms.push("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
+<%end%>
+console.log(dates);
+console.log(symptoms);
+lineChartData.labels = dates; //add 'labels' element to object (X axis)
+//var myChart2 = new Chart(ctx).Line(lineChartData);
+
+var myChart2 = new Chart(ctx2, {
+
+    type: 'line',
+    data: {
+        labels: dates,
+        datasets: [{
+            label: 'Health Chart',
+            data: datas2,
+            pointHoverBackgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        },
+        {
+            label: 'Health Chart',
+            data: datas3,
+            backgroundColor: 'rgba(255, 159, 64, 0.2)',
+            borderColor: 'rgba(255, 159, 64, 0.2)',
+            borderWidth: 1
+        }]
+
+    },
+    options: {
+        events: ["mousemove"],
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+</script>

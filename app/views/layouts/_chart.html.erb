@@ -1,0 +1,33 @@
+<canvas id="myChart" width="100" height="100"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var datas = [1, 5, 3, 5, 2, 3];
+var times = [];
+var symptoms = [];
+var dataMap = new Map();
+<% Log.all.each do |log| %>
+  console.log("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
+  symptoms.push("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
+<%end%>
+  console.log(symptoms);
+
+var myChart = new Chart(ctx, {
+
+    type: 'radar',
+    data: {
+        labels: symptoms,
+        datasets: [{
+            label: 'Symptom Chart',
+            data: datas,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        events: ["mousemove"],
+    }
+});
+
+</script>

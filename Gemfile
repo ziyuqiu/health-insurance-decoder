@@ -37,6 +37,7 @@ gem 'bootstrap-select-rails'
 gem 'webpush'
 gem 'pushpad'
 gem 'gmaps4rails'
+gem 'chart-js-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

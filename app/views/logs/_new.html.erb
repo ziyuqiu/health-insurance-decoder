@@ -1,7 +1,7 @@
 <div class="log-submit-container">
   <!-- <h3>New Log</h3> -->
-  
-  <!-- Health log submit form -->  
+
+  <!-- Health log submit form -->
   <%= form_for(@log) do |f| %>
     <!-- Symptom dropdown -->
     <div class="log-controls">
@@ -28,7 +28,10 @@
     <!-- Submit button -->
     <div class="log-controls">
       <span id="btn-invisible-label">.</span>
-        <%= submit_tag "Record Log", class: "btn btn-large btn-primary" %>
+      <button class="mdl-button mdl-js-button mdl-button--fab">
+        <i class="material-icons">add</i>
+      </button>
+        <!-- <%= submit_tag "Record Log", class: "mdl-button mdl-js-button mdl-button--fab" %> -->
       </span>
     </div> <!-- /submit button -->
 

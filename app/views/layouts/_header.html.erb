@@ -1,53 +1,52 @@
-<header>
-  <%= csrf_meta_tags %>
-  <section class="intro">
-    <title>Health Decoder</title>
-
-  <nav class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Health Decoder</a>
+<%= csrf_meta_tags %>
+<!-- <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header", width ="100"> -->
+  <!-- <header class="mdl-layout__header"> -->
+    <div class="mdl-layout__header-row">
+    <!-- <title>Health Decoder</title> -->
+      <span class="mdl-layout-title"><a href="/">Health Decoder</a></span>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="/">Home</a>
+        <a class="mdl-navigation__link" href="/users">Users</a>
+        <a class="mdl-navigation__link" href="/logs">Log</a>
+        <a class="mdl-navigation__link" href="/resources">Resources</a>
+        <a class="mdl-navigation__link" href="/plans">Plans</a>
+        <a class="mdl-navigation__link" href="/map">Map</a>
+      </nav>
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+        <label class="mdl-button mdl-js-button mdl-button--icon"
+               for="fixed-header-drawer-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="sample"
+                 id="fixed-header-drawer-exp">
+        </div>
       </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><%= link_to "Users", users_url %></li>
-        <li><%= link_to "Log", logs_url %></li>
-        <li><%= link_to "Resources", resources_url %></li>
-        <li><%= link_to "Plans",   plans_path %></li>
-        <li><%= link_to "Map",   map_path %></li>
-    </ul>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <form class="navbar-form navbar-left" action="">
-          <div class="input-group">
-            <form action="" accept-charset="UTF-8" method="get">
-              <input name="utf8" type="hidden" value="&#x2713;" />
-              <input type="text" class="form-control" placeholder="Search" name="search" id="search" />
-              <div class="input-group-btn">
-                <button class="btn btn-default" type="submit" />
-                  <i class="glyphicon glyphicon-search"></i>
-                </button>
-              </div>
-            </form>
-          </div>
-        </form>
-        <% if logged_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Log out", logout_path, method: :delete %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to login_path do %><span class="glyphicon glyphicon-user"></span> Log In <% end %> </li>
-        <% end %>
-      </div>
-    </ul>
+      <% if logged_in? %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Account <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Profile", current_user %></li>
+            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Log out", logout_path, method: :delete %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to login_path do %><span class="glyphicon glyphicon-user"></span> Log In <% end %> </li>
+      <% end %>
 
-  </nav>
-</header>
+    <!-- </header> -->
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Title</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+</div>
