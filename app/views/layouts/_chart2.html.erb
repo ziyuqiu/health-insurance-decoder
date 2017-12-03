@@ -7,6 +7,7 @@ var datas3 = [1, 32, 3, 6, 9, 1];
 var dates = [];
 var symptoms = [];
 var lineChartData = {}; //declare an object
+lineChartData.labels = [];
 lineChartData.datasets = []; //add 'datasets' array element to object
 <% Log.all.each do |log| %>
   //console.log("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
