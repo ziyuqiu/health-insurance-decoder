@@ -1,7 +1,10 @@
-<canvas id="myChart2" width="50" height="50"></canvas>
+<canvas id="myChart2" width="100" height="50"></canvas>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script>
 var ctx2 = document.getElementById("myChart2").getContext('2d');
+// ctx2.canvas.height = 300;
+// ctx2.canvas.width = 600;
+
 var datas2 = [12, 19, 3, 5, 2, 3];
 var datas3 = [1, 32, 3, 6, 9, 1];
 var dates = [];
@@ -13,68 +16,77 @@ lineChartData.datasets = []; //add 'datasets' array element to object
 var dataMap = {};
 
 // var symMap = {};
-<% Log.all.each do |log| %>
-  symptomSet.add("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
-  var date = "<%= escape_javascript(log.created_at.strftime("%m-%d")) %>";
-  var s = "<%= escape_javascript(Symptom.find(log.symptom_id).name) %>";
-  //console.log("s = "+s);
-  if (date in dataMap) {
-    if (s in dataMap[date]) {
-      dataMap[date][s] = dataMap[date][s]+1;
-    } else {
-      dataMap[date][s] = 1;
-    }
-  } else {
-    symMap = {};
-    dataMap[date] = symMap;
-    symMap[s] = 1;
-  }
-<%end%>
-console.log(dataMap);
-var symptoms = Array.from(symptomSet);
-lineChartData.labels = Object.keys(dataMap); //set x
-var randomColorGenerator = function () {
-  g = Math.floor(Math.random()*255);
-  b = Math.floor(Math.random()*255);
-  r = Math.floor(Math.random()*255);
-  return 'rgba(' + r + ", "+ g + ", "+ b + ", 0.2)";
-};
-for (line = 0; line < symptomSet.size; line++) {
-    y = [];
-    dataset = {};
-    dataset.label = symptoms[line]; //set name of each line
-    dataset.borderColor = randomColorGenerator();
-    dataset.backgroundColor = dataset.borderColor;
-    dataset.data = []; //contains the 'Y; axis data
-    dataset.borderWidth = 1;
-    //console.log("keys:"+Object.keys(dataMap));
-    for(i=0; i< Object.keys(dataMap).length ; i++) {
-      if(dataMap[Object.keys(dataMap)[i]][symptoms[line]]==null) {
-        dataset.data.push(0);
+
+  <% @current_user.logs do |log| %>
+    symptomSet.add("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
+    var date = "<%= escape_javascript(log.created_at.strftime("%m-%d")) %>";
+    var s = "<%= escape_javascript(Symptom.find(log.symptom_id).name) %>";
+    //console.log("s = "+s);
+    if (date in dataMap) {
+      if (s in dataMap[date]) {
+        dataMap[date][s] = dataMap[date][s]+1;
       } else {
-        dataset.data.push(dataMap[Object.keys(dataMap)[i]][symptoms[line]]);
+        dataMap[date][s] = 1;
       }
+    } else {
+      symMap = {};
+      dataMap[date] = symMap;
+      symMap[s] = 1;
     }
-    //console.log("dataset:",dataset);
-    lineChartData.datasets.push(dataset); //create a new line dataset
-}
-
-console.log("lineChartData:",lineChartData);
-
-var myChart2 = new Chart(ctx2, {
-
-    type: 'line',
-    data: lineChartData,
-    options: {
-        events: ["mousemove"],
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
+    <%end%>
+    console.log(dataMap);
+    var symptoms = Array.from(symptomSet);
+    lineChartData.labels = Object.keys(dataMap); //set x
+    var randomColorGenerator = function () {
+      g = Math.floor(Math.random()*255);
+      b = Math.floor(Math.random()*255);
+      r = Math.floor(Math.random()*255);
+      return 'rgba(' + r + ", "+ g + ", "+ b + ", 0.2)";
+    };
+    for (line = 0; line < symptomSet.size; line++) {
+      y = [];
+      dataset = {};
+      dataset.label = symptoms[line]; //set name of each line
+      dataset.borderColor = randomColorGenerator();
+      dataset.backgroundColor = dataset.borderColor;
+      dataset.data = []; //contains the 'Y; axis data
+      dataset.borderWidth = 1;
+      //console.log("keys:"+Object.keys(dataMap));
+      for(i=0; i< Object.keys(dataMap).length ; i++) {
+        if(dataMap[Object.keys(dataMap)[i]][symptoms[line]]==null) {
+          dataset.data.push(0);
+        } else {
+          dataset.data.push(dataMap[Object.keys(dataMap)[i]][symptoms[line]]);
         }
+      }
+    //console.log("dataset:",dataset);
+      lineChartData.datasets.push(dataset); //create a new line dataset
     }
-});
+
+if (lineChartData.label !=  null ){
+  var myChart2 = new Chart(ctx2, {
+
+      type: 'line',
+      data: lineChartData,
+      options: {
+        title: {
+              display: true,
+              text: 'Symptoms Log Chart'
+          },
+        legend: {
+              display: true,
+              position: 'right'
+            },
+          events: ["mousemove"],
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true,
+                  }
+              }]
+          }
+      }
+  });
+}
 
 </script>

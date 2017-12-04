@@ -3,7 +3,7 @@
 <script>
 var ctx = document.getElementById("myChart").getContext('2d');
 var dataMap = {};
-<% Log.all.each do |log| %>
+<% @current_user.logs do |log| %>
   var s = "<%= escape_javascript(Symptom.find(log.symptom_id).name) %>";
   // console.log(s);
   if (s in dataMap){
@@ -14,33 +14,38 @@ var dataMap = {};
     //console.log("new:"+s);
   }
 <%end%>
-  // console.log(dataMap);
-// console.log(Object.keys(dataMap));
-// console.log(Object.keys(dataMap).length);
-// for(i=0; i< Object.keys(dataMap).length ; i++) {
-//   console.log(Object.keys(dataMap)[i]);
-// }
-  // console.log(Object.keys(dataMap).map(function(key){return dataMap[key];}));
 
-var myChart = new Chart(ctx, {
+console.log(dataMap == null);
+console.log(Object.keys(dataMap).size == null);
+if(Object.keys(dataMap).size != null) {
+  var myChart = new Chart(ctx, {
 
-    type: 'radar',
-    data: {
-        labels: Object.keys(dataMap),
-        datasets: [{
-            label: 'Symptom Chart',
-            data: Object.keys(dataMap).map(function(key){return dataMap[key];}),
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        events: ["mousemove"],
-        scales: {
-          min: 0
-        }
-    }
-});
+      type: 'radar',
+      data: {
+          labels: Object.keys(dataMap),
+          datasets: [{
+              label: 'Symptom Chart',
+              data: Object.keys(dataMap).map(function(key){return dataMap[key];}),
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+          }]
+      },
+      options: {
+          title: {
+              display: true,
+              text: '?? Chart'
+          },
+          events: ["mousemove"],
+          legend: {
+                display: false,
+                // position: 'right'
+              },
+          scales: {
+            min: 0
+          }
+      }
+  });
+}
 
 </script>
