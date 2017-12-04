@@ -23,6 +23,6 @@
   <div class="alert alert-danger">
     Please <strong>sign in </strong>to view more.
   </div>
-  <%= button_to "Sign in", login_path, :method => "get", class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary", id: "sign_in_button"%>
+  <%= button_to "Sign in", load_login_path, :method => "post", class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary", id: "sign_in_button", :remote => true %>
   <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
 <% end %>

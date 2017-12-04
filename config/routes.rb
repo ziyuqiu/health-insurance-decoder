@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get    '/login',        to: 'sessions#new'
   post   '/login',        to: 'sessions#create'
   delete '/logout',       to: 'sessions#destroy'
+  post   '/load_login',   to: 'home#load_login'
 
   post   '/users/:id',    to: 'users#update'
   get    '/map',          to: 'static_pages#map'
