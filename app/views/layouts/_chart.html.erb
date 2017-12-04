@@ -11,12 +11,16 @@ var dataMap = {};
   }
   else{
     dataMap[s] = 1;
-    console.log("new:"+s);
+    //console.log("new:"+s);
   }
 <%end%>
-  console.log(dataMap);
-  console.log(Object.keys(dataMap));
-  console.log(Object.keys(dataMap).map(function(key){return dataMap[key];}));
+  // console.log(dataMap);
+// console.log(Object.keys(dataMap));
+// console.log(Object.keys(dataMap).length);
+// for(i=0; i< Object.keys(dataMap).length ; i++) {
+//   console.log(Object.keys(dataMap)[i]);
+// }
+  // console.log(Object.keys(dataMap).map(function(key){return dataMap[key];}));
 
 var myChart = new Chart(ctx, {
 
