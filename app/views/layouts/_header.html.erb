@@ -83,9 +83,13 @@
   $('.mdl-layout-title').on('click', function(){
      window.location = "/";
   });
+</script>
 
+<% if current_user %>
+<script>
   $('#profile').on('click', function(){
     var path = "<%=edit_user_path(current_user)%>";
      window.location = path;
   });
 </script>
+<% end %>

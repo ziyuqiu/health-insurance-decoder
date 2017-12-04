@@ -21,8 +21,6 @@ var initBodyImageSwitches = function() {
 }
 
 $(document).ready(function(){
-    console.log("Hello, body diagram.");    
-    
     initBodyImageSwitches();
 
     $("#btn_m").click(function(){

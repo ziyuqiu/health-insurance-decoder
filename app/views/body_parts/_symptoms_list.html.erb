@@ -1,9 +1,7 @@
-<h1><%= @body_part.name.capitalize %></h1>
-
+<% if @body_part %>
+  <h3><%= @body_part.name.capitalize %></h3>
+<% end %>
 <p>What is the closest to your symptom?</p>
-
-<ul>
-  <% @symptoms.each do |symptom| %>
-    <li><%= link_to symptom.name.capitalize, fetch_ailments_path(:symptom_id => symptom.id), :remote => true %></li>
-  <% end %>
-</ul>
+<% if @symptoms %>
+  <%= render @symptoms %>
+<% end %>
