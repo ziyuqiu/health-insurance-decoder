@@ -11,9 +11,27 @@ class BodyPartsController < ApplicationController
     @body_parts = BodyPart.all
   end
 
-  def load_symptoms
-    @body_part = BodyPart.find(params[:bp_id])
+  def load
+    @what = params[:what]
+    puts @what
+    if @what.eql? "body_part"
+      puts 'loading body part...'
+    elsif @what.eql? "symptom"
+      puts 'loading symptom...'
+    elsif @what.eql? "ailment"
+      puts 'loading ailment...'
+    end
+
+    @body_part = BodyPart.find(params[:id])
     @symptoms = @body_part.symptoms
+    if params[:symptom_id]
+      @symptom = Symptom.find(params[:symptom_id])
+      @diseases = @symptom.diseases
+    end
+    if params[:ailment_id]
+      @disease = Disease.find(params[:ailment_id])
+    end
+    
     respond_to do |format|
       format.js
     end
@@ -22,6 +40,26 @@ class BodyPartsController < ApplicationController
   def load_ailments
     @symptom = Symptom.find(params[:symptom_id])
     @ailments = @symptom.diseases
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def load_result
+    @disease = Disease.find(params[:disease_id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def load_treatment
+    @disease = Disease.find(params[:disease_id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def load_diagram
     respond_to do |format|
       format.js
     end

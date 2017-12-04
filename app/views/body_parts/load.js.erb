@@ -1,0 +1,17 @@
+var what = "<%= escape_javascript(@what) %>";
+console.log("called by: " + what);
+
+if (what == "body_part") {
+    console.log("yes, it's a body part.");
+    $("#diagram_results_symptoms").html("<%= escape_javascript(render partial: 'symptoms_list') %>");
+    $("#diagram_results_ailments").html("<%= escape_javascript(render partial: 'ailments_placeholder') %>");
+    $("#diagram_results_treatment").html("<%= escape_javascript(render partial: 'treatment_placeholder') %>");
+} else if (what == "symptom") {
+    console.log("yes, it's a symptom.");
+    $("#diagram_results_ailments").html("<%= escape_javascript(render partial: 'ailments_list') %>");
+    $("#diagram_results_treatment").html("<%= escape_javascript(render partial: 'treatment_placeholder') %>");
+    
+}
+else if (what == "ailment") {
+    $("#diagram_results_treatment").html("<%= escape_javascript(render partial: 'diseases/show') %>");
+}

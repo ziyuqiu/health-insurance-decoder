@@ -1,9 +1,7 @@
-<h1><%= @symptom.name.capitalize %></h1>
-
-<p>What is the closest to your symptom?</p>
-
-<ul>
-  <% @ailments.each do |ailment| %>
-    <li><%= link_to ailment.name.capitalize, ailment %></li>
-  <% end %>
-</ul>
+<% if @symptom %>
+  <h3><%= @symptom.name.capitalize %></h3>
+<% end %>
+<p>What is the closest to your ailment?</p>
+<% if @diseases %>
+  <%= render @diseases %>
+<% end %>
