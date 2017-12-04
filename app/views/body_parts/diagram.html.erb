@@ -1,26 +1,27 @@
-<div class="row">
-  <center>
-    <h1>Self Diagnosis Tool</h1>
-    <p><strong>This diagnosis tool is for non-emergency services only.</strong>  In the event of an emergency call 911 or campus public safety at 1-781-736-3333</p>
-    </span>
-  </center>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col">
+    <center>
+      <h1>Self Diagnosis Tool</h1>
+      <p><strong>This diagnosis tool is for non-emergency services only.</strong>  In the event of an emergency call 911 or campus public safety at 1-781-736-3333</p>
+    </center>
+  </div>
 </div>
-<div class="row">
-  <div class="col-md-4 body-diagram-block">
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col body-diagram-block">
     <h3>Body Diagram</h3>
     <p>Click on a body part to see a list of symptoms.</p>
     <%= button_to fetch_diagram_path, :remote => true do %>
       <span>Clear</span>
     <% end %>  
-    <div class="row">
-      <div class="col-md-6">
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col">
 	<div id="body-image"></div>
 	<div id="body-image-switches">
 	  <span id="btn_m" class="btn_base">&#9794;</span>
 	  <span id="btn_f" class="btn_base">&#9792;</span>
 	</div>
       </div>
-      <div class="col-md-6">
+      <div class="mdl-cell mdl-cell--6-col">
 	<div class="body-labels">
 	  <%= render @body_parts %>
 	</div>
@@ -28,15 +29,15 @@
     </div>
   </div>
   
-  <div class="col-md-4" id="diagram_results_symptoms">
+  <div class="mdl-cell mdl-cell--4-col" id="diagram_results_symptoms">
     <%= render partial: 'symptoms_placeholder' %>
   </div>
-  <div class="col-md-4" id="diagram_results_ailments">
+  <div class="mdl-cell mdl-cell--4-col" id="diagram_results_ailments">
     <%= render partial: 'ailments_placeholder' %>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-12" id="diagram_results_treatment">
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col" id="diagram_results_treatment">
     <%= render partial: 'treatment_placeholder' %>
   </div>
 </div>
