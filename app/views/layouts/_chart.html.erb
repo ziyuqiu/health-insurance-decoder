@@ -36,7 +36,15 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+        title: {
+            display: true,
+            text: '?? Chart'
+        },
         events: ["mousemove"],
+        legend: {
+              display: false,
+              // position: 'right'
+            },
         scales: {
           min: 0
         }
