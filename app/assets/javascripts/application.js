@@ -16,5 +16,5 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
-//= require material
 //= require_tree .
+//= require Chart.min

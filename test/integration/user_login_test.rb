@@ -48,27 +48,4 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path,      count: 0
     assert_select "a[href=?]", user_path(@user), count: 0
   end
-
-  
-  test "welcome msg shows on homepage with login" do
-    get root_url
-    assert_select "div.alert-success", count: 0
-    assert_select "div.alert-danger", "Please sign in to view more.", count: 1
-    
-    get login_path
-    post login_path, params: { session: { email:    @user.email,
-                                          password: 'password' } }
-    assert is_logged_in?
-    follow_redirect!
-    get root_url
-    assert_select "div.alert-success", count: 1
-    assert_select "div.alert-success", "You are logged in as #{@user.name}.", count: 1
-    assert_select "div.alert-danger", count: 0
-
-    delete logout_path
-    get root_url
-    assert_select "div.alert-success", count: 0
-    assert_select "div.alert-danger", "Please sign in to view more.", count: 1
-  end
-
 end

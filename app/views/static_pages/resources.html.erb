@@ -1,5 +1,39 @@
-<h4>Resources</h4>
-<div class="col-sm-3 sidenav">
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+    <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+      <a class="mdl-navigation__link" onclick="showTabContent(event, 'emer_lvl')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Emergency Level</a>
+      <a class="mdl-navigation__link" onclick="showTabContent(event, 'pain_lvl')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i> Pain Chart</a>
+      <a class="mdl-navigation__link" onclick="showTabContent(event, 'clinic_lst')" id="defaultOpen"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">room</i> Nearby Clinics</a>
+      <a class="mdl-navigation__link" onclick="showTabContent(event, 'events')" ><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">event</i> Events</a>
+      <div class="mdl-layout-spacer"></div>
+      <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content mdl-color--grey-100" id ="contents">
+    <br/>
+    <div id = "emer_lvl" class = "tabcontent">
+      <%= render file: "./static_pages/emergency_level" %>
+    </div>
+    <div id = "pain_lvl" class = "tabcontent">
+      <%= image_tag('pain_chart.gif')%>
+    </div>
+    <div id = "clinic_lst" class = "tabcontent">
+      <%= render file: "./static_pages/clinic_lst" %>
+    </div>
+    <div id = "group_lst" class = "tabcontent">
+      <%= render file: "./static_pages/stu_groups_lst" %>
+    </div>
+    <div id = "events" class = "tabcontent">
+      <%= render file: "./static_pages/events" %>
+    </div>
+  </main>
+</div>
+
+<!-- <div id = "load">
+  <%= render :partial => "shared/loading" %>
+</div> -->
+
+<!-- <div class="col-sm-3 sidenav">
 <ul class="nav nav-pills nav-stacked">
   <li><a class="tablinks" onclick="showTabContent(event, 'emer_lvl')">Emergency Level</a></li>
   <li><a class="tablinks" onclick="showTabContent(event, 'pain_lvl')">Pain Chart</a></li>
@@ -28,7 +62,7 @@
   <div id = "events" class = "tabcontent">
     <%= render file: "./static_pages/events" %>
   </div>
-</div>
+</div> -->
 <%= javascript_include_tag 'resources' %>
 <script>
   $(document).ready(
@@ -38,3 +72,28 @@
     }
   );
 </script>
+<style>
+  a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+  }
+  .demo-navigation {
+    flex-grow: 1;
+  }
+  .demo-layout .demo-navigation .mdl-navigation__link {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 500;
+  }
+  .demo-layout .demo-navigation .mdl-navigation__link:hover {
+    background-color: #00BCD4;
+    color: #FFFFFF;
+    border-bottom: 0px
+  }
+  .demo-navigation .mdl-navigation__link .material-icons {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.56);
+    margin-right: 12px;
+  }
+</style>

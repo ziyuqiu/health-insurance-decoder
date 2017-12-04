@@ -9,8 +9,8 @@
     </tr>
   </thead>
 
-  <tbody align = "center">
-    <% @results.each do |log| %>
+  <tbody>
+    <% @results.order(:created_at).each do |log| %>
       <tr>
         <!--<td><%= log.user_id %></td>-->
         <td><%= link_to Symptom.find(log.symptom_id).name, edit_log_path(log) %></td>

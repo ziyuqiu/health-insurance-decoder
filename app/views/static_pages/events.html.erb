@@ -1,1 +1,46 @@
+<table class = "table table-striped">
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Event</th>
+			<th>Location</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @events.each do |event| %>
+			<tr>
+				<td><%= raw event[:date] %></td>
+				<td><%= raw event[:time] %></td>
+				<td><a href=<%= raw event[:link] %>><strong><%= event[:title] %></strong></a></td>
+				<td><%= raw event[:location] %></td>
+				<td><a class="description-switch" onclick="showDescription(event, '<%= raw event[:link] %>')" id = <%= raw event[:link]+'switch' %>> Show Details <span class="glyphicon glyphicon-chevron-down"></span></a></td>
+			</tr>
+			<tr class="description-panel" id = <%= raw event[:link] %> >
+				<td colspan="5">
+					<p><strong>Description:</strong><br/><%= raw event[:description] %></p>
+					<p><%= raw event[:other] %></p>
+				</td>
+			</tr>
 
+		<% end %>
+	</tbody>
+</table>
+
+<script>
+	var panels = document.getElementsByClassName("description-panel")
+	for (i = 0; i < panels.length; i++) {
+	    panels[i].style.display = "none";
+	}
+	function showDescription(evt, eventName) {
+		var des = document.getElementById(eventName);
+		if (des.style.display =="none"){
+			des.colSpan = "5";
+			des.style.display="table-row";
+			document.getElementById(eventName+'switch').innerHTML = "Hide Details<span class='glyphicon glyphicon-chevron-up'></span>";
+		} else {
+			des.style.display = "none";
+			document.getElementById(eventName+'switch').innerHTML = "Show Details<span class='glyphicon glyphicon-chevron-down'></span>";
+		}
+	}
+</script>

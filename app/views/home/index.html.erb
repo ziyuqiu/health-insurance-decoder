@@ -1,29 +1,102 @@
-<div class="row">
-  <div class = "class profile">
-    <div>
-      <section class="large-title" >
-	<h1>Health Decoder</h1>
-      </section>
+<br /><br />
+<div class="col-lg-3" style="text-align:center">
+  <% if logged_in? %>
+	  <!-- Profile Info -->
+      <!-- Profile Pic -->
+      <%= image_tag("default_prof_pic.png", :alt => "img missing", :size => "125", :id => "logo") %>
+      <!-- Account Info -->
+      <h4>
+        <strong><%= @user.name %></strong>
+        <p><%= @user.email %></p>
+        <p><%@user.plans.all.each do |plan|%>
+           <%=link_to plan.name, plan_path(plan)%>
+        <%end%></p>
+      </h4>
+      <!-- Buttons -->
+      <%= button_to "Log out", logout_path, method: :delete, class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary" %>
+  <% else %>
+    <div class="alert alert-danger">
+      Please <strong>sign in </strong>to view more.
     </div>
+    <%= button_to "Sign in", login_path, :method => "get", class: " mdl-button mdl-js-button mdl-button--primary" %>
+    <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
+  <% end %>
+</div>
 
-    <div class="col-lg-12">
-      <% if logged_in? %>
-      <div class="alert alert-success">You are logged in as <strong><%= current_user.name%></strong>.</div>
-	<br />
-	<br />
+<div class="col-lg-9" id="card-container">
+  <div class="row">
+    <!-- Quick Diagnosis -->
+      <div class="col-md-4" id="diagnosis">
+        <%=render "home/card"%>
+      </div>
+    <!-- Upcoming Event -->
+    <div class="col-md-4" id="event">
+      <%=render "home/card"%>
+    </div>
+    <!-- Log -->
+    <div class="col-md-4" id="log">
+      <%=render "home/card"%>
+    </div>
+    <div class="row" id="graph container">
+      <div class="chart-container" style="position: relative; height:20vh; width:50vw">
+          <div class="col-md-6">
+            <%= render 'layouts/chart' %>
+          </div>
+          <div class="col-md-6">
+            <%= render 'layouts/chart2' %>
+          </div>
+      </div>
+    </div>
+  </div>
 
-        <div id="welcome-buttons">
-          <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-success btn-block" %>
-
-      <% else %>
-        <div class="alert alert-danger">
-	  Please <strong>sign in </strong>to view more.
-	</div>
-	<div id="welcome-buttons">
-	  <%= link_to "Sign in", login_path, class: "btn btn-primary btn-block" %>
-	  <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
-      <% end %>
-      <%= link_to "Quick Diagnosis", body_diagram_path, class: "btn btn-danger btn-block" %>
+   <div class="row">
+    <div class="chart-container" style="position: relative; height:40vh; width:40vw">
+        <div class="col-md-6">
+          <%= render 'layouts/chart' %>
+        </div>
+        <div class="col-md-6">
+          <%= render 'layouts/chart2' %>
+        </div>
     </div>
   </div>
 </div>
+
+<script>
+  // set card height
+  var cw = $('.demo-card-square.mdl-card').width();
+  $('.demo-card-square.mdl-card').css({
+      'height': cw + 'px'
+  })
+  // change card content
+  $('#diagnosis .mdl-card__title-text').html("Quick Diagnosis");
+  $('#diagnosis .mdl-card__supporting-text').html("Self Diagnosis! <br/> NON EMERGENCY ONLY.");
+  $('#diagnosis').on('click', function(){
+     window.location = "/body-diagram";
+  });
+
+  $('#event .mdl-card__title-text').html("Upcoming Events")
+  $('#event').on('click', function(){
+     window.location = "/resources";
+  });
+
+  $('#log .mdl-card__title-text').html("Symptom Logs")
+  $('#log .mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect').html("View Logs")
+  $('#log').on('click', function(){
+     window.location = "/logs";
+  });
+
+</script>
+<style>
+  .col-md-3{
+    margin:10px;
+  }
+  .demo-card-square.mdl-card {
+    width: 100%;
+    height: auto;
+  }
+  .demo-card-square > .mdl-card__title {
+    color: #fff;
+    background:#46B6AC;
+  }
+
+</style>

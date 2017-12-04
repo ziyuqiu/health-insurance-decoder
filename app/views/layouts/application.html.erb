@@ -3,21 +3,25 @@
   <head>
     <title>HealthInsuranceDecoder</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
   </head>
 
   <body>
-    <div class="container">
-      <%= render 'layouts/header' %>
-      </br>
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header">
+        <%= render 'layouts/header' %>
+      </header>
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
-      <%= yield %>
+      <main class="mdl-layout__content" style="flex: 2 2 auto;">
+        <%= yield %>
+      </main>
+      <footer>
+        <%= render 'layouts/footer' %>
+      </footer>
     </div>
   </body>
 </html>
-

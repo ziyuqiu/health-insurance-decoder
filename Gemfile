@@ -38,6 +38,7 @@ gem 'webpush'
 gem 'pushpad'
 gem 'gmaps4rails'
 gem 'material_design_lite-rails', '~> 1.3'
+gem 'chart-js-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

@@ -1,0 +1,20 @@
+<table class = "table table-striped" id="printTable">
+  <thead>
+    <tr>
+      <th>Symptom</th>
+      <th>Severity</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.order(:created_at).each do |log| %>
+      <tr>
+        <td><%= Symptom.find(log.symptom_id).name%></td>
+        <td><%= log.severity %></td>
+        <td><%= log.created_at.to_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

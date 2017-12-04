@@ -1,7 +1,7 @@
 <div class="log-submit-container">
   <!-- <h3>New Log</h3> -->
-  
-  <!-- Health log submit form -->  
+
+  <!-- Health log submit form -->
   <%= form_for(@log) do |f| %>
     <!-- Symptom dropdown -->
     <div class="log-controls">
@@ -21,14 +21,18 @@
         <%= f.label :severity %> <span id="score">5</span>
       </span>
       <span id="severity-range">
-        <%= f.range_field :severity, :min=>0, :max=>10, :class=>"slide", :id=>"slider1" %>
+        <input class="mdl-slider mdl-js-slider" type="range" min="0" max="10" value="5" tabindex="0" id="slider1" name="log[severity]">
+        <!-- # <%= f.range_field :severity, :min=>0, :max=>10, :class=>"slide", :id=>"slider1" %> -->
       </span>
     </div> <!-- /severity slide ruler -->
 
     <!-- Submit button -->
     <div class="log-controls">
       <span id="btn-invisible-label">.</span>
-        <%= submit_tag "Record Log", class: "btn btn-large btn-primary" %>
+      <button class="mdl-button mdl-js-button mdl-button--fab">
+        <i class="material-icons">add</i>
+      </button>
+        <!-- <%= submit_tag "Record Log", class: "mdl-button mdl-js-button mdl-button--fab" %> -->
       </span>
     </div> <!-- /submit button -->
 
