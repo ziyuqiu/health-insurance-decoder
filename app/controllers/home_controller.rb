@@ -33,4 +33,10 @@ class HomeController < ApplicationController
     end
     @events = rss_results
   end
+
+  def load_login
+    respond_to do |format|
+      format.js
+    end    
+  end
 end
