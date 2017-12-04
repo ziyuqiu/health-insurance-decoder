@@ -27,7 +27,7 @@
   <div class="row">
     <!-- Quick Diagnosis -->
       <div class="col-md-4" id="diagnosis">
-        <%=render "home/card"%>
+        <%=render "home/card" %>
       </div>
     <!-- Upcoming Event -->
     <div class="col-md-4" id="event">
@@ -53,22 +53,29 @@
   // set card height
   var cw = $('.demo-card-square.mdl-card').width();
   $('.demo-card-square.mdl-card').css({
-      'height': cw + 'px'
-  })
+      'height': 0.8* cw + 'px'
+  });
   // change card content
   $('#diagnosis .mdl-card__title-text').html("Quick Diagnosis");
   $('#diagnosis .mdl-card__supporting-text').html("Self Diagnosis! <br/> NON EMERGENCY ONLY.");
+  $('#diagnosis .mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect').html("Start Diagnosis");
   $('#diagnosis').on('click', function(){
      window.location = "/body-diagram";
   });
 
-  $('#event .mdl-card__title-text').html("Upcoming Events")
+ 
+
+
+  $('#event .mdl-card__title-text').html("Upcoming Events");
+  $('#event .mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect').html("More Events");
+  $('#event .mdl-card__supporting-text').html('<% @events.each do |event| %><tr><td><%= raw event[:date] %></td><td><%= event[:title] %></td></tr><% end%>');
   $('#event').on('click', function(){
      window.location = "/resources";
   });
 
-  $('#log .mdl-card__title-text').html("Symptom Logs")
-  $('#log .mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect').html("View Logs")
+  $('#log .mdl-card__title-text').html("Symptom Logs");
+  $('#log .mdl-card__supporting-text').html('<% @results.distinct(:symptom_id).pluck(:symptom_id).each do |id| %><%= Symptom.find(id).name.capitalize %> | <% end%>');
+  $('#log .mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect').html("View Logs");
   $('#log').on('click', function(){
      window.location = "/logs";
   });
