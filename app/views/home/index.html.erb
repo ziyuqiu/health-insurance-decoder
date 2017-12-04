@@ -10,7 +10,7 @@
     </div>
     <div class="section-spacer"></div><br/>
   <% end %>
-  
+
   <div class="row">
     <!-- Quick Diagnosis -->
     <div class="col-md-4" id="diagnosis">
@@ -54,16 +54,6 @@
   $('#diagnosis').on('click', function(){
      window.location = "/body-diagram";
   });
-<<<<<<< HEAD
-=======
-
-
-
-
-  $('#event .mdl-card__title-text').html("Upcoming Events");
-  $('#event .mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect').html("More Events");
-  $('#event .mdl-card__supporting-text').html('<% @events.each do |event| %><tr><td><%= raw event[:date] %></td><td><%= event[:title] %></td></tr><% end%>');
->>>>>>> 86b234d8c9cdcf7fcae87b4798d45c49a5f9bd24
   $('#event').on('click', function(){
      window.location = "/resources";
   });
@@ -73,7 +63,7 @@
   $('#resources').on('click', function(){
      window.location = "/resources";
   });
-  
+
 </script>
 
 <style>
@@ -81,5 +71,3 @@
   flex-grow: 3;
 }
 </style>
-
-
