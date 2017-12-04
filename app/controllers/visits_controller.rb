@@ -30,16 +30,6 @@ class VisitsController < ApplicationController
     @logs = Log.all
     @results = @logs.where(:user_id => current_user.id)
     @treated = @results.where(:symptom_id => params[:symptom_id], :visit_id =>-1)
-    
-    puts "-------------------------------------------------------------"
-    puts "Params:"
-    puts params
-    puts "params[:symptom_id]:"
-    puts params[:symptom_id]
-    puts "treated:"
-    puts @treated
-    puts "-------------------------------------------------------------"
-
     puts visit_params
     respond_to do |format|
       if @visit.save
