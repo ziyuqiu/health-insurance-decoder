@@ -1,5 +1,5 @@
 <br />
-<div class="col-lg-3" style="text-align:center">
+<div id="user-profile-holder" class="col-lg-3" style="text-align:center">
   <%=render "home/profile" %>
 </div>
 
@@ -33,7 +33,6 @@
   </div>
 
   <% if logged_in? %>
-  <%= puts "sizzzzzzzzzzzzzzzzz"%>
   <%= puts current_user.logs.count != 0%>
    <% if current_user.logs.count != 0 %>
     <div class="row">
@@ -61,6 +60,7 @@
   $('#event').on('click', function(){
      window.location = "/resources";
   });
+
   $('#log').on('click', function(){
      window.location = "/logs";
   });

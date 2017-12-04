@@ -1,28 +1,28 @@
 <% if logged_in? %>
-    <!-- Profile Info -->
-      <!-- Profile Pic -->
-      <%= image_tag("default_prof_pic.png", :alt => "img missing", :size => "125", :id => "logo") if !@user.picture? %>
-      <%= image_tag @user.picture.url if @user.picture? %>
-      <!-- Account Info -->
-      <h4>
-        <strong><%= @user.name %></strong>
-        <p><%= @user.email %></p>
-        <p><%@user.plans.all.each do |plan|%>
-           <%=link_to plan.name, plan_path(plan)%>
-        <%end%></p>
-        <%= form_for(@user) do |f| %>
-        <span class="picture">
-          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-        </span>
-          <%= f.submit " change", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--primary" %>
-        <% end %>
-      </h4>
-      <!-- Buttons -->
-      <%= button_to "Log out", logout_path, method: :delete, class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary" %>
-  <% else %>
-    <div class="alert alert-danger">
-      Please <strong>sign in </strong>to view more.
-    </div>
-    <%= button_to "Sign in", login_path, :method => "get", class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary" %>
-    <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
-  <% end %>
+  <!-- Profile Info -->
+    <!-- Profile Pic -->
+    <%= image_tag("default_prof_pic.png", :alt => "img missing", :size => "125", :id => "logo") if !@user.picture? %>
+    <%= image_tag @user.picture.url if @user.picture? %>
+    <!-- Account Info -->
+    <h4>
+      <strong><%= @user.name %></strong>
+      <p><%= @user.email %></p>
+      <p><%@user.plans.all.each do |plan|%>
+         <%=link_to plan.name, plan_path(plan)%>
+      <%end%></p>
+      <%= form_for(@user) do |f| %>
+      <span class="picture">
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      </span>
+        <%= f.submit " change", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--primary" %>
+      <% end %>
+    </h4>
+    <!-- Buttons -->
+    <%= button_to "Log out", logout_path, method: :delete, class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary" %>
+<% else %>
+  <div class="alert alert-danger">
+    Please <strong>sign in </strong>to view more.
+  </div>
+  <%= button_to "Sign in", load_login_path, :method => "post", class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary", id: "sign_in_button", :remote => true %>
+  <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
+<% end %>
