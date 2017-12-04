@@ -16,8 +16,9 @@ lineChartData.datasets = []; //add 'datasets' array element to object
 var dataMap = {};
 
 // var symMap = {};
-
-  <% @current_user.logs do |log| %>
+<%=puts "userrrrrrr"%>
+  <% current_user.logs.each do |log| %>
+    console.log("log",log);
     symptomSet.add("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
     var date = "<%= escape_javascript(log.created_at.strftime("%m-%d")) %>";
     var s = "<%= escape_javascript(Symptom.find(log.symptom_id).name) %>";
@@ -34,7 +35,7 @@ var dataMap = {};
       symMap[s] = 1;
     }
     <%end%>
-    console.log(dataMap);
+    console.log("dataMap",dataMap);
     var symptoms = Array.from(symptomSet);
     lineChartData.labels = Object.keys(dataMap); //set x
     var randomColorGenerator = function () {
@@ -62,8 +63,8 @@ var dataMap = {};
     //console.log("dataset:",dataset);
       lineChartData.datasets.push(dataset); //create a new line dataset
     }
-
-if (lineChartData.label !=  null ){
+console.log(lineChartData.label);
+  console.log("in if2");
   var myChart2 = new Chart(ctx2, {
 
       type: 'line',
@@ -87,6 +88,6 @@ if (lineChartData.label !=  null ){
           }
       }
   });
-}
+
 
 </script>

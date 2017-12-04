@@ -3,7 +3,7 @@
 <script>
 var ctx = document.getElementById("myChart").getContext('2d');
 var dataMap = {};
-<% @current_user.logs do |log| %>
+<% @current_user.logs.each do |log| %>
   var s = "<%= escape_javascript(Symptom.find(log.symptom_id).name) %>";
   // console.log(s);
   if (s in dataMap){
@@ -15,9 +15,9 @@ var dataMap = {};
   }
 <%end%>
 
-console.log(dataMap == null);
-console.log(Object.keys(dataMap).size == null);
-if(Object.keys(dataMap).size != null) {
+
+console.log(Object.keys(dataMap).size == 0);
+  console.log("in if");
   var myChart = new Chart(ctx, {
 
       type: 'radar',
@@ -46,6 +46,5 @@ if(Object.keys(dataMap).size != null) {
           }
       }
   });
-}
 
 </script>

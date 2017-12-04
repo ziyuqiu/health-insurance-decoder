@@ -33,6 +33,9 @@
   </div>
 
   <% if logged_in? %>
+  <%= puts "sizzzzzzzzzzzzzzzzz"%>
+  <%= puts current_user.logs.count != 0%>
+   <% if current_user.logs.count != 0 %>
     <div class="row">
       <div class="col-md-4" >
         <%= render 'layouts/chart' %>
@@ -41,6 +44,7 @@
         <%= render 'layouts/chart2' %>
       </div>
     </div>
+    <%end%>
   <% end %>
 
 </div>
