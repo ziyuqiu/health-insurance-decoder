@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+<<<<<<< HEAD
   	if current_user
       	@user = User.find(current_user.id)
       	@logs = Log.all
@@ -13,13 +14,18 @@ class HomeController < ApplicationController
 	    end
     end
 
+=======
+    if current_user
+      @user = User.find(current_user.id)
+    end
+>>>>>>> 86b234d8c9cdcf7fcae87b4798d45c49a5f9bd24
   	require 'rss'
 		require 'open-uri'
 		rss_results = []
 		@rss = RSS::Parser.parse('http://www.trumba.com/calendars/brandeis-university-health.rss', false).items[0..2]
 		@rss.each do |result|
-		   	result = {  title: result.title, 
-		   				link: result.link, 
+		   	result = {  title: result.title,
+		   				link: result.link,
 		   				category: result.category,
 		   				description: result.description.split("<br/>")[2],
 		   				date: result.description.split("<br/>").first,
@@ -36,7 +42,22 @@ class HomeController < ApplicationController
 
 
 
+<<<<<<< HEAD
 	    
     
   end
+=======
+	    @logs = Log.all
+	    @log = Log.new
+	    @symptoms = Symptom.all
+	    if current_user != nil
+	      @results = @logs.where(:user_id => current_user.id, :visit_id => -1)
+	    end
+	    if !params[:symptom_name].nil?
+	      @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
+	    end
+
+
+end
+>>>>>>> 86b234d8c9cdcf7fcae87b4798d45c49a5f9bd24
 end
