@@ -1,29 +1,16 @@
 <br /><br />
 <div class="col-lg-3" style="text-align:center">
-  <% if logged_in? %>
-	  <!-- Profile Info -->
-      <!-- Profile Pic -->
-      <%= image_tag("default_prof_pic.png", :alt => "img missing", :size => "125", :id => "logo") %>
-      <!-- Account Info -->
-      <h4>
-        <strong><%= @user.name %></strong>
-        <p><%= @user.email %></p>
-        <p><%@user.plans.all.each do |plan|%>
-           <%=link_to plan.name, plan_path(plan)%>
-        <%end%></p>
-      </h4>
-      <!-- Buttons -->
-      <%= button_to "Log out", logout_path, method: :delete, class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary" %>
-  <% else %>
-    <div class="alert alert-danger">
-      Please <strong>sign in </strong>to view more.
-    </div>
-    <%= button_to "Sign in", login_path, :method => "get", class: " mdl-button mdl-js-button mdl-button--primary" %>
-    <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
-  <% end %>
+  <%=render "home/profile" %>
 </div>
 
 <div class="col-lg-9" id="card-container">
+  <% if not logged_in? %>
+    <div class="welcome-row">
+      <%=render "home/welcome_card" %>
+    </div>
+    <div class="section-spacer"></div>
+  <% end %>
+  
   <div class="row">
     <!-- Quick Diagnosis -->
       <div class="col-md-4" id="diagnosis">
@@ -75,9 +62,6 @@
      window.location = "/body-diagram";
   });
 
- 
-
-
   $('#event .mdl-card__title-text').html("Upcoming Events");
   $('#event .mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect').html("More Events");
   $('#event .mdl-card__supporting-text').html('<% @events.each do |event| %><tr><td><%= raw event[:date] %></td><td><%= event[:title] %></td></tr><% end%>');
@@ -86,24 +70,19 @@
   });
 
   $('#log .mdl-card__title-text').html("Symptom Logs");
-  $('#log .mdl-card__supporting-text').html('<% @results.distinct(:symptom_id).pluck(:symptom_id).each do |id| %><%= Symptom.find(id).name.capitalize %> | <% end%>');
+  // $('#log .mdl-card__supporting-text').html('<% @results.distinct(:symptom_id).pluck(:symptom_id).each do |id| %><%= Symptom.find(id).name.capitalize %> | <% end%>');
+
   $('#log .mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect').html("View Logs");
   $('#log').on('click', function(){
      window.location = "/logs";
   });
 
 </script>
-<style>
-  .col-md-3{
-    margin:10px;
-  }
-  .demo-card-square.mdl-card {
-    width: 100%;
-    height: auto;
-  }
-  .demo-card-square > .mdl-card__title {
-    color: #fff;
-    background:#46B6AC;
-  }
 
+<style>
+#card-container .section-spacer {
+  flex-grow: 3;
+}
 </style>
+
+

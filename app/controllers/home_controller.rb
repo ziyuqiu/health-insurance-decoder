@@ -1,7 +1,17 @@
 class HomeController < ApplicationController
   def index
-<<<<<<< HEAD
-  	@user = User.find(current_user.id)
+  	if current_user
+      	@user = User.find(current_user.id)
+      	@logs = Log.all
+	    @log = Log.new
+	    @symptoms = Symptom.all
+	    if current_user != nil
+	      @results = @logs.where(:user_id => current_user.id, :visit_id => -1)
+	    end
+	    if !params[:symptom_name].nil?
+	      @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
+	    end
+    end
 
   	require 'rss'
 		require 'open-uri'
@@ -26,17 +36,7 @@ class HomeController < ApplicationController
 
 
 
-	    @logs = Log.all
-	    @log = Log.new
-	    @symptoms = Symptom.all
-	    if current_user != nil
-	      @results = @logs.where(:user_id => current_user.id, :visit_id => -1)
-	    end
-	    if !params[:symptom_name].nil?
-	      @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
-	    end
-    if current_user
-      @user = User.find(current_user.id)
-    end
-
+	    
+    
+  end
 end
