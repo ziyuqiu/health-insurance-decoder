@@ -1,15 +1,15 @@
 class HomeController < ApplicationController
   def index
-<<<<<<< HEAD
-  	@user = User.find(current_user.id)
-
+    if current_user
+      @user = User.find(current_user.id)
+    end
   	require 'rss'
 		require 'open-uri'
 		rss_results = []
 		@rss = RSS::Parser.parse('http://www.trumba.com/calendars/brandeis-university-health.rss', false).items[0..2]
 		@rss.each do |result|
-		   	result = {  title: result.title, 
-		   				link: result.link, 
+		   	result = {  title: result.title,
+		   				link: result.link,
 		   				category: result.category,
 		   				description: result.description.split("<br/>")[2],
 		   				date: result.description.split("<br/>").first,
@@ -35,8 +35,7 @@ class HomeController < ApplicationController
 	    if !params[:symptom_name].nil?
 	      @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
 	    end
-    if current_user
-      @user = User.find(current_user.id)
-    end
 
+
+end
 end
