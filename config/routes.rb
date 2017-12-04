@@ -29,11 +29,10 @@ Rails.application.routes.draw do
   get    '/symptoms',            to: 'symptoms#index'
   get    '/diseases',            to: 'diseases#index'
 
-  #post   '/fetch/:what',         to: 'body_parts#load'
+  post   '/fetch/:what/:id/',            to: 'body_parts#load', as: 'fetch'
+  post   '/fetch/:what/:id/:symptom_id', to: 'body_parts#load', as: 'fetch_symptom'
   
   post    '/fetch_diagram',       to: 'body_parts#load_diagram'
-  post    '/fetch_symptoms',      to: 'body_parts#load_symptoms'
-  post    '/fetch_ailments',      to: 'body_parts#load_ailments'
   post    '/fetch_treatment',     to: 'body_parts#load_treatment'
 
 

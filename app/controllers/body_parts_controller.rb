@@ -12,16 +12,26 @@ class BodyPartsController < ApplicationController
   end
 
   def load
-    what = params[:what]
-    respond_to do |format|
-      format.js
+    @what = params[:what]
+    puts @what
+    if @what.eql? "body_part"
+      puts 'loading body part...'
+      @body_part = BodyPart.find(params[:id])
+      @symptoms = @body_part.symptoms
+    elsif @what.eql? "symptom"
+      puts 'loading symptom...'
+      @body_part = BodyPart.find(params[:id])
+      @symptoms = @body_part.symptoms      
+      @symptom = Symptom.find(params[:symptom_id])
+      @ailments = @symptom.diseases
+    elsif @what.eql? "ailment"
+      puts 'loading ailment...'
+      @body_part = BodyPart.find(params[:id])
+      @symptoms = @body_part.symptoms      
+      @symptom = Symptom.find(params[:symptom_id])
+      @ailments = @symptom.diseases
+      @ailment = Disease.find(params[:ailment_id])
     end
-  end
-
-  def load_symptoms
-    @bp_id = params[:bp_id]
-    @body_part = BodyPart.find(params[:bp_id])
-    @symptoms = @body_part.symptoms
     respond_to do |format|
       format.js
     end
