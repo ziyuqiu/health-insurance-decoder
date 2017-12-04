@@ -7,14 +7,16 @@
     </tr>
   </thead>
 
+  <% if @results %>
   <tbody>
     <% @results.order(:created_at).each do |log| %>
-      <tr>
-        <td><%= Symptom.find(log.symptom_id).name%></td>
-        <td><%= log.severity %></td>
-        <td><%= log.created_at.to_date %></td>
-      </tr>
+    <tr>
+      <td><%= Symptom.find(log.symptom_id).name%></td>
+      <td><%= log.severity %></td>
+      <td><%= log.created_at.to_date %></td>
+    </tr>
     <% end %>
   </tbody>
+  <% end %>
 </table>
 
