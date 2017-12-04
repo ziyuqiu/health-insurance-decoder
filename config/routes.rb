@@ -29,13 +29,12 @@ Rails.application.routes.draw do
   get    '/symptoms',            to: 'symptoms#index'
   get    '/diseases',            to: 'diseases#index'
 
-  post   '/fetch/:what/:id/',            to: 'body_parts#load', as: 'fetch'
-  post   '/fetch/:what/:id/:symptom_id', to: 'body_parts#load', as: 'fetch_symptom'
+  post   '/fetch/:what/:id/',                        to: 'body_parts#load', as: 'fetch'
+  post   '/fetch/:what/:id/:symptom_id',             to: 'body_parts#load', as: 'fetch_symptom'
+  post   '/fetch/:what/:id/:symptom_id/:ailment_id', to: 'body_parts#load', as: 'fetch_ailment'
   
   post    '/fetch_diagram',       to: 'body_parts#load_diagram'
-  post    '/fetch_treatment',     to: 'body_parts#load_treatment'
-
-
+  
   get    'calculate', to: 'plans#showcalc'
   post   'calculate', to: 'plans#calculate'
 end

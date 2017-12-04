@@ -1,3 +1,7 @@
-<h3><%= @symptom.name.capitalize %></h3>
-<p>What is the closest to your symptom?</p>
-<%= render @ailments %>
+<% if @symptom %>
+  <h3><%= @symptom.name.capitalize %></h3>
+<% end %>
+<p>What is the closest to your ailment?</p>
+<% if @diseases %>
+  <%= render @diseases %>
+<% end %>

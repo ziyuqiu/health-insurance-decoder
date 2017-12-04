@@ -16,22 +16,22 @@ class BodyPartsController < ApplicationController
     puts @what
     if @what.eql? "body_part"
       puts 'loading body part...'
-      @body_part = BodyPart.find(params[:id])
-      @symptoms = @body_part.symptoms
     elsif @what.eql? "symptom"
       puts 'loading symptom...'
-      @body_part = BodyPart.find(params[:id])
-      @symptoms = @body_part.symptoms      
-      @symptom = Symptom.find(params[:symptom_id])
-      @ailments = @symptom.diseases
     elsif @what.eql? "ailment"
       puts 'loading ailment...'
-      @body_part = BodyPart.find(params[:id])
-      @symptoms = @body_part.symptoms      
-      @symptom = Symptom.find(params[:symptom_id])
-      @ailments = @symptom.diseases
-      @ailment = Disease.find(params[:ailment_id])
     end
+
+    @body_part = BodyPart.find(params[:id])
+    @symptoms = @body_part.symptoms
+    if params[:symptom_id]
+      @symptom = Symptom.find(params[:symptom_id])
+      @diseases = @symptom.diseases
+    end
+    if params[:ailment_id]
+      @disease = Disease.find(params[:ailment_id])
+    end
+    
     respond_to do |format|
       format.js
     end

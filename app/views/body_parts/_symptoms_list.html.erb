@@ -1,3 +1,7 @@
-<h3><%= @body_part.name.capitalize %></h3>
+<% if @body_part %>
+  <h3><%= @body_part.name.capitalize %></h3>
+<% end %>
 <p>What is the closest to your symptom?</p>
-<%= render @symptoms %>
+<% if @symptoms %>
+  <%= render @symptoms %>
+<% end %>
