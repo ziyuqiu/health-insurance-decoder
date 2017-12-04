@@ -1,4 +1,4 @@
-<br /><br />
+<br />
 <div class="col-lg-3" style="text-align:center">
   <%=render "home/profile" %>
 </div>
@@ -8,32 +8,41 @@
     <div class="welcome-row">
       <%=render "home/welcome_card" %>
     </div>
-    <div class="section-spacer"></div>
+    <div class="section-spacer"></div><br/>
   <% end %>
   
   <div class="row">
     <!-- Quick Diagnosis -->
-      <div class="col-md-4" id="diagnosis">
-        <%=render "home/card" %>
-      </div>
+    <div class="col-md-4" id="diagnosis">
+      <%=render "home/card", :locals => {:title => 'Quick Diagnosis' , :content => 'diagnosis', :button =>'Start Diagnosis'} %>
+    </div>
     <!-- Upcoming Event -->
     <div class="col-md-4" id="event">
-      <%=render "home/card"%>
+      <%=render "home/card", :locals => {:title => 'Upcoming Events' , :content => 'events', :button => 'More Events'} %>
     </div>
     <!-- Log -->
-    <div class="col-md-4" id="log">
-      <%=render "home/card"%>
+    <% if logged_in? %>
+      <div class="col-md-4" id="log">
+        <%=render "home/card", :locals => {:title => 'Symptom Logs' , :content => 'logs', :button =>'View Logs'} %>
+      </div>
+    <% else %>
+      <div class="col-md-4" id="resources">
+        <%=render "home/card", :locals => {:title => 'Emergency Contacts' , :content => 'contact', :button =>'View More Recourses'} %>
+      </div>
+    <% end %>
   </div>
 
-   <div class="row">
-        <div class="col-md-4" >
-
-          <%= render 'layouts/chart' %>
-        </div>
-        <div class="col-md-8" >
-          <%= render 'layouts/chart2' %>
-        </div>
+  <% if logged_in? %>
+    <div class="row">
+      <div class="col-md-4" >
+        <%= render 'layouts/chart' %>
+      </div>
+      <div class="col-md-8" >
+        <%= render 'layouts/chart2' %>
+      </div>
     </div>
+  <% end %>
+
 </div>
 
 <script>
@@ -42,29 +51,19 @@
   $('.demo-card-square.mdl-card').css({
       'height': 0.8* cw + 'px'
   });
-  // change card content
-  $('#diagnosis .mdl-card__title-text').html("Quick Diagnosis");
-  $('#diagnosis .mdl-card__supporting-text').html("Self Diagnosis! <br/> NON EMERGENCY ONLY.");
-  $('#diagnosis .mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect').html("Start Diagnosis");
   $('#diagnosis').on('click', function(){
      window.location = "/body-diagram";
   });
-
-  $('#event .mdl-card__title-text').html("Upcoming Events");
-  $('#event .mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect').html("More Events");
-  $('#event .mdl-card__supporting-text').html('<% @events.each do |event| %><tr><td><%= raw event[:date] %></td><td><%= event[:title] %></td></tr><% end%>');
   $('#event').on('click', function(){
      window.location = "/resources";
   });
-
-  $('#log .mdl-card__title-text').html("Symptom Logs");
-  // $('#log .mdl-card__supporting-text').html('<% @results.distinct(:symptom_id).pluck(:symptom_id).each do |id| %><%= Symptom.find(id).name.capitalize %> | <% end%>');
-
-  $('#log .mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect').html("View Logs");
   $('#log').on('click', function(){
      window.location = "/logs";
   });
-
+  $('#resources').on('click', function(){
+     window.location = "/resources";
+  });
+  
 </script>
 
 <style>
