@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "variables";
 
 section {
   overflow: auto;
@@ -21,3 +22,28 @@ textarea {
      padding-top: 60px;
      padding-bottom: 40px
  }
+
+#no-login {
+    margin: 0px auto !important;
+    text-align: center;
+
+    #no-login-img {
+	margin: 20px;	
+    }
+
+    #signup-prompt {
+	margin: 10px 0;
+	
+	a {
+	    color: $accent;
+	    :hover {
+	    color: $plain-text;
+	    text-decoration: underline;		
+	    }
+	}
+	a:hover {
+
+	}
+    }
+}
+

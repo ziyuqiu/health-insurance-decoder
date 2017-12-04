@@ -20,8 +20,17 @@ function newEntry(evt, typeName) {
   
 }
 
+// Opens browser printer dialogue when user clicks on the printer icon in the Log History menu.
+function printData(){
+    var divToPrint=document.getElementById("printTable");
+    newWin= window.open("");
+    newWin.document.write(divToPrint.outerHTML);
+    newWin.print();
+    newWin.close();
+}
 
-  // $('.selectpicker').selectpicker('refresh');
+
+// $('.selectpicker').selectpicker('refresh');
 // $(document).on('turbolinks:load', function () {
 //   $('.selectpicker').each(function (i, el) {
 //     if (!$(el).parent().hasClass('bootstrap-select')) {

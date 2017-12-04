@@ -1,0 +1,19 @@
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col mdl-cell--midddle" id="no-login">
+
+    <div class="alert alert-danger">
+      <p>Please <strong>sign in</strong> to view your log history.</p>
+    </div>
+
+    <div id="no-login-img">
+    <%= image_tag("logs-no-login.png", alt: "Black and white image of a notebook and pencil.") %>            
+    </div>
+    
+    <div>
+      <%= link_to "Sign in", login_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent" %>
+    </div>
+    <div id="signup-prompt">
+      <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
+    </div>
+  </div>
+</div>
