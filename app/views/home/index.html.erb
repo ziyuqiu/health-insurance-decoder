@@ -23,29 +23,17 @@
     <!-- Log -->
     <div class="col-md-4" id="log">
       <%=render "home/card"%>
-    </div>
-    <div class="row" id="graph container">
-      <div class="chart-container" style="position: relative; height:20vh; width:50vw">
-          <div class="col-md-6">
-            <%= render 'layouts/chart' %>
-          </div>
-          <div class="col-md-6">
-            <%= render 'layouts/chart2' %>
-          </div>
-      </div>
-    </div>
   </div>
 
    <div class="row">
-    <div class="chart-container" style="position: relative; height:40vh; width:40vw">
-        <div class="col-md-6">
+        <div class="col-md-4" >
+
           <%= render 'layouts/chart' %>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8" >
           <%= render 'layouts/chart2' %>
         </div>
     </div>
-  </div>
 </div>
 
 <script>
