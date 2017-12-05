@@ -1,40 +1,19 @@
-<div class="log-submit-container">
-  <!-- <h3>New Log</h3> -->
+<!-- Submit form for new symptom log -->
+<%= form_for(@log) do |f| %>
+  <h4>New Symptom</h4>
 
-  <!-- Health log submit form -->
-  <%= form_for(@log) do |f| %>
-    <!-- Symptom dropdown -->
-    <div class="log-controls">
-      <span id="symptom-control-label">
-        <%= f.label :symptom_id %>
-      </span>
-      <select class="selectpicker" title="Symptom" id="sym-filter" name="symptom_id" data-live-search="true" data-width="fit">
-        <% @symptoms.each do |sym| %>
-          <option value= <%= sym.id %>> <%= sym.name.capitalize %></option>
-        <% end %>
-      </select>
-    </div> <!-- /symptom dropdown -->
+  <%= f.label :symptom_id %>
+  <select class="selectpicker" title="Symptom" id="sym-filter" name="symptom_id" data-live-search="true" data-width="fit">
+    <% @symptoms.each do |sym| %>
+      <option value= <%= sym.id %>> <%= sym.name.capitalize %></option>
+    <% end %>
+  </select>
 
     <!-- Severity slide ruler -->
-    <div class="log-controls">
-      <span id="severity-label">
-        <%= f.label :severity %> <span id="score">5</span>
-      </span>
-      <span id="severity-range">
-        <input class="mdl-slider mdl-js-slider" type="range" min="0" max="10" value="5" tabindex="0" id="slider1" name="log[severity]">
-        <!-- # <%= f.range_field :severity, :min=>0, :max=>10, :class=>"slide", :id=>"slider1" %> -->
-      </span>
-    </div> <!-- /severity slide ruler -->
+    <%= f.label :severity %> <span id="score">5</span>
+    <input class="mdl-slider mdl-js-slider" type="range" min="0" max="10" value="5" tabindex="0" id="slider1" name="log[severity]">
 
     <!-- Submit button -->
-    <div class="log-controls">
-      <span id="btn-invisible-label">.</span>
-      <button class="mdl-button mdl-js-button mdl-button--fab">
-        <i class="material-icons">add</i>
-      </button>
-        <!-- <%= submit_tag "Record Log", class: "mdl-button mdl-js-button mdl-button--fab" %> -->
-      </span>
-    </div> <!-- /submit button -->
+    <%= submit_tag "Save", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
 
-  <% end %>
-</div>
+<% end %>

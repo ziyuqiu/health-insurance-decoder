@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post   '/login',        to: 'sessions#create'
   delete '/logout',       to: 'sessions#destroy'
   post   '/load_login',   to: 'home#load_login'
-
+  
   post   '/users/:id',    to: 'users#update'
   get    '/map',          to: 'static_pages#map'
   get    '/resources',    to: 'static_pages#resources'

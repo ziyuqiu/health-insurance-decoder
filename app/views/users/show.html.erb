@@ -1,45 +1,44 @@
-<!-- <p id="notice"><%= notice %></p> -->
-
 <% provide(:title, @user.name) %>
-<div class="row">
-  <button type="button" class="btn btn-default"><%= link_to 'Back', users_path %></button>
-  </br>
+<div class="mdl-grid" id="edit-profile-container">
+  <div class="mdl-cell mdl-cell--4-col">
+    <%= image_tag("default_prof_pic.png", :alt => "img missing", :size => "125", :id => "logo") if not @user.picture? %>
+    <%= image_tag @user.picture.url if @user.picture? %>
+
+    <%= form_for(@user) do |f| %>
+      <%= f.label "Edit Profile Picture:"%>
+      <span class="picture">
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      </span>
+      </br>
+      <%= f.submit "Upload Picture", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+
+  <div class="mdl-cell mdl-cell--8-col">
+    <h3><%= @user.name %></h3>
+    <p><%= @user.email %></p>
+
+    
+    <h4>Health Insurance Plans:</h4>
+    <table class="mdl-data-table mdl-js-data-table" id="user-profile-plan-table">
+      <thead>
+	<tr>
+	  <th>Name</th>
+	  <th>Action</th>
+	</tr>
+      </thead>
+      <tbody>
+        <%@user.plans.all.each do |plan|%>
+        <tr>      
+          <td><%= plan.name %></td>
+          <td><%=link_to 'Show', plan_path(plan)%></td>
+	</tr>
+        <% end %>
+      </tbody>
+    </table>
+    <p><%= link_to 'Create New Plan', new_plan_path%></p>
+    <p><%= link_to 'Edit Profile', edit_user_path(@user) %> | <%= link_to 'Delete My Account', @user, method: :delete, data: { confirm: "You sure?" } %></p>
+  </div>
 </div>
-
-</br></br>
-<div class="row">
-
-      <div class = "col-md-4">
-        <%= image_tag("default_prof_pic.png", :alt => "img missing", :size => "125", :id => "logo") if not @user.picture? %>
-        <%= image_tag @user.picture.url if @user.picture? %>
-        </br></br>
-        <%= form_for(@user) do |f| %>
-            <%= f.label "Edit Profile Picture:"%>
-            <span class="picture">
-              <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-            </span></br>
-            <%= f.submit "Upload Picture", class: "btn btn-primary" %>
-          <% end %>
-      </div>
-      <div class = "col-md-8">
-        <h4>
-          <strong><%= @user.name %></strong>
-          <p><%= @user.email %></p>
-
-          <p><strong>Plans:</strong></p>
-          <p><%@user.plans.all.each do |plan|%>
-             <p>Name:
-             <%= plan.name %>
-             <%=link_to 'Show', plan_path(plan)%></p>
-          <%end%></p>
-          <p><%= link_to 'Create New Plan', new_plan_path%>
-          <p><%= link_to 'Edit', edit_user_path(@user) %> |
-          <%= link_to 'Delete', @user, method: :delete, data: { confirm: "You sure?" } %></p>
-
-          
-        </h4>
-      </div>
-</div>
-
 
 <p id="notice"><%= notice %></p>

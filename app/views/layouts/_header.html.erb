@@ -1,57 +1,51 @@
-<%= csrf_meta_tags %>
-<!-- <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header", width ="100"> -->
-  <!-- <header class="mdl-layout__header"> -->
-
-
-
-
-    <div class="mdl-layout__header-row">
-    <!-- <title>Health Decoder</title> -->
-      <span class="mdl-layout-title">Health Decoder</span>
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href="/">Home</a>
-        <a class="mdl-navigation__link" href="/logs">Log</a>
-        <a class="mdl-navigation__link" href="/resources">Resources</a>
-        <!-- <a class="mdl-navigation__link" href="/plans">Plans</a> -->
-        <!-- <a class="mdl-navigation__link" href="/map">Map</a> -->
-      </nav>
-      <div class="mdl-layout-spacer"></div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon"
-               for="fixed-header-drawer-exp">
-          <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="sample"
-                 id="fixed-header-drawer-exp">
-        </div>
-      </div>
-      <% if logged_in? %>
-
-            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons" role="presentation">account_circle</i>
-              <span class="visuallyhidden">Accounts</span>
-            </button>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item" id="profile"><i class="material-icons">mode_edit</i>Edit Profile</li>
-              <!-- <li class="mdl-menu__item"><%= link_to "Settings", edit_user_path(current_user) %></li> -->
-              <li class="mdl-menu__item"><i class="material-icons">exit_to_app</i><%= link_to "Log out", logout_path, method: :delete%></li>
-
-              <!-- <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li> -->
-            </ul>
-
-      <% end %>
-
-    <!-- </header> -->
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Title</span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-      </nav>
+<div class="mdl-layout__header-row">
+  
+  <title class="mdl-layout-title">Health Decoder</title>
+  
+  <nav class="mdl-navigation mdl-layout--large-screen-only">
+    <%= link_to 'Home', root_path, class: "mdl-navigation__link" %>
+    <% if logged_in? %>
+      <%= link_to 'Personal Log', logs_path, class: "mdl-navigation__link" %>
+    <% end %>
+    <%= link_to 'Resources', resources_path, class: "mdl-navigation__link" %>  
+  </nav>
+  
+  <div class="mdl-layout-spacer"></div>
+  
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+      <i class="material-icons">search</i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
     </div>
+  </div>
+
+  <% if logged_in? %>
+    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+      <i class="material-icons" role="presentation">account_circle</i>
+      <span class="visuallyhidden">Accounts</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+      <li class="mdl-menu__item mdl-list__item" id="profile">
+	<%= link_to edit_user_path(current_user) do %>
+	  <span class="mdl-list__item-primary-content">
+	    <i class="material-icons mdl-list__item-icon">mode_edit</i>
+	    Edit Profile
+	  </span>
+	<% end %>
+      </li>
+      <li class="mdl-menu__item mdl-list__item">
+	<%= link_to logout_path, method: :delete do %>
+	  <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon">exit_to_app</i>
+	    Log out
+	  </span>
+	<% end %>
+      </li>
+    </ul>
+  <% end %>
+
 </div>
 
 <style>
