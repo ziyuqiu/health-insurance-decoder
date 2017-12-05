@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   post   '/users/:id',    to: 'users#update'
   get    '/map',          to: 'static_pages#map'
+  get    '/test',          to: 'static_pages#test'
   get    '/resources',    to: 'static_pages#resources'
 
   get    '/body-diagram/',       to: 'body_parts#diagram'
@@ -41,5 +42,13 @@ Rails.application.routes.draw do
 
   get    'print', to: 'logs#print'
 
+  get 'auth/:provider/callback', to: 'cessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'cessions#destroy', as: 'signout'
+
+  resources :cessions, only: [:create, :destroy]
+  resource :home, only: [:show, :index]
+
   post    'add_plan', to: "users#add_plan"
+  post    'remove_plan', to: "users#remove_plan"
 end

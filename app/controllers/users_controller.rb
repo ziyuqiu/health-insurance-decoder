@@ -79,6 +79,17 @@ class UsersController < ApplicationController
       end
   end
 
+  def remove_plan
+      @user=current_user
+      plan=@user.plans.find_by(id:params.fetch("plan_id"))
+      unless plan.nil?
+          @user.plans.delete(plan)
+      end
+      respond_to do |format|
+          format.js
+      end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

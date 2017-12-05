@@ -39,6 +39,7 @@ class LogsController < ApplicationController
   # POST /logs.json
   def create
   	puts log_params
+    puts params
     @log = Log.new(:symptom_id => params[:symptom_id],:severity =>log_params[:severity], :user_id => current_user.id, :visit_id => -1)
     respond_to do |format|
       if @log.save
