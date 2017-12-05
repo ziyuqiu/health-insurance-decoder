@@ -41,6 +41,7 @@ gem 'gmaps4rails'
 gem 'material_design_lite-rails', '~> 1.3'
 gem 'chart-js-rails'
 gem 'figaro'
+gem "omniauth-google-oauth2", "~> 0.2.1"
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

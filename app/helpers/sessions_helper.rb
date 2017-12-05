@@ -1,5 +1,5 @@
 module SessionsHelper
-  
+
   # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id
@@ -29,7 +29,7 @@ module SessionsHelper
       end
     end
   end
-  
+
   # Returns true if there is a user logged in.
   def logged_in?
     !current_user.nil?
@@ -40,7 +40,7 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
-  
+
   # Redirects to stored location (or to the default).
   def redirect_back_or(default)
     redirect_to(session[:forwarding_url] || default)

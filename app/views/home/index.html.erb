@@ -2,7 +2,14 @@
 <div id="user-profile-holder" class="col-lg-3" style="text-align:center">
   <%=render "home/profile" %>
 </div>
-
+<div>
+      <% if current_user %>
+        Signed in as <strong><%= current_user.name %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+      <% end %>
+    </div>
 <div class="col-lg-9" id="card-container">
   <% if not logged_in? %>
     <div class="welcome-row">

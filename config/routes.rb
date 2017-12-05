@@ -33,11 +33,19 @@ Rails.application.routes.draw do
   post   '/fetch/:what/:id/',                        to: 'body_parts#load', as: 'fetch'
   post   '/fetch/:what/:id/:symptom_id',             to: 'body_parts#load', as: 'fetch_symptom'
   post   '/fetch/:what/:id/:symptom_id/:ailment_id', to: 'body_parts#load', as: 'fetch_ailment'
-  
+
   post    '/fetch_diagram',       to: 'body_parts#load_diagram'
-  
+
   get    'calculate', to: 'plans#showcalc'
   post   'calculate', to: 'plans#calculate'
 
   get    'print', to: 'logs#print'
+
+  get 'auth/:provider/callback', to: 'cessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'cessions#destroy', as: 'signout'
+
+  resources :cessions, only: [:create, :destroy]
+  resource :home, only: [:show, :index]
+
 end
