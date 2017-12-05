@@ -8,8 +8,9 @@
       <strong><%= @user.name %></strong>
       <p><%= @user.email %></p>
       <p><%@user.plans.all.each do |plan|%>
-         <%=link_to plan.name, plan_path(plan)%>
+         <p><%=link_to plan.name, plan_path(plan)%><p>
       <%end%></p>
+      <%=render "users/add_plan" %>
 
       <%= form_for @user, :html => {:id => "change_picture"} do |f| %>
 
