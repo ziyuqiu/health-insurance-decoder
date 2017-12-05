@@ -10,9 +10,7 @@ class LogsController < ApplicationController
     if current_user != nil
       @results = @logs.where(:user_id => current_user.id)
     end
-    if params[:symptom_name] == ""
-      @results = @logs
-    else
+    if !params[:symptom_name].nil?
       @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
     end
 
