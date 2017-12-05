@@ -1,3 +1,15 @@
 <%= button_to fetch_symptom_path(:what => "symptom", :id => @body_part.id, :symptom_id => symptom.id), :remote => true, class: "mdl-chip" do %>
   <span class="mdl-chip__text"><%= symptom.name.capitalize %></span>
 <% end %>
+  
+<% id_name = "symptom_log_#{symptom.id}" %>
+  
+<!-- Button to add a new log entry -->
+<button id=<%= id_name %> class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color--accent">
+  <i class="material-icons mdl-color-text--white" role="presentation">event_note</i>
+</button>
+  
+<!-- New symptom menu -->
+<div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for=<%= id_name %>>
+    <%= render partial: "logs/new" %>
+</div>

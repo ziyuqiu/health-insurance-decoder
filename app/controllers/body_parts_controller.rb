@@ -5,6 +5,7 @@ class BodyPartsController < ApplicationController
   # GET /body_parts.json
   def index
     @body_parts = BodyPart.all
+
   end
 
   def diagram
@@ -12,6 +13,7 @@ class BodyPartsController < ApplicationController
   end
 
   def load
+    @log = Log.new    
     @what = params[:what]
     puts @what
     if @what.eql? "body_part"
