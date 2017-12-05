@@ -68,7 +68,7 @@ def build_relationship body_part_name, symptom_name, disease_name
     return
   end
   #puts "#{body_part_name}, #{symptom_name}, #{disease_name} - a valid tuple."
-  tuple2.save  
+  tuple2.save
 end
 
 def setup_brandeis_plan
@@ -155,12 +155,41 @@ after meeting your deductible and copay")
     treatment.copays << copay
 end
 
+def setup_generic_plan
+    generic=Plan.new(name:"Generic Plan")
+    generic.save
+    treatment=Treatment.new(resource_category:"coinsurance", name:"Co insurance-you pay this amount of a bill
+after meeting your deductible and copay")
+    treatment.save
+    copay=Copay.new(plan_id:generic[:id], treatment_id:treatment[:id], in_network:0.05, out_network:0.3, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false)
+    copay.save
+    generic.copays << copay
+    treatment.copays << copay
+    treatment=Treatment.new(resource_category:"office_visit", name:"Co-pay for office visit")
+    treatment.save
+    copay=Copay.new(plan_id:generic[:id],treatment_id:treatment[:id], in_network:30.0, out_network:0.3, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
+    copay.save
+    generic.copays << copay
+    treatment.copays << copay
+    treatment=Treatment.new(resource_category:"emergency", name:"Co-pay for emergency room visit")
+    treatment.save
+    copay=Copay.new(plan_id:generic[:id],treatment_id:treatment[:id], in_network:75.0, out_network:100.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:true)
+    copay.save
+    generic.copays << copay
+    treatment.copays << copay
+    treatment=Treatment.new(resource_category:"prescriptions", name:"All Prescriptions")
+    treatment.save
+    copay=Copay.new(plan_id:generic[:id],treatment_id:treatment[:id], in_network:0.3, out_network:1.0, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false, note:"Not covered out of network")
+    copay.save
+    generic.copays << copay
+    treatment.copays << copay
+end
 # BEGIN SEEDING
 
 clean_db
-
-elms = JSON.parse(open("./json/body_part_symptom_disease.json", 'r').read.to_s)
 setup_brandeis_plan
+setup_generic_plan
+elms = JSON.parse(open("./json/body_part_symptom_disease.json", 'r').read.to_s)
 elms.each do |elm|
   bp_name = elm["Body Part"].strip
   s_name = elm["Symptom"].strip
