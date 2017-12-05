@@ -5,6 +5,7 @@
       <a class="mdl-navigation__link" onclick="showTabContent(event, 'pain_lvl')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i> Pain Chart</a>
       <a class="mdl-navigation__link" onclick="showTabContent(event, 'clinic_lst')" id="defaultOpen"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">room</i> Nearby Clinics</a>
       <a class="mdl-navigation__link" onclick="showTabContent(event, 'events')" ><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">event</i> Events</a>
+      <a class="mdl-navigation__link" onclick="showTabContent(event, 'groups')" ><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i> Student Groups</a>
       <div class="mdl-layout-spacer"></div>
       <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
     </nav>
@@ -25,6 +26,15 @@
     </div>
     <div id = "events" class = "tabcontent">
       <%= render file: "./static_pages/events" %>
+    </div>
+    <div id = "groups" class = "tabcontent">
+        <p><h3><a href="http://www.brandeis.edu/publicsafety/bemco/index.html">BEMCo <%=image_tag ('BEMCologo.jpg'), :class => "logo"%></a></h3><div>The Brandeis University Medical Corps (BEMCo) is Brandeis’ student-run volunteer emergency medical service. BEMCo strives to provide timely and efficient emergency medical care to the Brandeis community. Today, under the guidance of the Director of Public Safety and the director of the University Health Center, BEMCo continues to meet the emergency medical needs of the community.
+        TO CONTACT BEMCO DIAL: 781-736-3333</div></p>
+        <p><h3><a href="http://www.brandeis.edu/rape-crisis-center/">RCC</a></h3><div>The Brandeis Rape Crisis Center provides direct support to members of the Brandeis community impacted by sexual violence and works to bring about a campus climate in which sexual violence is unacceptable.
+        Call 781-736-3370</div></p>
+        <p><h3><a href="http://people.brandeis.edu/~ssis/Site/index.html">SSIS <%=image_tag ('SSISlogo.jpg'), :class => "logo"%></a></h3><div>The Student Sexuality Information Service (SSIS) has been an integral part of Brandeis’s campus since 1973. SSIS is a unique, on campus, for students by students, resource that aims to cultivate a safe, sex-positive community while satisfying every Brandeisian’s sexual health needs. Along with a comprehensive library, an array of superior quality safer sex and sexploration products, SSIS provides a confidential peer counseling service. Call (781)-736-3695</div></p>
+        <p><h3><a href="https://qrcbrandeis.weebly.com/">QRC <%=image_tag ('QRClogo.png'), :class => "logo"%></a></h3><div>The Queer Resource Center (QRC) is a student run organization that strives to provide support, education, outreach, and advocacy for all members of the Brandeis undergraduate community.  QRC Staffers receive training in supporting and counseling people of all identities including but not limited to Trans (the Transgender umbrella), Lesbian, Gay, Bisexual, Asexual, Queer, Intersex, BDSM, Kink, Polyamory, and Allies.  We also provide services surrounding intersectionality, privilege and oppression, domestic violence, sexual assault, suicide prevention, self-harm, and sexual health.  We are committed to making Brandeis a safe space for students of all genders, sexualities, and identities through confidential peer counseling, educational outreach programs, resources and referrals.</div></p>
+        <p><h3><a href="https://sites.google.com/a/brandeis.edu/club-star/">STAR</a></h3><div>STAR (Students Talking About Relationships) provides a face-to-face peer counseling resource for the Brandeis community. All STAR counselors are trained by professionals on topics including but not limited to general counseling skills, campus resources and procedures, domestic and dating violence, rape crisis and sexual assault, pregnancy options and STD/STIs, alcohol and drugs, eating disorders and body image, gay, lesbian, bisexual, and transgender topics, religion, mental health, and suicide and self-harm. In addition to peer-counseling, STAR executes events related to mental health, self-care and stress relief such as STAR Study Break as well as events such as Take Back the Night related to sexual violence, relationship, and other topics.</div></p>
     </div>
   </main>
 </div>
@@ -73,6 +83,10 @@
   );
 </script>
 <style>
+  .logo{
+      width: 5%;
+      height: 5%;
+  }
   a:hover, a:visited, a:link, a:active{
     text-decoration: none;
   }
