@@ -184,11 +184,48 @@ after meeting your deductible and copay")
     generic.copays << copay
     treatment.copays << copay
 end
+
+def setup_fake_plan
+    fake=Plan.new(name:"Fake Plan")
+    fake.save
+    treatment=Treatment.new(resource_category:"coinsurance", name:"Co insurance-you pay this amount of a bill
+after meeting your deductible and copay")
+    treatment.save
+    copay=Copay.new(plan_id:fake[:id], treatment_id:treatment[:id], in_network:0.05, out_network:0.3, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false)
+    copay.save
+    fake.copays << copay
+    treatment.copays << copay
+    treatment=Treatment.new(resource_category:"office_visit", name:"Co-pay for office visit")
+    treatment.save
+    copay=Copay.new(plan_id:fake[:id],treatment_id:treatment[:id], in_network:40.0, out_network:0.4, copay_or_coinsurance_in:true, copay_or_coinsurance_out:false)
+    copay.save
+    fake.copays << copay
+    treatment.copays << copay
+    treatment=Treatment.new(resource_category:"emergency", name:"Co-pay for emergency room visit")
+    treatment.save
+    copay=Copay.new(plan_id:fake[:id],treatment_id:treatment[:id], in_network:75.0, out_network:100.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:true)
+    copay.save
+    fake.copays << copay
+    treatment.copays << copay
+    treatment=Treatment.new(resource_category:"prescriptions", name:"All Prescriptions")
+    treatment.save
+    copay=Copay.new(plan_id:fake[:id],treatment_id:treatment[:id], in_network:0.2, out_network:1.0, copay_or_coinsurance_in:false, copay_or_coinsurance_out:false, note:"Not covered out of network")
+    copay.save
+    fake.copays << copay
+    treatment.copays << copay
+    treatment=Treatment.new(resource_category:"labs", name:"Lab Work")
+    treatment.save
+    copay=Copay.new(plan_id:fake[:id],treatment_id:treatment[:id], in_network:50.0, out_network:75.0, copay_or_coinsurance_in:true, copay_or_coinsurance_out:true)
+    copay.save
+    fake.copays << copay
+    treatment.copays << copay
+end
 # BEGIN SEEDING
 
 clean_db
 setup_brandeis_plan
 setup_generic_plan
+setup_fake_plan
 elms = JSON.parse(open("./json/body_part_symptom_disease.json", 'r').read.to_s)
 elms.each do |elm|
   bp_name = elm["Body Part"].strip
