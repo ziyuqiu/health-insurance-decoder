@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  def show
+  end
   def index
     if current_user
       @user = User.find(current_user.id)
@@ -37,6 +39,6 @@ class HomeController < ApplicationController
   def load_login
     respond_to do |format|
       format.js
-    end    
+    end
   end
 end

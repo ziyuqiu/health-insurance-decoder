@@ -45,7 +45,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
     arel (8.0.0)
-    autoprefixer-rails (7.1.6)
+    autoprefixer-rails (7.2.1)
       execjs
     awesome_print (1.8.0)
     bcrypt (3.1.11)
@@ -95,6 +95,8 @@ GEM
     execjs (2.7.0)
     faker (1.8.4)
       i18n (~> 0.5)
+    faraday (0.12.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -140,7 +142,7 @@ GEM
     fog-atmos (0.1.0)
       fog-core
       fog-xml
-    fog-aws (1.4.1)
+    fog-aws (2.0.0)
       fog-core (~> 1.38)
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
@@ -190,7 +192,7 @@ GEM
       fog-core (~> 1.27)
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
-    fog-profitbricks (4.0.0)
+    fog-profitbricks (4.1.1)
       fog-core (~> 1.42)
       fog-json (~> 1.0)
     fog-rackspace (0.1.5)
@@ -253,7 +255,7 @@ GEM
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
-    hkdf (0.3.0)
+    hashie (3.5.6)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     inflecto (0.0.2)
@@ -267,7 +269,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.6)
-    jwt (2.1.0)
+    jwt (1.5.6)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -288,12 +290,14 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
-    minitest-reporters (1.1.18)
+    minitest-reporters (1.1.19)
       ansi
       builder
       minitest (>= 5.0)
       ruby-progressbar
     multi_json (1.12.2)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
     nenv (0.3.0)
     nio4r (2.1.0)
     nokogiri (1.8.1)
@@ -301,6 +305,32 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+<<<<<<< HEAD
+=======
+    oauth2 (1.4.0)
+      faraday (>= 0.8, < 0.13)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.7.1)
+      hashie (>= 3.4.6, < 3.6.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-google-oauth2 (0.2.10)
+      addressable (~> 2.3)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (~> 1.3.1)
+    omniauth-oauth2 (1.3.1)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
+    paperclip (3.5.4)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
+>>>>>>> 6174d783cfbbc10c89a113e3fc15b078ec41a417
     pg (0.20.0)
     pg_search (2.1.1)
       activerecord (>= 4.2)
@@ -368,7 +398,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (3.7.0)
+    selenium-webdriver (3.8.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
     shellany (0.0.1)
@@ -401,16 +431,13 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    uglifier (3.2.0)
+    uglifier (4.0.1)
       execjs (>= 0.3.0, < 3)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpush (0.3.3)
-      hkdf (~> 0.2)
-      jwt (~> 2.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -439,7 +466,6 @@ DEPENDENCIES
   faker
   figaro
   fog (= 1.40.0)
-  fog-aws
   gmaps4rails
   guard
   guard-minitest
@@ -452,6 +478,11 @@ DEPENDENCIES
   mini_magick (= 4.7.0)
   minitest
   minitest-reporters
+<<<<<<< HEAD
+=======
+  omniauth-google-oauth2 (~> 0.2.1)
+  paperclip (~> 3.0)
+>>>>>>> 6174d783cfbbc10c89a113e3fc15b078ec41a417
   pg (= 0.20.0)
   pg_search
   pry-rails
@@ -472,11 +503,14 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  webpush
   will_paginate
 
 RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
+<<<<<<< HEAD
    1.16.0.pre.3
+=======
+   1.16.0
+>>>>>>> 6174d783cfbbc10c89a113e3fc15b078ec41a417
