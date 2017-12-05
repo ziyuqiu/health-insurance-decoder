@@ -1,28 +1,44 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<div class="justified"><div id=calculateform class="mdl-card mdl-shadow--2dp">
+<div class="mdl-card__title justified">
   <strong>Name:</strong>
   <%= @plan.name %>
-</p>
+</div>
 
-
-<div id="cal-form" class="form">
+<div id="cal-form" class="form justified">
   <%= form_tag(calculate_path, controller: "plans", action: "calculate", remote:true) do%>
       <%= hidden_field_tag(:id, @plan.id)%>
-      <p><%= label_tag(:deductibletag, "Remaining Deductible")%>
-      <%= number_field_tag(:deductible)%></p>
-      <p><%= label_tag(:pricetag, "Price of Service")%>
-      <%= number_field_tag(:price)%></p>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="deductible" name="deductible">
+        <label class="mdl-textfield__label" for="sample4">Remaining Deductible</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+    </div>
+      <!-- <p><%= label_tag(:deductibletag, "Remaining Deductible")%>
+      <%= number_field_tag(:deductible)%></p> -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="price" name="price">
+        <label class="mdl-textfield__label" for="sample4">Price of Service</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+    </div>
+      <!-- <p><%= label_tag(:pricetag, "Price of Service")%>
+      <%= number_field_tag(:price)%></p> -->
       <p><%= label_tag(:choicetag, "Category of Service")%>
       <%= collection_select :treatment, :name, @plan.treatments.where.not(resource_category:"coinsurance"), :id, :name%></p>
-      <p><%= radio_button_tag(:network, true)%>
-      <%= label_tag(:yesnetwork, "This is an in network provider")%>
-      <%= radio_button_tag(:network, false)%>
-      <%= label_tag(:nonetwork, "This is an out of network provider")%></p>
-      <p><%= submit_tag("Calculate")%></p>
+      <!-- <p><%= radio_button_tag(:network, true, class:"mdl-radio mdl-js-radio mdl-js-ripple-effect")%> -->
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+          <input type="radio" id="yesnetwork" class="mdl-radio__button" name="network" value="true" checked><span class="mdl-radio__label">This is an in network provider</span>
+      </label>
+          <!-- <%= label_tag(:yesnetwork, "This is an in network provider", class:"mdl-radio__label")%> -->
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+          <input type="radio" id="nonetwork" class="mdl-radio__button" name="network" value="false" checked><span class="mdl-radio__label">This is an in network provider</span>
+      </label>
+      <!-- <%= radio_button_tag(:network, false, class:"mdl-radio__button")%></label> -->
+      <!-- <%= label_tag(:nonetwork, "This is an out of network provider", class:"mdl-radio__label")%></p> -->
+      <p><%= submit_tag("Calculate", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect")%></p>
   <%end%>
 </div>
-<div id="out_of_pocket"></div>
+<h4 class="justified" id="out_of_pocket"></h4>
+
 
 <!-- <script>
   $("#cal-form").on('submit', function(e) {
@@ -48,7 +64,18 @@
   }
 </script> -->
 
-<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<!-- <%= link_to 'Edit', edit_plan_path(@plan) %> | -->
 <%unless current_user.nil?%>
-    <%= link_to 'Back', user_path(current_user) %>
-<%end%>
+    <div class="justified"><%= link_to 'Back', root_path %></div>
+<%end%></div></div>
+
+<style>
+    #calculateform{
+        padding: 5%;
+        width: 80%;
+    }
+    .justified{
+        display: flex;
+        justify-content: center;
+    }
+</style>

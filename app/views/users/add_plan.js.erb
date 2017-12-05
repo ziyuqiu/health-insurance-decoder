@@ -1,0 +1,9 @@
+document.querySelector('#user-profile-holder').innerHTML="<%= escape_javascript(render(partial:'/home/profile'))%>";
+$(document).ready(function(){
+    $("#change_picture").hide();
+    $("#btn").click(function(e) {
+        $("#change_picture").show();
+        $("#btn").hide();
+
+    });
+});
