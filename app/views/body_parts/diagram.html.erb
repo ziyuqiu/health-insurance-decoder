@@ -18,8 +18,8 @@
 	  <div class="mdl-cell mdl-cell--middle">
 	    <div id="body-image"></div>
 	    <div id="body-image-switches">
-	      <span id="btn_m" class="btn_base">&#9794;</span>
-	      <span id="btn_f" class="btn_base">&#9792;</span>
+	      <span id="btn_m" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab btn_base">&#9794;</span>
+	      <span id="btn_f" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab btn_base btn_base">&#9792;</span>
 	    </div>
 	  </div>
 	</div>
@@ -70,9 +70,21 @@
   </div>  
 
   <!-- _show (disease) -->
-  <div class="mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+  <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
     <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title">
       <h4>Treatment</h4>
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-layout-spacer"></div>              
+      <%= button_to body_diagram_path, :remote => true, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" do %>
+        Back
+      <% end %>
+      <div class="mdl-layout-spacer"></div>        
+      <%= button_to fetch_diagram_path, :remote => true, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" do %>
+        Clear
+      <% end %>        
+    </div>
+    <div class="mdl-card__supporting-text">
+      <p>Click on a link to read more about a medical resource.</p>
     </div>    
     <div id="diagram_results_treatment" class="mdl-card__actions mdl-card--border">
       <%= render partial: 'treatment_placeholder' %>
