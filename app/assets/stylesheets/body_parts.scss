@@ -1,3 +1,5 @@
+$light-tan: #F5F5F5;
+
 #body-image {
     height: 333px;
     width: 116px;
@@ -40,3 +42,6 @@
     background-image: url("female.png");    
 }
 
+.card-header-color {
+    background-color: $light-tan;    
+}
