@@ -305,8 +305,6 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-<<<<<<< HEAD
-=======
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
       jwt (~> 1.0)
@@ -325,12 +323,6 @@ GEM
     omniauth-oauth2 (1.3.1)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    paperclip (3.5.4)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
->>>>>>> 6174d783cfbbc10c89a113e3fc15b078ec41a417
     pg (0.20.0)
     pg_search (2.1.1)
       activerecord (>= 4.2)
@@ -478,11 +470,7 @@ DEPENDENCIES
   mini_magick (= 4.7.0)
   minitest
   minitest-reporters
-<<<<<<< HEAD
-=======
   omniauth-google-oauth2 (~> 0.2.1)
-  paperclip (~> 3.0)
->>>>>>> 6174d783cfbbc10c89a113e3fc15b078ec41a417
   pg (= 0.20.0)
   pg_search
   pry-rails
@@ -509,8 +497,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-<<<<<<< HEAD
-   1.16.0.pre.3
-=======
-   1.16.0
->>>>>>> 6174d783cfbbc10c89a113e3fc15b078ec41a417
+   1.15.4
