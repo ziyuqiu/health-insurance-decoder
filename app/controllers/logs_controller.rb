@@ -8,7 +8,7 @@ class LogsController < ApplicationController
     @log = Log.new
     @symptoms = Symptom.all
     if current_user != nil
-      @results = @logs.where(:user_id => current_user.id, :visit_id => -1)
+      @results = @logs.where(:user_id => current_user.id)
     end
     if !params[:symptom_name].nil?
       @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
@@ -84,7 +84,6 @@ class LogsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

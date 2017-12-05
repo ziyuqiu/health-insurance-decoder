@@ -1,43 +1,15 @@
-<br/><br/><br/><br/>
-<table class = "mdl-data-table mdl-js-data-table">
+<table class="mdl-data-table mdl-js-data-table">
   <thead>
     <tr>
-      <!-- <th>User</th> -->
       <th>Symptom</th>
       <th>Severity</th>
       <th>Time</th>
-      <th> </th>
+      <th></th>
     </tr>
   </thead>
-
-  <main class="mdl-layout__content">
   <tbody>
-    
     <% @results.order(:created_at).each do |log| %>
-      <tr>
-        <!--<td><%= log.user_id %></td>-->
-        <td><%= link_to Symptom.find(log.symptom_id).name, edit_log_path(log) %></td>
-        <td><%= log.severity %></td>
-        <td><%= log.created_at.to_date %></td>
-        <td>
-          <!--<%= link_to image_tag('cross.png', size: 1), log, method: :delete%> -->
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-method="delete" href=<%=log%>>
-            <i class="material-icons">close</i>
-          </button>
-        </td>
-      </tr>
+      <%= render @logs %>
     <% end %>
-    
   </tbody>
-  </main>
 </table>
-
-<style>
-  .mdl-data-table.mdl-js-data-table{
-    width: 33.3vw;
-  }
-  .mdl-data-table.mdl-js-data-table{
-    position: relative;
-    top: 50px;
-  }
-</style>
