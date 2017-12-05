@@ -1,40 +1,30 @@
-function newEntry(evt, typeName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
-
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(typeName).style.display = "block";
-  evt.currentTarget.className += " active";
-  
+// Get all elements with class = typeName and toggle visibility
+function toggleLog(typeName) {
+    var i, tabcontent;
+    tabcontent = document.getElementsByClassName(typeName);
+    for (i = 0; i < tabcontent.length; i++) {
+	if (tabcontent[i].style.display != "block") {
+	    tabcontent[i].style.display = "block";
+	} else if (tabcontent[i].style.display != "none") {
+	    tabcontent[i].style.display = "none";
+	}
+    }
 }
 
 // Opens browser printer dialogue when user clicks on the printer icon in the Log History menu.
-function printData(){
-    var divToPrint=document.getElementById("printTable");
+function printSymptomsData(){
+    var divToPrint=document.getElementById("printSymptomsTable");
     newWin= window.open("");
     newWin.document.write(divToPrint.outerHTML);
     newWin.print();
     newWin.close();
 }
 
-
-// $('.selectpicker').selectpicker('refresh');
-// $(document).on('turbolinks:load', function () {
-//   $('.selectpicker').each(function (i, el) {
-//     if (!$(el).parent().hasClass('bootstrap-select')) {
-//       $(el).selectpicker('refresh');
-//     }
-//   });
-// });
+// Opens browser printer dialogue when user clicks on the printer icon in the Log History menu.
+function printVisitsData(){
+    var divToPrint=document.getElementById("printVisitsTable");
+    newWin= window.open("");
+    newWin.document.write(divToPrint.outerHTML);
+    newWin.print();
+    newWin.close();
+}

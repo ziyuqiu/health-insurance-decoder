@@ -1,0 +1,9 @@
+<tr>
+  <td><%= visit.time %></td>  
+  <td><%= visit.vtype %></td>
+  <td>
+    <%= button_to visit, method: :delete, class:"mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" do %>
+      <i class="material-icons">close</i>
+    <% end %>
+  </td>
+</tr>

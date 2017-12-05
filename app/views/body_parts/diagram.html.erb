@@ -1,6 +1,6 @@
 <div class="mdl-grid">
   
-  <div class="mdl-cell mdl-cell--4-col body-diagram-block mdl-shadow--2dp">
+  <div class="mdl-cell mdl-cell--4-col body-diagram-block mdl-shadow--2dp plain-background">
     <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title">
       <h4>Body Diagram</h4>
       <div class="mdl-layout-spacer"></div>      
@@ -37,28 +37,26 @@
   </div>
 
   <!-- _symptoms_list -->
-  <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
+  <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp body-background">
     <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title">
       <h4>Symptoms</h4>
     </div>
     <div class="mdl-card__supporting-text">    
-      <p>Click on a body part to view a list of symptoms.</p>
+      <p>Click on a symptom to view a list of ailments.</p>
     </div>
     <div id="diagram_results_symptoms" class="mdl-card__actions mdl-card--border">
-      <%= render partial: 'symptoms_placeholder' %>
     </div>
   </div>
 
   <!-- _ailments_list (diseases) -->
-  <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp">
+  <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp body-background-offset-right">
     <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title">
       <h4>Ailments</h4>
     </div>
     <div class="mdl-card__supporting-text">
-      <p>Click on a symptom to view a list of symptoms.</p>
+      <p>Click on an ailment to view more information.</p>
     </div>
     <div id="diagram_results_ailments" class="mdl-card__actions mdl-card--border">
-      <%= render partial: 'ailments_placeholder' %>
     </div>
   </div>
 

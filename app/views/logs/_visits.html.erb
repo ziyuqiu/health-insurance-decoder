@@ -1,16 +1,12 @@
-<div class="visits" style="background-color: #e6fff2" style="display:none">
-  <h3>Visits</h3>
-  <%= render "visit_table" %>
-  <button class="btn btn-outline-info" onclick="newEntry(event, 'newVisit')" id="defaultOpen">
-    <strong>New Visit</strong>
-  </button>
-  <div id="newVisit" class="tabcontent">
-    <%= render "visits_add" %>
-  </div>  
-</div>
-
-<script>
-  $(document).ready(function(){
-    document.getElementById("defaultOpen").click();
-  })
-</script>
+<table class="mdl-data-table mdl-js-data-table">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Type</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @visits %>
+  </tbody>
+</table>

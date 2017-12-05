@@ -29,3 +29,22 @@ $light-tan: #F5F5F5;
 .card-header-color {
     background-color: $light-tan;    
 }
+
+.style-image {
+    max-width: 100%;
+}
+
+.body-background {
+    background-image: url("diagram-placeholder.png");
+    background-repeat: no-repeat;
+}
+
+.body-background-offset-right {
+    background-image: url("diagram-placeholder.png");
+    background-repeat: no-repeat;
+    background-position: 86% 0%;
+}
+
+.plain-background {
+    background-image: url("diagram-background.png");
+}

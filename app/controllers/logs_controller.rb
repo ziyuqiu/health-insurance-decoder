@@ -10,12 +10,14 @@ class LogsController < ApplicationController
     if current_user != nil
       @results = @logs.where(:user_id => current_user.id)
     end
-    if !params[:symptom_name].nil?
+    if params[:symptom_name] == ""
+      @results = @logs
+    else
       @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
     end
 
     @visit = Visit.new
-    @visits = Visit.all
+    @visits = Visit.all.order(:time)
   end
 
   # GET /logs/1
