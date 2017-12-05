@@ -1,11 +1,10 @@
 <% if @disease %>
-<h3><%= @disease.name.capitalize %></h3>
-<p>Here are some resources to treat this ailment:</p>
-<p>*** To do after creation of treatment model ***</p>
-<%= button_to body_diagram_path, :remote => true, class: "mdl-chip" do %>
-  <span class="mdl-chip__text">Back</span>
-<% end %>
-<%= button_to fetch_diagram_path, :remote => true, class: "mdl-chip" do %>
-  <span class="mdl-chip__text">Clear</span>
-<% end %>  
+  <h4><%= @disease.name.capitalize %></h4>
+  <p>Here are some resources to treat this ailment:</p>
+  <%= button_to body_diagram_path, :remote => true, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" do %>
+    Back
+  <% end %>
+  <%= button_to fetch_diagram_path, :remote => true, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" do %>
+    Clear
+  <% end %>  
 <% end %>

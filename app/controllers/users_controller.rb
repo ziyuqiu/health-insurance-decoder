@@ -31,9 +31,9 @@ class UsersController < ApplicationController
      @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        unless Plan.find_by(name:"Brandeis Insurance Plan").nil?
-            @user.plans << Plan.find_by(name:"Brandeis Insurance Plan")
-        end
+        # unless Plan.find_by(name:"Brandeis Insurance Plan").nil?
+        #     @user.plans << Plan.find_by(name:"Brandeis Insurance Plan")
+        # end
         log_in @user
         flash[:success] = "Welcome! User was successfully created."
         format.html { redirect_to @user }
@@ -67,6 +67,27 @@ class UsersController < ApplicationController
     end
     redirect_to users_url
 
+  end
+
+  def add_plan
+      @user=current_user
+      if @user.plans.find_by(id:params.fetch("plan").fetch("name")).nil?
+          @user.plans << Plan.find_by(id:params.fetch("plan").fetch("name"))
+      end
+      respond_to do |format|
+          format.js
+      end
+  end
+
+  def remove_plan
+      @user=current_user
+      plan=@user.plans.find_by(id:params.fetch("plan_id"))
+      unless plan.nil?
+          @user.plans.delete(plan)
+      end
+      respond_to do |format|
+          format.js
+      end
   end
 
 

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post   '/login',        to: 'sessions#create'
   delete '/logout',       to: 'sessions#destroy'
   post   '/load_login',   to: 'home#load_login'
-  
+
   post   '/users/:id',    to: 'users#update'
   get    '/map',          to: 'static_pages#map'
   get    '/resources',    to: 'static_pages#resources'
@@ -33,11 +33,14 @@ Rails.application.routes.draw do
   post   '/fetch/:what/:id/',                        to: 'body_parts#load', as: 'fetch'
   post   '/fetch/:what/:id/:symptom_id',             to: 'body_parts#load', as: 'fetch_symptom'
   post   '/fetch/:what/:id/:symptom_id/:ailment_id', to: 'body_parts#load', as: 'fetch_ailment'
-  
+
   post    '/fetch_diagram',       to: 'body_parts#load_diagram'
-  
+
   get    'calculate', to: 'plans#showcalc'
   post   'calculate', to: 'plans#calculate'
 
   get    'print', to: 'logs#print'
+
+  post    'add_plan', to: "users#add_plan"
+  post    'remove_plan', to: "users#remove_plan"
 end

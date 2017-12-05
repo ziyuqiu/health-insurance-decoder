@@ -18,7 +18,7 @@
     <h3><%= @user.name %></h3>
     <p><%= @user.email %></p>
 
-    
+
     <h4>Health Insurance Plans:</h4>
     <table class="mdl-data-table mdl-js-data-table" id="user-profile-plan-table">
       <thead>
@@ -29,14 +29,13 @@
       </thead>
       <tbody>
         <%@user.plans.all.each do |plan|%>
-        <tr>      
+        <tr>
           <td><%= plan.name %></td>
           <td><%=link_to 'Show', plan_path(plan)%></td>
 	</tr>
         <% end %>
       </tbody>
     </table>
-    <p><%= link_to 'Create New Plan', new_plan_path%></p>
     <p><%= link_to 'Edit Profile', edit_user_path(@user) %> | <%= link_to 'Delete My Account', @user, method: :delete, data: { confirm: "You sure?" } %></p>
   </div>
 </div>
