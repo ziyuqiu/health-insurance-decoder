@@ -8,7 +8,11 @@
       <strong><%= @user.name %></strong>
       <p><%= @user.email %></p>
       <p><%@user.plans.all.each do |plan|%>
-         <p><%=link_to plan.name, plan_path(plan)%><p>
+         <p><%=link_to plan.name, plan_path(plan), class:"mdl-button mdl-js-button"%>|
+             <%=form_tag(remove_plan_path, remote:true) do%>
+                <%= hidden_field_tag(:plan_id, plan.id)%>
+                <%= submit_tag("Deactivate Plan", class:"mdl-button mdl-js-button")%>
+            <%end%><p>
       <%end%></p>
       <%=render "users/add_plan" %>
 
