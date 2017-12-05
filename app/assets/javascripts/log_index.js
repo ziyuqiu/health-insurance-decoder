@@ -28,3 +28,17 @@ function printVisitsData(){
     newWin.print();
     newWin.close();
 }
+
+function executeSymptomSearch() {
+    console.log("Search field changed.");
+    var s= document.getElementById("search_symptoms").value;
+    console.log(s);
+    var params = {
+	symptom_name: s,
+    }
+    $.ajax({
+	url: "/update_logs",
+	type: "POST",
+	data: params
+    });
+}
