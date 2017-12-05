@@ -10,14 +10,21 @@
       <p><%@user.plans.all.each do |plan|%>
          <%=link_to plan.name, plan_path(plan)%>
       <%end%></p>
-      <%= form_for(@user) do |f| %>
-      <span class="picture">
-        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-      </span>
-        <%= f.submit " change", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--primary" %>
+
+      <%= form_for @user, :html => {:id => "change_picture"} do |f| %>
+
+         <%= f.file_field :picture ,:onchange=>"loadFile(event)",id: "upload-it", class: "hide_input"%>
+         <div class="glyphicon glyphicon-camera" id="image-output",:onclick="upload_it(event)"></div>
+
+
+          <!-- <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' , id:"file-input" %> -->
+
+          <%= f.submit "Upload New", class: "mdl-button mdl-js-button mdl-button--primary", id: "change button" %>
       <% end %>
+
     </h4>
     <!-- Buttons -->
+    <button id="btn" class="mdl-button mdl-js-button mdl-button--primary" >Change Profile picture</button>
     <%= button_to "Log out", logout_path, method: :delete, class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary" %>
 <% else %>
   <div class="alert alert-danger">
@@ -26,3 +33,15 @@
   <%= button_to "Sign in", load_login_path, :method => "post", class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary", id: "sign_in_button", :remote => true %>
   <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
 <% end %>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("#change_picture").hide();
+        $("#btn").click(function(e) {
+            $("#change_picture").show();
+            $("#btn").hide();
+
+        });
+    });
+</script>
