@@ -259,7 +259,6 @@ GEM
       guard-compat (~> 1.2)
       minitest (>= 3.0)
     hashie (3.5.6)
-    hkdf (0.3.0)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     inflecto (0.0.2)
@@ -437,9 +436,6 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpush (0.3.2)
-      hkdf (~> 0.2)
-      jwt
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -468,7 +464,6 @@ DEPENDENCIES
   faker
   figaro
   fog (= 1.40.0)
-  fog-aws
   gmaps4rails
   guard
   guard-minitest
@@ -502,11 +497,10 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  webpush
   will_paginate
 
 RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.16.0.pre.2
+   1.16.0
