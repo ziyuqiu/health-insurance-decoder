@@ -1,13 +1,14 @@
 $light-blue: aliceblue;
 $log-header: lightblue;
+$light-tan: #F5F5F5;
 
-.log-submit-container {
+#log-history-switch {
+    background-color: $light-tan;
+}
+
+#log-submit-container {
     background-color: $light-blue;
-
-    height: auto;
-    display: flex;
-    flex-direction: column;
-
+    
     .new_log {
 	display: inline;
     }
@@ -22,7 +23,7 @@ $log-header: lightblue;
     .log-controls {
 	height: 60px;
 	width: 33%;
-	padding: 0px 10px;
+	margin: 10px;
 	display: inline-block;
 	float: left;
 	margin: 10px 0;
@@ -65,226 +66,125 @@ $log-header: lightblue;
     }
 }
 
+/* Calendar overrides for logs page */
+.calendar-heading {
+    background-color: $light-tan;
+    color: rgba(0,0,0,.54);
+    
+    .calendar-title {
+	color: rgba(0,0,0,.54);
+    }
+
+    a {
+	color: #FFF;
+	
+	&:hover {
+	    color: #5f7c8b;
+	}
+    }
+}
+
+.for-log-dropdown-override {
+    position: relative;
+}
+
+/* Styles for the Symptom/Visits Log Card */
+#log-history-container {
+    #log-history-menu {
+	background-color: $light-tan;
+	color: rgba(0,0,0,.54);
+    }
+
+    #log-history-table {
+	.mdl-data-table {
+	    width: 100%;
+
+	    thead {
+		display: block;
+		  
+		tr {
+		    display:table;
+		    width: 100%;
+		}
+		  
+		th {
+		    width: 25%;
+		    text-align: center;
+		}
+	    }
+	      
+	    tbody {
+		display: block;
+		max-height: 415px;
+		overflow: auto;
+
+		tr {
+		    width: 100%;
+		}
+		  
+		td {
+		    text-align: center;
+		    width: 25%;
+		}
+	    }	      
+	}
+
+	.printer-friendly-table {
+	    display: none;
+	}
+    }
+}
+
+
+/** OUTDATED, WE CAN REMOVE THESE: */
  /* Style the tab */
-  div.tab {
-      overflow: hidden;
-      background-color: #ffffff;
-  }
-
-  /* Style the buttons inside the tab */
-  div.tab button {
-
-      background-color: #f1f1f1;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 10px;
-      width: 32.3vw;
-      transition: 0.3s;
-  }
-
-  /* Change background color of buttons on hover */
-  div.tab button:hover {
-      background-color: #99ccff;
-  }
-
-  /* Create an active/current tablink class */
-  div.tab button.active {
-      color: white;
-
-      background-color: #548abe;
-  }
-
-  /* Style the tab content */
-  .tabcontent {
-      display: none;
-      padding: 10px 10px;
-      background-color: aliceblue;
-  }
-  .tabcontent {
-    -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
-  }
-
-  @-webkit-keyframes fadeEffect {
-      from {opacity: 0;}
-      to {opacity: 1;}
-  }
-
-  @keyframes fadeEffect {
-      from {opacity: 0;}
-      to {opacity: 1;}
-  }
-
-
-/*style for card*/
-.demo-blog .something-else .mdl-card__supporting-text {
-  z-index: 1;
-}
-.mdl-button--fab{
-  z-index: 2;
+div.tab {
+    overflow: hidden;
+    background-color: #ffffff;
 }
 
-.demo-blog .mdl-card {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  min-height: 360px;
-}
-.demo-blog .mdl-card__title {
-  padding: 16px;
-  flex-grow: 1;
-}
-.demo-blog .mdl-card__media {
-  box-sizing: border-box;
-  background-size: cover;
-  padding: 24px;
-  display: flex;
-  flex-grow: 1;
-  flex-direction: row;
-  align-items: flex-end;
-  cursor: pointer;
-}
-.demo-blog .mdl-card__media a,
-.demo-blog .mdl-card__title a {
-  color: inherit;
-}
-.demo-blog .mdl-card__supporting-text {
-  width: 100%;
-  padding: 6px;
-  min-height: 64px;
-  display: flex;
-  align-items: center;
-}
-.demo-blog .mdl-card__supporting-text strong {
-  font-weight: 400;
-}
-.demo-blog .mdl-card__media ~ .mdl-card__supporting-text {
-  min-height: 64px;
-}
-.demo-blog .mdl-card__supporting-text:not(:last-child) {
-  box-sizing: border-box;
-  min-height: 76px;
-}
-.demo-blog:not(.demo-blog--blogpost) .mdl-card__supporting-text ~ .mdl-card__supporting-text {
-  border-top: 1px solid rgba(0,0,0,0.1);
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: #f1f1f1;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 32.3vw;
+    transition: 0.3s;
 }
 
-.demo-blog .mdl-card__actions:first-child {
-  margin-left: 0;
-}
-.demo-blog .meta {
-  box-sizing: border-box;
-  padding: 16px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  height: auto;
-}
-.demo-blog .meta > .meta__favorites{
-  flex-direction: row;
-  margin: 0 8px;
-  font-size: 13px;
-  font-weight: 500;
-}
-.demo-blog .meta > .meta__favorites .material-icons {
-  font-size: 2em;
-  cursor: pointer;
-  margin-left: 12px;
-  z-index:1000;
-}
-.demo-blog .mdl-card .meta.meta--fill {
-  justify-content: space-between;
-}
-.demo-blog .meta > *:first-child {
-  margin-right: 16px;
-}
-.demo-blog .meta > * {
-  display: flex;
-  flex-direction: column;
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #99ccff;
 }
 
-.demo-blog .coffee-pic .mdl-card__media {
-  background-image: url('images/coffee.jpg');
+/* Create an active/current tablink class */
+div.tab button.active {
+    color: white;
+
+    background-color: #548abe;
 }
-.demo-blog .something-else .mdl-card__media {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 10px 10px;
+    background-color: aliceblue;
 }
-.demo-blog .something-else > button {
-  position: absolute;
-  top: 0;
-  right: 28px;
-  transform: translate(0px, -28px);
+
+.tabcontent {
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
-.demo-blog .something-else .mdl-card__media {
-  font-size: 13px;
-  font-weight: 500;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-.demo-blog .something-else .mdl-card__media img {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 10px;
-}
-.demo-blog .something-else .mdl-card__supporting-text {
-  background-color: #F5F5F5;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-.demo-blog .on-the-road-again .mdl-card__media {
-  background-image: url('images/road.jpg');
-}
-.demo-blog .shopping .mdl-card__media {
-  background-image: url('images/shopping.jpg');
-}
-.demo-blog .demo-blog__posts > .demo-nav {
-  margin: 12px 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  font-weight: 500;
-}
-.demo-blog .demo-blog__posts > .demo-nav > .demo-nav__button {
-  color: white;
-  text-decoration: none;
-}
-.demo-blog .demo-blog__posts > .demo-nav .mdl-button {
-  color: rgba(0,0,0,0.54);
-  background-color: white;
-}
-.demo-blog .demo-blog__posts > .demo-nav > .demo-nav__button:first-child .mdl-button {
-  margin-right: 16px;
-}
-.demo-blog .demo-blog__posts > .demo-nav > .demo-nav__button:last-child .mdl-button {
-  margin-left: 16px;
-}
-.demo-blog .mdl-card > a {
-  color: inherit;
-  text-decoration: none;
-  font-weight: inherit;
-}
-.demo-blog .mdl-card h3 {
-  margin: 0;
-}
-.demo-blog .mdl-card h3 a {
-  text-decoration: none;
-}
-.demo-blog .mdl-card h3.quote:before, .demo-blog .mdl-card h3.quote:after {
-  display: block;
-  font-size: 3em;
-  margin-top: 0.5em;
-}
-.demo-blog .mdl-card h3.quote:before {
-  content: '“';
-}
-.demo-blog .mdl-card h3.quote:after {
-  content: '”';
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }

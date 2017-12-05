@@ -1,6 +1,8 @@
-<h1>Editing User</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="mdl-grid" id="edit-profile-container">
+  <div class="mdl-cell mdl-cell--12-col">
+    <center>
+      <h3>Editing <%= @user.name %>'s Profile</h3>
+      <%= render 'form', user: @user %>
+    </center>
+  </div>
+</div>

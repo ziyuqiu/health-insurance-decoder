@@ -1,55 +1,25 @@
-
-<div id="log-history-menu" class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600 mdl-shadow--2dp">
-  <div>
-    <h4>Log History</h4>
+<div id="log-history-container" class="mdl-color-text--grey-600">
+  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    
+    <div id="log-history-switch" class="mdl-tabs__tab-bar mdl-shadow--2dp mdl-card__title">
+      <a href="#symptoms-panel" class="mdl-tabs__tab is-active">Symptoms</a>
+      <a href="#visits-panel" class="mdl-tabs__tab">Visits</a>
+    </div>
+  
+    <div class="mdl-tabs__panel is-active" id="symptoms-panel">
+      <div id="log-history-menu" class="mdl-shadow--2dp mdl-card__title">
+	<%= render partial: "log_header_history_symptom" %>
+      </div>
+      <div id="log-history-table">
+	<%= render partial: "log_table" %>
+	<div class="printer-friendly-table">
+	  <%= render partial: "printer_friendly_log_table" %>
+	</div>
+      </div>
+    </div>
+    
+    <div class="mdl-tabs__panel" id="visits-panel">
+      <%= render partial: "visits" %>
+    </div>
   </div>
-
-  <!-- LOG HISTORY MENU -->
-  
-  <!-- Log History Search -->
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-    <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-      <i class="material-icons">search</i>
-    </label>
-
-    <div class="mdl-textfield__expandable-holder">
-      <input class="mdl-textfield__input" type="text" id="search">
-      <label class="mdl-textfield__label" for="search">Enter your query...</label>
-    </div>
-  </div> <!-- /log history search -->
-
-
-  <!-- PRINTER BUTTON -->
-  <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple">
-    <i class="material-icons" onclick="printData()">printer</i>
-    <span class="mdl-button__ripple-container" onclick="printData()">
-      <span class="mdl-ripple is-animating" style="width: 92.5097px; height: 92.5097px; transform: translate(-50%, -50%) translate(13px, 17px);"></span>
-    </span>
-  </button>
-
-  <!-- ADD NEW SYMPTOM -->
-  <button id="menubtn" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent">
-    <i class="material-icons mdl-color-text--white" role="presentation">add</i>
-    <span class="visuallyhidden">add</span>
-  </button>
-  
-  <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="menubtn">
-    <li class="mdl-menu__item">About</li>
-    <li class="mdl-menu__item">Message</li>
-    <li class="mdl-menu__item">Favorite</li>
-    <li class="mdl-menu__item">Search</li>
-  </ul>
-  
-</div> <!-- /log-history-menu -->
-
-
-<div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
-  <div class="log_table">
-    <%= render "log_table" %>
-    <div style="display:none">
-      <%= render "printer_friendly_log_table" %>
-    </div>
-  </div> <!-- /log_table -->
-</div> <!-- /mdl-card container for log_table -->
-	
-<!-- /_log_history.html.erb -->
+</div>

@@ -1,69 +1,20 @@
 <% if not current_user %>
   <%= render partial: "static_pages/no_login" %>
 <% else %>
-
-<!-- Logs sidebar with search -->
-<div class="col-sm-4 sidenav">
-  <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
-    <div class="mdl-card something-else mdl-cell--12-col-desktop mdl-shadow--2dp">
-      <%= render partial: "log_history" %>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col for-log-dropdown-override">
+      <%= render partial: 'log_history' %>
+    </div>
+    <div class="mdl-cell mdl-cell--8-col">
+      <%= render "calendar" %>
     </div>
   </div>
-
-  <div class = "visits" style="background-color: #e6fff2" style="display:none">
-    <h3>Visits</h3>
-    <%= render "visit_table" %>
-    <button class="btn btn-outline-info" onclick="newEntry(event, 'newVisit')">
-      <strong>New Visit</strong>
-    </button>
-  </div>
-</div><!-- /logs sidebar -->
-
-<!-- Calendar table -->
-<div class="col-sm-8">
-  <div class="tab">
-    <button class="tablinks" onclick="newEntry(event, 'newLog')" id="defaultOpen">
-      <strong>New Log</strong>
-    </button>
-    <button class="tablinks" onclick="newEntry(event, 'newVisit')">
-      <strong>New Visit</strong>
-    </button>
-  </div>
-  <div id="newLog" class="tabcontent">
-    <%= render "new" %>
-  </div>
-  <div id="newVisit" class="tabcontent">
-    <%= render "visits_add" %>
-  </div>
-  <div class = "col-sm-12">
-    <%= render "calendar" %>
-  </div>
-</div><!-- /calendar -->
-
 <% end %>
 
 <%= javascript_include_tag 'slider'%>
 <%= javascript_include_tag 'log_index'%>
 
-<script>
-  $(document).ready(function(){
-    document.getElementById("defaultOpen").click();
-  })
-
-
-  function printData(){
-     var divToPrint=document.getElementById("printTable");
-     newWin= window.open("");
-     newWin.document.write(divToPrint.outerHTML);
-     newWin.print();
-     newWin.close();
-  }
-</script>
-
-
-<!-- DELETE ME -->
-
-
+<!-- !!!! DELETE ME !!!! -->
   <div style="background-color: #fffae6" style="display:none">
     <!-- Logs display table -->
     <!--
