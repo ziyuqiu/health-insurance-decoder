@@ -1,4 +1,5 @@
-<p><%=form_tag(add_plan_path, controller:"users", action:"add_plan", remote:true) do%>
+<button id="add" class="mdl-button mdl-js-button mdl-button--primary" >Change Profile picture</button>
+<p><%=form_tag(add_plan_path, controller:"users", action:"add_plan", remote:true, html:{id:"new_plan"}) do%>
     <%=collection_select :plan, :name, Plan.all, :id, :name%>
-    <%= submit_tag("Add a New Plan", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect")%>
+    <%= submit_tag("Add Plan", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect")%>
 <%end%></p>

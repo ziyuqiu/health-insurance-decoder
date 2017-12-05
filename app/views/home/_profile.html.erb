@@ -14,7 +14,11 @@
                 <%= submit_tag("Deactivate Plan", class:"mdl-button mdl-js-button")%>
             <%end%><p>
       <%end%></p>
-      <%=render "users/add_plan" %>
+      <button id="add" class="mdl-button mdl-js-button mdl-button--primary" >Add a New Plan</button>
+      <div id="new_plan"><%=form_tag(add_plan_path, controller:"users", action:"add_plan", remote:true) do%>
+          <%=collection_select :plan, :name, Plan.all, :id, :name%>
+          <%= submit_tag("Add Plan", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect")%>
+      <%end%></div>
 
       <%= form_for @user, :html => {:id => "change_picture"} do |f| %>
 
@@ -40,13 +44,16 @@
 <% end %>
 
 <script type="text/javascript">
-
     $(document).ready(function(){
         $("#change_picture").hide();
+        $("#new_plan").hide();
         $("#btn").click(function(e) {
             $("#change_picture").show();
             $("#btn").hide();
-
+        });
+        $("#add").click(function(f) {
+            $("#new_plan").show();
+            $("#add").hide();
         });
     });
 </script>
