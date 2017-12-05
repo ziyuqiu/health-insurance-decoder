@@ -13,7 +13,6 @@ gem 'carrierwave',    '1.1.0'
 gem 'mini_magick',    '4.7.0'
 gem 'fog',            '1.40.0'
 gem "fog-aws"
-gem 'paperclip',      '~> 3.0'
 gem 'minitest'
 gem 'bootstrap-sass', '3.3.7'
 gem 'puma',           '~> 3.7'
@@ -41,6 +40,7 @@ gem 'gmaps4rails'
 gem 'material_design_lite-rails', '~> 1.3'
 gem 'chart-js-rails'
 gem 'figaro'
+gem 'sucker_punch'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

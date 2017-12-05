@@ -18,18 +18,6 @@ class LogsController < ApplicationController
     @visits = Visit.all
   end
 
-  # def print
-  #     @logs = Log.all
-  #     @log=Log.new
-  #     @symptoms = Symptom.all
-  #     if current_user != nil
-  #       @results = @logs.where(:user_id => current_user.id, :visit_id => -1)
-  #     end
-  #     if !params[:symptom_name].nil?
-  #       @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
-  #     end
-  # end
-
   # GET /logs/1
   # GET /logs/1.json
   def show
@@ -49,6 +37,7 @@ class LogsController < ApplicationController
   # POST /logs.json
   def create
   	puts log_params
+    puts params
     @log = Log.new(:symptom_id => params[:symptom_id],:severity =>log_params[:severity], :user_id => current_user.id, :visit_id => -1)
     respond_to do |format|
       if @log.save

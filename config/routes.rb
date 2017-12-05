@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   post   '/users/:id',    to: 'users#update'
   get    '/map',          to: 'static_pages#map'
+  get    '/test',          to: 'static_pages#test'
   get    '/resources',    to: 'static_pages#resources'
 
   get    '/body-diagram/',       to: 'body_parts#diagram'
