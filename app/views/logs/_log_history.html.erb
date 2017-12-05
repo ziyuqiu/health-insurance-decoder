@@ -10,6 +10,9 @@
       <div id="log-history-menu" class="mdl-shadow--2dp mdl-card__title">
 	<%= render partial: "log_header_history_symptom" %>
       </div>
+      <div class="tabcontent newLog">
+        <%= render "new" %>
+      </div>
       <div id="log-history-table">
 	<%= render partial: "log_table" %>
 	<div class="printer-friendly-table">
@@ -19,7 +22,16 @@
     </div>
     
     <div class="mdl-tabs__panel" id="visits-panel">
-      <%= render partial: "visits" %>
+      <div id="log-history-menu" class="mdl-shadow--2dp mdl-card__title">
+	<%= render partial: "log_header_history_visits" %>
+      </div>
+      <div class="tabcontent newVisitLog">
+        <%= render "visits_add" %>
+      </div>      
+      <div id="log-history-table">
+        <%= render partial: "visits" %>
+      </div>
     </div>
+    
   </div>
 </div>

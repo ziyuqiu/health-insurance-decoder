@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <% @results.order(:created_at).each do |log| %>
-      <%= render @logs %>
+      <%= render log %>
     <% end %>
   </tbody>
 </table>

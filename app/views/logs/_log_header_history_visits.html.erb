@@ -1,0 +1,28 @@
+<h4>Visits Log History</h4>
+<div class="mdl-layout-spacer"></div>
+
+<!-- Search button -->
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+  <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+    <i class="material-icons">search</i>
+  </label>
+
+  <div class="mdl-textfield__expandable-holder">
+    <input class="mdl-textfield__input" type="text" id="search">
+    <label class="mdl-textfield__label" for="search">Enter your query...</label>
+  </div>
+</div>
+
+<!-- Printer button -->
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple">
+  <i class="material-icons" onclick="printVisitsData()">printer</i>
+  <span class="mdl-button__ripple-container" onclick="printVisitsData()">
+    <span class="mdl-ripple is-animating" style="width: 92.5097px; height: 92.5097px; transform: translate(-50%, -50%) translate(13px, 17px);"></span>
+  </span>
+</button>
+
+<!-- Button to add a new log entry -->
+<button id="symptom_menu" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color--accent tablinks" onclick="toggleLog('newVisitLog')">
+  <i class="material-icons mdl-color-text--white" role="presentation">add</i>
+</button>
+
