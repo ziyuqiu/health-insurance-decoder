@@ -15,3 +15,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w[*.png *.gif *.jpeg]
 # Rails.application.config.assets.precompile += %w[ *.js ]
 Rails.application.config.assets.paths << "vendor/assets/stylesheets/font/"
+Rails.application.config.assets.precompile += %w( slider.js )
+Rails.application.config.assets.precompile += %w( log_index.js )
