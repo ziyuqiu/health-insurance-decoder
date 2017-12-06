@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get    '/test',          to: 'static_pages#test'
   get    '/resources',    to: 'static_pages#resources'
 
+  get    '/api', to:'static_pages#api'
+
   get    '/body-diagram/',       to: 'body_parts#diagram'
   get    '/body-parts',          to: 'body_parts#index'
   get    '/symptoms',            to: 'symptoms#index'
