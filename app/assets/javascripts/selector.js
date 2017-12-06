@@ -783,12 +783,12 @@ var mode = "diagnosis";
             "text": bornOnText
         });
 
-        yearContainer.append(yearIcon);
+        // yearContainer.append(yearIcon);
         yearContainer.append(yearText);
         yearContainer.append(this._yearSelector);
 
         header.append(searchField);
-        header.append(yearContainer);
+        // header.append(yearContainer);
 
         _plugin.append(header);
     }
@@ -1697,7 +1697,8 @@ var mode = "diagnosis";
         });
 
         var btnRemove = jQuery("<i/>", {
-            "class": "fa fa-times"
+            "class": "material-icons",
+            "text": "close"
         });
 
         btnRemove.bind('click', function () {
