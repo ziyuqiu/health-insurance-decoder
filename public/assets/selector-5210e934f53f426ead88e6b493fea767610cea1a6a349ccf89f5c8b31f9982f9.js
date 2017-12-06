@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ApiMedic.com Sample Avatar, a demo implementation of the ApiMedic.com Symptom Checker by priaid Inc, Switzerland
  * 
  * Copyright (C) 2012 priaid inc, Switzerland
@@ -16,6 +16,7 @@
  * 
  * Authors: priaid inc, Switzerland
  */
+
 
 var keys = [
     "litTermsOfUsePolicyPrivacy",//disclaimerText
@@ -162,7 +163,7 @@ var mode = "diagnosis";
     var _edgeYears = n - 11;
 
     var _statusLinkBorderColor = "cccccc";
-    var pathToImages = "assets";
+    var pathToImages = "symptom_selector/images";
     var symptomListId = "symptomList";
     var _diagnosisListId = "diagnosisList";
 
@@ -2448,3 +2449,4 @@ function inArray(val, arr) {
     });
     return index;
 }
+;
