@@ -7,6 +7,7 @@
     <% if logged_in? %>
       <%= link_to 'Personal Log', logs_path, class: "mdl-navigation__link" %>
     <% end %>
+    <%= link_to 'Quick Diagnosis', body_diagram_path, class: "mdl-navigation__link" %>
     <%= link_to 'Resources', resources_path, class: "mdl-navigation__link" %>  
   </nav>
   
