@@ -13,7 +13,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( slider.js)
-Rails.application.config.assets.precompile += %w( default_prof_pic.png)
+# Rails.application.config.assets.precompile += %w( default_prof_pic.png)
+Rails.application.config.assets.precompile += %w[*.png *.gif *.jpeg]
 Rails.application.config.assets.precompile += %w( pain_chart.gif)
 Rails.application.config.assets.precompile += %w( clinic_lst.js )
 Rails.application.config.assets.precompile += %w( geolocation.js )
