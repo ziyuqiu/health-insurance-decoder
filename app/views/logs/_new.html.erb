@@ -1,26 +1,22 @@
-<!-- Submit form for new symptom log -->
-
-<%= form_for(@log) do |f| %>
-
-<div class="mdl-grid">
+<%= form_for @log do |f| %>
 
   <!-- Select dropdown for symptoms list -->
-  <div class="mdl-cell mdl-cell--12-col" style="margin-top: 0px; margin-bottom:0px;">
-    <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label" style="width:100%" id="symptom-dropdown">
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col" style="margin-top: 0px; margin-bottom:0px;">
+      <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label" style="width:100%" id="symptom-dropdown">
         <select class="mdl-selectfield__select" id="sym-filter" name="symptom_id">
-            <option value=''></option>
-            <% @symptoms.each do |sym| %>
-                <option value= <%= sym.id %>> <%= sym.name.capitalize %></option>
-            <% end %>
+          <option value=""></option>
+          <% @symptoms.each do |sym| %>
+            <option value= <%= sym.id %>> <%= sym.name.capitalize %></option>
+          <% end %>
         </select>
         <label class="mdl-selectfield__label mdl-color-text--grey-600" for="sym-filter">What is your symptom?</label>
+      </div>
     </div>
   </div>
-
-</div>
-
+  
+  <!-- Severity slide ruler -->
   <div class="mdl-grid">
-    <!-- Severity slide ruler -->
     <div class="mdl-cell mdl-cell--12-col" id="slide-rule" style="margin-top: 0px; margin-bottom:0px;">
       <%= f.label :severity, 'What is the severity?' %>
       <span id="tt4"><i class="material-icons" style="font-size:16px;cursor:pointer;">info outline</i></span>

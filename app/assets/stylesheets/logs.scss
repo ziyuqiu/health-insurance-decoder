@@ -2,6 +2,24 @@ $light-blue: aliceblue;
 $log-header: lightblue;
 $light-tan: #F5F5F5;
 
+.alert-notice {
+    background-color: #DFF0d8;
+    border-color: #d6e9c6;
+    border: 1px solid;
+    color: #3C763D;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.visit_time {
+    margin-bottom: 0px !important;
+}
+
 #log-history-switch {
     background-color: $light-tan;
 }
@@ -133,7 +151,6 @@ $light-tan: #F5F5F5;
 		  
 		th {
 		    width: 25%;
-		    text-align: center;
 		}
 	    }
 	      

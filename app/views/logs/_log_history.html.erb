@@ -2,11 +2,11 @@
   <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
     
     <div id="log-history-switch" class="mdl-tabs__tab-bar mdl-shadow--2dp mdl-card__title">
-      <a href="#symptoms-panel" class="mdl-tabs__tab is-active">Symptoms</a>
-      <a href="#visits-panel" class="mdl-tabs__tab">Visits</a>
+      <a href="#symptoms-panel" class="mdl-tabs__tab">Symptoms</a>
+      <a href="#visits-panel" class="mdl-tabs__tab is-active">Visits</a>
     </div>
   
-    <div class="mdl-tabs__panel is-active" id="symptoms-panel">
+    <div class="mdl-tabs__panel" id="symptoms-panel">
       <div id="log-history-menu" class="mdl-shadow--2dp mdl-card__title">
 	<%= render partial: "log_header_history_symptom" %>
       </div>
@@ -21,7 +21,7 @@
       </div>
     </div>
     
-    <div class="mdl-tabs__panel" id="visits-panel">
+    <div class="mdl-tabs__panel is-active" id="visits-panel">
       <div id="log-history-menu" class="mdl-shadow--2dp mdl-card__title">
 	<%= render partial: "log_header_history_visits" %>
       </div>
