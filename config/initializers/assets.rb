@@ -11,11 +11,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-# Rails.application.config.assets.precompile += %w( admin.js admin.css )
-Rails.application.config.assets.precompile += %w( slider.js)
-Rails.application.config.assets.precompile += %w( default_prof_pic.png)
-Rails.application.config.assets.precompile += %w( pain_chart.gif)
-Rails.application.config.assets.precompile += %w( clinic_lst.js )
-Rails.application.config.assets.precompile += %w( geolocation.js )
-Rails.application.config.assets.precompile += %w( resources.js )
-Rails.application.config.assets.precompile += %w( log_index.js )
+
+Rails.application.config.assets.precompile += %w[*.png *.gif *.jpeg]
+# Rails.application.config.assets.precompile += %w[ *.js ]
+Rails.application.config.assets.paths << "vendor/assets/stylesheets/font/"

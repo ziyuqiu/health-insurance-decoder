@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   resources :visits
   resources :logs
   resources :facilities
@@ -20,11 +21,14 @@ Rails.application.routes.draw do
   post   '/login',        to: 'sessions#create'
   delete '/logout',       to: 'sessions#destroy'
   post   '/load_login',   to: 'home#load_login'
+  post   '/update_logs',  to: 'logs#display_log_search_results'
 
   post   '/users/:id',    to: 'users#update'
   get    '/map',          to: 'static_pages#map'
   get    '/test',          to: 'static_pages#test'
   get    '/resources',    to: 'static_pages#resources'
+
+  get    '/api', to:'static_pages#api'
 
   get    '/body-diagram/',       to: 'body_parts#diagram'
   get    '/body-parts',          to: 'body_parts#index'

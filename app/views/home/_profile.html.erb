@@ -5,35 +5,21 @@
     <%= image_tag @user.picture.url if @user.picture? %>
     <!-- Account Info -->
     <h4>
-      <strong><%= @user.name %></strong>
-      <p><%= @user.email %></p>
+        <span id="name">
+          <strong><%= @user.name %></strong>
+          <%= link_to edit_user_path(current_user) do %>
+        	  <span style="font-size:14px;" class="mdl-list__item-primary-content">
+        	    <i class="material-icons mdl-list__item-icon" id="edit">mode_edit</i>
+        	  </span>
+          <%end%>
+        </span>
       <p><%@user.plans.all.each do |plan|%>
          <div><%=link_to plan.name, plan_path(plan), class:"mdl-button mdl-js-button"%>|
-             <%=form_tag(remove_plan_path, remote:true) do%>
-                <%= hidden_field_tag(:plan_id, plan.id)%>
-                <%= submit_tag("Deactivate", class:"mdl-button mdl-js-button")%>
-            <%end%></div>
       <%end%></p>
-      <button id="add" class="mdl-button mdl-js-button mdl-button--primary" >Add a New Plan</button>
-      <div id="new_plan"><%=form_tag(add_plan_path, controller:"users", action:"add_plan", remote:true) do%>
-          <%=collection_select :plan, :name, Plan.all, :id, :name%>
-          <%= submit_tag("Add Plan", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect")%>
-      <%end%></div>
-
-      <%= form_for @user, :html => {:id => "change_picture"} do |f| %>
-
-         <%= f.file_field :picture ,:onchange=>"loadFile(event)",id: "upload-it", class: "hide_input"%>
-         <div class="glyphicon glyphicon-camera" id="image-output",:onclick="upload_it(event)"></div>
-
-
-          <!-- <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' , id:"file-input" %> -->
-
-          <%= f.submit "Upload New", class: "mdl-button mdl-js-button mdl-button--primary", id: "change button" %>
-      <% end %>
 
     </h4>
+
     <!-- Buttons -->
-    <button id="btn" class="mdl-button mdl-js-button mdl-button--primary" >Change Profile picture</button>
     <%= button_to "Log out", logout_path, method: :delete, class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary" %>
 <% else %>
   <div class="alert alert-danger">
@@ -43,17 +29,13 @@
   <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
 <% end %>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#change_picture").hide();
-        $("#new_plan").hide();
-        $("#btn").click(function(e) {
-            $("#change_picture").show();
-            $("#btn").hide();
-        });
-        $("#add").click(function(f) {
-            $("#new_plan").show();
-            $("#add").hide();
-        });
-    });
-</script>
+<style>
+  #name{
+    position: relative;
+    left :15px;
+  }
+  #edit{
+    position: relative;
+    left :5px;
+  }
+</style>

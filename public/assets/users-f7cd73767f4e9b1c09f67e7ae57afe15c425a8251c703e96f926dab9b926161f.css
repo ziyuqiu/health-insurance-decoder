@@ -1,0 +1,10 @@
+/* line 1, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/users.scss */
+#edit-profile-container {
+  max-width: 600px;
+  margin: 0px auto;
+}
+
+/* line 6, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/users.scss */
+#user-profile-plan-table {
+  width: 100%;
+}

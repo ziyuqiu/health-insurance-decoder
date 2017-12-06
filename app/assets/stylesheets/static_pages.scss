@@ -2,6 +2,10 @@
 @import "bootstrap";
 @import "variables";
 
+body {
+  font-family: 'Roboto', verdana, arial, helvetica, sans-serif;
+}
+
 section {
   overflow: auto;
 }

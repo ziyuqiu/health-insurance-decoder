@@ -49,6 +49,17 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    puts "-------------"
+    puts @user.plans
+    if (params[:plan_id] != nil)
+      # if (@user.plan)
+      if (@user.plans.count != 0)
+        @user.plans.delete(@user.plans.all.first.id)
+        @user.plans << Plan.find_by(id:params[:plan_id])
+      else
+        @user.plans << Plan.find_by(id:params[:plan_id])
+      end
+    end
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to root_url
@@ -68,6 +79,7 @@ class UsersController < ApplicationController
     redirect_to users_url
 
   end
+
 
   def add_plan
       @user=current_user
@@ -99,7 +111,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :contact_id, :password, :password_confirmation, :picture)
+      params.require(:user).permit(:name, :email, :contact_id, :password, :password_confirmation, :picture, :plan_name)
     end
 
     # Before filters
