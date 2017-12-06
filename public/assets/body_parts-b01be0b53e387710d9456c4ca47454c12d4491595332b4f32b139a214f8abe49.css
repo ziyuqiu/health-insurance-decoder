@@ -1,0 +1,58 @@
+/* line 3, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/body_parts.scss */
+#body-image {
+  height: 333px;
+  width: 116px;
+}
+
+/* line 8, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/body_parts.scss */
+#diagram_results {
+  visibility: visible;
+}
+
+/* line 12, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/body_parts.scss */
+#body-image-switches {
+  display: block;
+  clear: both;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  width: 116px;
+}
+
+/* line 21, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/body_parts.scss */
+.malebg {
+  background-image: url("male.png");
+}
+
+/* line 25, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/body_parts.scss */
+.femalebg {
+  background-image: url("female.png");
+}
+
+/* line 29, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/body_parts.scss */
+.card-header-color {
+  background-color: #F5F5F5;
+}
+
+/* line 33, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/body_parts.scss */
+.style-image {
+  max-width: 100%;
+}
+
+/* line 37, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/body_parts.scss */
+.body-background {
+  background-image: url("diagram-placeholder.png");
+  background-repeat: no-repeat;
+}
+
+/* line 42, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/body_parts.scss */
+.body-background-offset-right {
+  background-image: url("diagram-placeholder.png");
+  background-repeat: no-repeat;
+  background-position: 86% 0%;
+}
+
+/* line 48, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/body_parts.scss */
+.plain-background {
+  background-image: url("diagram-background.png");
+}

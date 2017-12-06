@@ -1,0 +1,198 @@
+/* line 5, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-history-switch {
+  background-color: #F5F5F5;
+}
+
+/* line 9, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container {
+  background-color: aliceblue;
+}
+/* line 12, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container .new_log {
+  display: inline;
+}
+/* line 16, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container h3 {
+  color: lightblue;
+  margin: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightblue;
+}
+/* line 23, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container .log-controls {
+  height: 60px;
+  width: 33%;
+  margin: 10px;
+  display: inline-block;
+  float: left;
+  margin: 10px 0;
+  /* Log symptom form submit button */
+}
+/* line 31, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container .log-controls #symptom-control-label {
+  display: block;
+}
+/* line 35, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container .log-controls #slide-container {
+  text-align: center;
+}
+/* line 39, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container .log-controls #severity-label {
+  display: block;
+  text-align: center;
+}
+/* line 44, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container .log-controls #score {
+  color: red;
+  font-size: 15pt;
+  line-height: 14px;
+}
+/* line 50, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container .log-controls #severity-range {
+  width: 100%;
+  display: inline-block;
+  padding-top: 5px;
+}
+/* line 58, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container .log-controls .btn {
+  display: block;
+  margin: 0 auto;
+}
+/* line 63, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-submit-container .log-controls #btn-invisible-label {
+  color: aliceblue;
+}
+
+/* Calendar overrides for logs page */
+/* line 70, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+.calendar-heading {
+  background-color: #F5F5F5;
+  color: rgba(0, 0, 0, 0.54);
+}
+/* line 74, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+.calendar-heading .calendar-title {
+  color: rgba(0, 0, 0, 0.54);
+}
+/* line 78, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+.calendar-heading a {
+  color: #FFF;
+}
+/* line 81, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+.calendar-heading a:hover {
+  color: #5f7c8b;
+}
+
+/* line 87, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+.for-log-dropdown-override {
+  position: relative;
+}
+
+/* Styles for the Symptom/Visits Log Card */
+/* line 93, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-history-container #log-history-menu {
+  background-color: #F5F5F5;
+  color: rgba(0, 0, 0, 0.54);
+}
+/* line 99, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-history-container #log-history-table .mdl-data-table {
+  width: 100%;
+}
+/* line 102, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-history-container #log-history-table .mdl-data-table thead {
+  display: block;
+}
+/* line 105, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-history-container #log-history-table .mdl-data-table thead tr {
+  display: table;
+  width: 100%;
+}
+/* line 110, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-history-container #log-history-table .mdl-data-table thead th {
+  width: 25%;
+  text-align: center;
+}
+/* line 116, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-history-container #log-history-table .mdl-data-table tbody {
+  display: block;
+  max-height: 415px;
+  overflow: auto;
+}
+/* line 121, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-history-container #log-history-table .mdl-data-table tbody tr {
+  width: 100%;
+}
+/* line 125, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-history-container #log-history-table .mdl-data-table tbody td {
+  text-align: center;
+  width: 25%;
+}
+/* line 132, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+#log-history-container #log-history-table .printer-friendly-table {
+  display: none;
+}
+
+/** OUTDATED, WE CAN REMOVE THESE: */
+/* Style the tab */
+/* line 141, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+div.tab {
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* Style the buttons inside the tab */
+/* line 147, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+div.tab button {
+  background-color: #f1f1f1;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  width: 32.3vw;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+/* line 159, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+div.tab button:hover {
+  background-color: #99ccff;
+}
+
+/* Create an active/current tablink class */
+/* line 164, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+div.tab button.active {
+  color: white;
+  background-color: #548abe;
+}
+
+/* Style the tab content */
+/* line 171, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+.tabcontent {
+  display: none;
+  padding: 10px 10px;
+  background-color: aliceblue;
+}
+
+/* line 177, /Users/Andrea/Desktop/health-insurance-decoder/app/assets/stylesheets/logs.scss */
+.tabcontent {
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+  /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
