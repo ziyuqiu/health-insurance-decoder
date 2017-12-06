@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  	before_save { email.downcase! }
+  	#before_save { email.downcase! }
     validate  :picture_size
 
     mount_uploader :picture, PictureUploader
@@ -24,6 +24,8 @@ class User < ApplicationRecord
       user.name = auth.info.name
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      puts "--------------"
+      puts "user save"
       user.save!
     end
   end

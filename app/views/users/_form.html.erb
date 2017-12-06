@@ -10,16 +10,33 @@
       </ul>
     </div>
   <% end %>
+  <!-- <div class="glyphicon glyphicon-camera" id="image-output",:onclick="upload_it(event)"></div> -->
+  <%= form.file_field :picture ,:onchange=>"loadFile(event)",id: "change_picture", class: "hide_input" %>
 
-  <div class="field">
-    <%= form.label :contact_id %>
-    <%= form.number_field :contact_id, id: :user_contact_id %>
+
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <%= form.label :name, class: "mdl-textfield__label" %>
+    <%= form.text_field :name, id: :user_name, class: "mdl-textfield__input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :user_name %>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <%= form.label :email, class: "mdl-textfield__label" %>
+    <%= form.text_field :email, id: :user_email, class: "mdl-textfield__input" %>
   </div>
+
+  <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <%= form.label :password, class: "mdl-textfield__label" %>
+    <%= form.text_field :password_digest, id: :password_digest, class: "mdl-textfield__input" %>
+  </div> -->
+  <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+      <select class="mdl-selectfield__select" id="sym-filter" name="plan_id">
+          <% Plan.all.each do |plan| %>
+              <option value= <%= plan.id %>> <%= plan.name.capitalize %></option>
+          <% end %>
+      </select>
+      <label class="mdl-selectfield__label" for="sym-filter">Plan</label>
+  </div>
+
 
   <div class="actions">
     <%= form.submit class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--primary' %>

@@ -3,7 +3,7 @@ class CessionsController < ApplicationController
     puts "--------------create"
     puts session
     user = User.from_omniauth(request.env["omniauth.auth"])
-    cession[:user_id] = user.id
+    cession[:user_id] = user.uid
     redirect_to root_path
   end
 

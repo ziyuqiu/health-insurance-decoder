@@ -6,7 +6,7 @@
     <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
         <select class="mdl-selectfield__select" id="sym-filter" name="symptom_id">
             <option value=''></option>
-            <% @symptoms.each do |sym| %>    
+            <% @symptoms.each do |sym| %>
                 <option value= <%= sym.id %>> <%= sym.name.capitalize %></option>
             <% end %>
         </select>
@@ -20,6 +20,5 @@
 
     <!-- Submit button -->
     <%= submit_tag "Save", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+
 <% end %>
-
-
