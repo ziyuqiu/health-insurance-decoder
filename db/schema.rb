@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(version: 20171205012817) do
     t.string "name"
     t.string "category"
     t.integer "company_id"
-    t.float "coinsurance"
     t.float "deductible"
     t.float "out_of_pocket_max"
     t.float "inpatient_copay"
