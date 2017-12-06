@@ -42,3 +42,4 @@ function executeSymptomSearch() {
 	data: params
     });
 }
+;

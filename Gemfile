@@ -41,6 +41,7 @@ gem 'chart-js-rails'
 gem 'figaro'
 gem 'sucker_punch'
 gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'responders'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
