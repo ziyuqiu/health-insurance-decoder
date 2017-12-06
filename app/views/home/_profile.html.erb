@@ -5,13 +5,14 @@
     <%= image_tag @user.picture.url if @user.picture? %>
     <!-- Account Info -->
     <h4>
-      <strong><%= @user.name %></strong>
-      <%= link_to edit_user_path(current_user) do %>
-    	  <span style="font-size:14px;" class="mdl-list__item-primary-content">
-    	    <i class="material-icons mdl-list__item-icon">mode_edit</i>
-    	    Edit Profile
-    	  </span>
-      <%end%>
+        <span id="name">
+          <strong><%= @user.name %></strong>
+          <%= link_to edit_user_path(current_user) do %>
+        	  <span style="font-size:14px;" class="mdl-list__item-primary-content">
+        	    <i class="material-icons mdl-list__item-icon" id="edit">mode_edit</i>
+        	  </span>
+          <%end%>
+        </span>
       <p><%@user.plans.all.each do |plan|%>
          <div><%=link_to plan.name, plan_path(plan), class:"mdl-button mdl-js-button"%>|
       <%end%></p>
@@ -27,3 +28,14 @@
   <%= button_to "Sign in", load_login_path, :method => "post", class: " mdl-button mdl-js-button mdl-button--raised mdl-button--primary", id: "sign_in_button", :remote => true %>
   <p class="text-primary">New user? <%= link_to "Sign up now!", signup_path %></p>
 <% end %>
+
+<style>
+  #name{
+    position: relative;
+    left :15px;
+  }
+  #edit{
+    position: relative;
+    left :5px;
+  }
+</style>

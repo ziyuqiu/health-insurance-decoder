@@ -15,7 +15,7 @@ class HomeController < ApplicationController
       end
     end
 
-    if Event.count==0 or Event.first.created_at.to_date != Date.today
+    if Event.count==0 or Event.first.created_at.to_date < Date.today
       Event.all.each do |event|
         event.destroy
       end
