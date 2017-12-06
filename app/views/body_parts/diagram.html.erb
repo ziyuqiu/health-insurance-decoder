@@ -1,15 +1,17 @@
 <div class="mdl-grid">
   
   <div class="mdl-cell mdl-cell--4-col body-diagram-block mdl-shadow--2dp plain-background">
-    <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title">
+    <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title">      
       <h4>Body Diagram</h4>
       <div class="mdl-layout-spacer"></div>      
-      <%= button_to fetch_diagram_path, :remote => true, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" do %>
-        <span>Clear</span>
-      <% end %>
+      <%= image_tag "body.png", class: "custom-font-icon", height: '35px' %>                  
     </div>
-    <div class="mdl-card__supporting-text">    
-      <p>Click on a body part to see a list of symptoms.</p>
+    <div class="mdl-card__supporting-text">
+      <p style="float:right;">Click on a part to see a list of symptoms.</p>      
+      <%= button_to fetch_diagram_path, :remote => true, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do %>
+      <span>Clear</span>
+      <% end %>
+
     </div>
     <div class="mdl-card__actions mdl-card--border">
       <div class="mdl-grid">
@@ -40,6 +42,8 @@
   <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp body-background">
     <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title">
       <h4>Symptoms</h4>
+      <div class="mdl-layout-spacer"></div>
+      <%= image_tag "broken-bone.png", class: "custom-font-icon", height: '30px' %>            
     </div>
     <div class="mdl-card__supporting-text">    
       <p>Click on a symptom to view a list of ailments.</p>
@@ -52,6 +56,8 @@
   <div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp body-background-offset-right">
     <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title">
       <h4>Ailments</h4>
+      <div class="mdl-layout-spacer"></div>      
+      <%= image_tag "sneeze.png", class: "custom-font-icon", height: '30px' %>      
     </div>
     <div class="mdl-card__supporting-text">
       <p>Click on an ailment to view more information.</p>
