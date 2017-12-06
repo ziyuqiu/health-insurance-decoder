@@ -12,11 +12,15 @@
     text-align: center;
     font-weight: bold;
 }
+
 #yields {
   padding-top: 70px;
 }
+
 body {
-  background-image: url("white_plaster.png");
+    font-family: 'Roboto', verdana, arial, helvetica, sans-serif;    
+    background-image: url("white_plaster.png");
+
 }
 
 
@@ -28,7 +32,9 @@ $white: #FFF;
 }
 
 #health-title {
-    font-size: 1.7em;
+    font-size: 36px;
+    font-weight: 100;
+    font-style: normal;
 }
 
 .white-bg {
