@@ -1,13 +1,25 @@
 <div class="mdl-layout__header-row">
-  
-  <title class="mdl-layout-title">Health Decoder</title>
+
+  <%= image_tag "stethoscope.png", class: "stethoscope-icon", height: '30px' %>
+
+  <title id="health-title" class="mdl-layout-title">Health Decoder</title>
   
   <nav class="mdl-navigation mdl-layout--large-screen-only">
-    <%= link_to 'Home', root_path, class: "mdl-navigation__link" %>
-    <% if logged_in? %>
-      <%= link_to 'Personal Log', logs_path, class: "mdl-navigation__link" %>
+    <%= link_to root_path, class: "mdl-navigation__link" do %>
+    
+      <i class="material-icons">home</i> <span>Home</span>
     <% end %>
-    <%= link_to 'Resources', resources_path, class: "mdl-navigation__link" %>  
+    <%= link_to body_diagram_path, class: "mdl-navigation__link" do %>
+      <i class="material-icons">accessibility</i> <span>Diagram</span>
+    <% end %>      
+    <% if logged_in? %>
+      <%= link_to logs_path, class: "mdl-navigation__link" do %>
+        <i class="material-icons">favorite</i> <span>My Log</span>
+      <% end %>
+    <% end %>
+    <%= link_to resources_path, class: "mdl-navigation__link" do %>
+      <i class="material-icons">library_books</i> <span>Resources</span>
+    <% end %>
   </nav>
   
   <div class="mdl-layout-spacer"></div>
