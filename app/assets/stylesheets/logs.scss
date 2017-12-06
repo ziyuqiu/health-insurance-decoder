@@ -6,6 +6,26 @@ $light-tan: #F5F5F5;
     background-color: $light-tan;
 }
 
+#slide-rule {
+    font-size: 16px;
+    .mdl-slider__background-flex {
+	margin: 0px auto;
+	width: 100%;
+    }
+}
+
+#symptom-dropdown {
+    li {
+	font-size: 12px;
+	padding: 12px;
+    }
+}
+
+.no-margin-top-bottom {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
 #log-submit-container {
     background-color: $light-blue;
     
@@ -82,6 +102,10 @@ $light-tan: #F5F5F5;
 	    color: #5f7c8b;
 	}
     }
+}
+
+.simple-calendar .today {
+    background: $light-blue !important;
 }
 
 .for-log-dropdown-override {
