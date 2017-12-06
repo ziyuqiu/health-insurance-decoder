@@ -7,11 +7,15 @@
     <% when 'diagnosis'%>
       Self Diagnosis! <br/> NON EMERGENCY ONLY.
     <% when 'events'%>
-      <% @events.each do |event| %>
-        <tr><td><%= raw event[:date] %></td>
-            <td><%= event[:title] %></td>
-        </tr><br />
-      <% end%>
+      <% if @events.count != 0 %>
+        <% @events.each do |event| %>
+          <tr><td><%= raw event[:date] %></td>
+              <td><%= event[:title] %></td>
+          </tr><br />
+        <% end%>
+      <% else %>
+        There are no upcoming events today.
+      <% end %>
     <% when 'logs'%>
       <% @results.distinct(:symptom_id).pluck(:symptom_id).each do |id| %>
         <%= Symptom.find(id).name.capitalize %> | 

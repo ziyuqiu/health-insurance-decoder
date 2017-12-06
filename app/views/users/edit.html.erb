@@ -1,8 +1,26 @@
 <div class="mdl-grid" id="edit-profile-container">
   <div class="mdl-cell mdl-cell--12-col">
     <center>
+
       <h3>Editing <%= @user.name %>'s Profile</h3>
+      <%= image_tag("default_prof_pic.png", :alt => "img missing", :size => "125", :id => "logo") if !@user.picture? %>
+      <div>
+        <%= image_tag @user.picture.url if @user.picture? %>
+      </div>
+      <button id="btn" class="mdl-button mdl-js-button mdl-button--primary" >Change Profile picture</button>
       <%= render 'form', user: @user %>
     </center>
   </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#change_picture").hide();
+        $("#btn").click(function(e) {
+            $("#change_picture").show();
+            $("#btn").hide();
+        });
+        $("#add").click(function(f) {
+            $("#add").hide();
+        });
+    });
+</script>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205012817) do
+ActiveRecord::Schema.define(version: 20171205221313) do
 
   create_table "body_part_symptom_diseases", force: :cascade do |t|
     t.integer "body_part_id"
@@ -70,6 +70,20 @@ ActiveRecord::Schema.define(version: 20171205012817) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "link"
+    t.string "category"
+    t.string "description"
+    t.string "date"
+    t.string "weekday"
+    t.string "time"
+    t.string "location"
+    t.string "other"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "facilities", force: :cascade do |t|
     t.string "name"
     t.string "specialty"
@@ -95,7 +109,6 @@ ActiveRecord::Schema.define(version: 20171205012817) do
     t.string "name"
     t.string "category"
     t.integer "company_id"
-    t.float "coinsurance"
     t.float "deductible"
     t.float "out_of_pocket_max"
     t.float "inpatient_copay"
