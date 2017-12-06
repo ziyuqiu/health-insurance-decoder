@@ -1,5 +1,6 @@
 class LogsController < ApplicationController
   before_action :set_log, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js, :json  
 
   # GET /logs
   # GET /logs.json
@@ -71,6 +72,26 @@ class LogsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to logs_url, notice: 'Log was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def display_log_search_results
+    puts "#{params[:symptom_name]}"
+    @logs = Log.all
+    if current_user != nil
+      @results = @logs.where(:user_id => current_user.id)
+    end
+    
+    if !params[:symptom_name].nil?
+      if params[:symptom_name].eql? ""
+        @results = @logs.where(:user_id => current_user.id)
+      else
+        @results = Log.joins(:symptom).where("symptoms.name LIKE '%#{params[:symptom_name]}%'")
+      end
+    end
+    
+    respond_to do |format|
+      format.js
     end
   end
 

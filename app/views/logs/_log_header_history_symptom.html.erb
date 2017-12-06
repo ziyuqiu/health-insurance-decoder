@@ -1,18 +1,17 @@
 <h4>Symptoms History</h4>
 <div class="mdl-layout-spacer"></div>
 
-<%= form_tag logs_path, method: "get" do %>
-  <%= button_tag(:class => "mdl-textfield mdl-js-textfield mdl-textfield--expandable") do %>
-    <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-      <i class="material-icons">search</i>
-    </label>
-  <% end %>
-  <div class="mdl-textfield__expandable-holder">    
-    <%= text_field_tag(:symptom_name, "", class: "mdl-textfield__input", id: "search") do %>  
-      <label class="mdl-textfield__label" for="search">Enter your query...</label>
-    <% end %>
+<!-- Search button -->
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+  <label class="mdl-button mdl-js-button mdl-button--icon" for="search_symptoms">
+    <i class="material-icons">search</i>
+  </label>
+
+  <div class="mdl-textfield__expandable-holder">
+    <input class="mdl-textfield__input" type="text" id="search_symptoms" onkeypress="executeSymptomSearch()">
+    <label class="mdl-textfield__label" for="search">Enter your query...</label>
   </div>
-<% end %>
+</div>  
 
 <!-- Printer button -->
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" data-upgraded=",MaterialButton,MaterialRipple">
@@ -26,4 +25,3 @@
 <button id="symptom_menu" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color--accent tablinks" onclick="toggleLog('newLog')">
   <i class="material-icons mdl-color-text--white" role="presentation">add</i>
 </button>
-
