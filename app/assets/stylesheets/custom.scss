@@ -31,6 +31,11 @@ $white: #FFF;
     vertical-align: middle;
 }
 
+.custom-font-icon-left {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
 #health-title {
     font-size: 36px;
     font-weight: 100;
@@ -39,4 +44,13 @@ $white: #FFF;
 
 .white-bg {
     background-color: $white;
+}
+
+.mdl-mini-footer__link-list {
+	li a, a:visited {
+		color: #9e9e9e !important;
+	}
+	li a:hover {
+	    color: #f8f9fa !important;
+	}
 }
