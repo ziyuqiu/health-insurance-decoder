@@ -11,6 +11,7 @@ def clean_db
   Treatment.delete_all
   Plan.delete_all
   Copay.delete_all
+  Log.delete_all
 end
 
 
@@ -220,6 +221,47 @@ after meeting your deductible and copay")
     fake.copays << copay
     treatment.copays << copay
 end
+
+def setup_demo_user
+    unless User.find_by(name:"Jane Doe").nil?
+        User.delete(User.find_by(name:"Jane Doe"))
+    end
+    user1=User.new(name:"Jane Doe", email:"jane.doe@gmail.com")
+    user1.password_digest=User.digest("password")
+    user1.save
+    id=user1[:id]
+    now = DateTime.now
+    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:6, created_at:DateTime.new(now.year, now.month, now.day, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log.save
+    user1.logs << log
+    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:4, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log.save
+    user1.logs << log
+    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:5, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log.save
+    user1.logs << log
+    log=Log.new(symptom_id:Symptom.find_by(name:"fever")[:id], severity:6, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log.save
+    user1.logs << log
+    log=Log.new(symptom_id:Symptom.find_by(name:"fever")[:id], severity:7, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log.save
+    user1.logs << log
+    log=Log.new(symptom_id:Symptom.find_by(name:"runny")[:id], severity:5, created_at:DateTime.new(now.year, now.month, now.day-5, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log.save
+    user1.logs << log
+    log=Log.new(symptom_id:Symptom.find_by(name:"runny")[:id], severity:6, created_at:DateTime.new(now.year, now.month, now.day-3, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log.save
+    user1.logs << log
+    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:4, created_at:DateTime.new(now.year, now.month, now.day-3, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log.save
+    user1.logs << log
+    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:6, created_at:DateTime.new(now.year, now.month, now.day-2, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log.save
+    user1.logs << log
+    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:6, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log.save
+    user1.logs << log
+end
 # BEGIN SEEDING
 
 clean_db
@@ -238,3 +280,4 @@ elms.each do |elm|
 
   build_relationship(bp_name.downcase, s_name.downcase, d_name.downcase)
 end
+setup_demo_user

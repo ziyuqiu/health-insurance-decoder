@@ -82,7 +82,10 @@
     function () {
         $("#contents").hide();
         if (window.location.hash.substring(1)=="events"){
-            document.getElementById("eventsOpen").click();
+            document.getElementById("defaultOpen").click();
+            setTimeout(function(){
+                document.getElementById("eventsOpen").click();
+            }, 1000);
         }else{
             document.getElementById("defaultOpen").click();
         }
