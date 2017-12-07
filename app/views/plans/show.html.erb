@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 <div class="justified"><div id=calculateform class="mdl-card mdl-shadow--2dp">
 <div class="mdl-card__title justified">
-  <strong>Name:</strong>
-  <%= @plan.name %>
+    <p><h3>Copay Calculator</h3></p>
 </div>
+<div class="justified"><strong><%= @plan.name %></strong></div>
 
 <div id="cal-form" class="form justified">
   <%= form_tag(calculate_path, controller: "plans", action: "calculate", remote:true) do%>
