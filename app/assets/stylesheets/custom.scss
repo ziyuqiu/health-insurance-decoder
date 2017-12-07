@@ -18,7 +18,7 @@
 }
 
 body {
-    font-family: 'Roboto', verdana, arial, helvetica, sans-serif;    
+    font-family: 'Roboto', verdana, arial, helvetica, sans-serif;
     background-image: url("white_plaster.png");
 
 }
@@ -53,4 +53,10 @@ $white: #FFF;
 	li a:hover {
 	    color: #f8f9fa !important;
 	}
+}
+#symptom_log {
+  a, a:visited {
+      color: #5f7c8b ;
+  }
+
 }

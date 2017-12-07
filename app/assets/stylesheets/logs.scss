@@ -46,7 +46,7 @@ $light-tan: #F5F5F5;
 
 #log-submit-container {
     background-color: $light-blue;
-    
+
     .new_log {
 	display: inline;
     }
@@ -108,14 +108,14 @@ $light-tan: #F5F5F5;
 .calendar-heading {
     background-color: $light-tan;
     color: rgba(0,0,0,.54);
-    
+
     .calendar-title {
 	color: rgba(0,0,0,.54);
     }
 
     a {
 	color: #FFF;
-	
+
 	&:hover {
 	    color: #5f7c8b;
 	}
@@ -143,17 +143,17 @@ $light-tan: #F5F5F5;
 
 	    thead {
 		display: block;
-		  
+
 		tr {
 		    display:table;
 		    width: 100%;
 		}
-		  
+
 		th {
 		    width: 25%;
 		}
 	    }
-	      
+
 	    tbody {
 		display: block;
 		max-height: 415px;
@@ -162,12 +162,12 @@ $light-tan: #F5F5F5;
 		tr {
 		    width: 100%;
 		}
-		  
+
 		td {
 		    text-align: center;
 		    width: 25%;
 		}
-	    }	      
+	    }
 	}
 
 	.printer-friendly-table {
