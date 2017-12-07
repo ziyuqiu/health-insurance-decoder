@@ -14,7 +14,8 @@
           <%end%>
         </span>
       <p><%@user.plans.all.each do |plan|%>
-         <div><%=link_to plan.name, plan_path(plan), class:"mdl-button mdl-js-button"%>
+         <div id="tt1"><%=link_to plan.name, plan_path(plan), class:"mdl-button mdl-js-button"%>
+         <div class="mdl-tooltip" data-mdl-for="tt1">Click here to access the copay calculator for this plan</div>
       <%end%></p>
 
     </h4>

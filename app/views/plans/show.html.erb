@@ -8,6 +8,8 @@
 <div id="cal-form" class="form justified">
   <%= form_tag(calculate_path, controller: "plans", action: "calculate", remote:true) do%>
       <%= hidden_field_tag(:id, @plan.id)%>
+      <div class="icon material-icons" id="tt1">help</div>
+      <div class="mdl-tooltip" data-mdl-for="tt1">Your maximum deductible is $<%=@plan.in_deductible%>0 for in network services <br> and $<%=@plan.out_deductible%>0 for out of network services.</div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="deductible" name="deductible">
         <label class="mdl-textfield__label" for="sample4">Remaining Deductible</label>
@@ -15,6 +17,8 @@
     </div>
       <!-- <p><%= label_tag(:deductibletag, "Remaining Deductible")%>
       <%= number_field_tag(:deductible)%></p> -->
+      <div class="icon material-icons" id="tt2">help</div>
+      <div class="mdl-tooltip" data-mdl-for="tt2">Costs may vary depending on service and provider, reference your provider's prices</div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="price" name="price">
         <label class="mdl-textfield__label" for="sample4">Price of Service</label>
@@ -25,6 +29,8 @@
       <p><%= label_tag(:choicetag, "Category of Service")%>
       <%= collection_select :treatment, :name, @plan.treatments.where.not(resource_category:"coinsurance"), :id, :name%></p>
       <!-- <p><%= radio_button_tag(:network, true, class:"mdl-radio mdl-js-radio mdl-js-ripple-effect")%> -->
+      <div class="icon material-icons" id="tt3">help</div>
+      <div class="mdl-tooltip" data-mdl-for="tt3">See your plan's list of in network providers for reference</div>
       <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
           <input type="radio" id="yesnetwork" class="mdl-radio__button" name="network" value="true" checked><span class="mdl-radio__label">This is an in network provider</span>
       </label>
@@ -34,7 +40,7 @@
       </label>
       <!-- <%= radio_button_tag(:network, false, class:"mdl-radio__button")%></label> -->
       <!-- <%= label_tag(:nonetwork, "This is an out of network provider", class:"mdl-radio__label")%></p> -->
-      <p class="justified"><%= submit_tag("Calculate", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect")%></p>
+      <p class="justified padded"><%= submit_tag("Calculate", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect")%></p>
   <%end%>
 </div>
 <h4 id="out_of_pocket"></h4>
@@ -77,5 +83,8 @@
     .justified{
         display: flex;
         justify-content: center;
+    }
+    .padded{
+        padding: 2%;
     }
 </style>

@@ -72,7 +72,7 @@ def build_relationship body_part_name, symptom_name, disease_name
 end
 
 def setup_brandeis_plan
-    brandeis=Plan.new(name:"Brandeis Insurance Plan")
+    brandeis=Plan.new(name:"Brandeis Insurance Plan", in_deductible:0.00, out_deductible:250.00)
     brandeis.save
     treatment=Treatment.new(resource_category:"coinsurance", name:"Co insurance-you pay this amount of a bill
 after meeting your deductible and copay")
@@ -156,7 +156,7 @@ after meeting your deductible and copay")
 end
 
 def setup_generic_plan
-    generic=Plan.new(name:"Generic Plan")
+    generic=Plan.new(name:"Generic Plan", in_deductible:100.00, out_deductible:350.00)
     generic.save
     treatment=Treatment.new(resource_category:"coinsurance", name:"Co insurance-you pay this amount of a bill
 after meeting your deductible and copay")
@@ -186,7 +186,7 @@ after meeting your deductible and copay")
 end
 
 def setup_fake_plan
-    fake=Plan.new(name:"Fake Plan")
+    fake=Plan.new(name:"Fake Plan", in_deductible:50.00, out_deductible:500.00)
     fake.save
     treatment=Treatment.new(resource_category:"coinsurance", name:"Co insurance-you pay this amount of a bill
 after meeting your deductible and copay")

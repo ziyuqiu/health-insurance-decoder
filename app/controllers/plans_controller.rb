@@ -94,6 +94,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-        params.require(:plan).permit(:name, :category, :company_id, :deductible, :out_of_pocket_max, :inpatient_copay, :outpatient_copay)
+        params.require(:plan).permit(:name, :category, :company_id, :in_deductible, :out_deductible, :out_of_pocket_max, :inpatient_copay, :outpatient_copay)
     end
 end
