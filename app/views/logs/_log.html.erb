@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to Symptom.find(log.symptom_id).name, edit_log_path(log) %></td>
+  <td><%= link_to Symptom.find(log.symptom_id).name.capitalize, edit_log_path(log) %></td>
   <td><%= log.severity %></td>
   <td><%= log.created_at.to_date %></td>
   <td>
