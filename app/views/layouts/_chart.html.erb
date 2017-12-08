@@ -31,6 +31,12 @@ console.log(Object.keys(dataMap).size == 0);
           }]
       },
       options: {
+        scales: {
+          ticks: {
+              min: 0,
+              beginAtZero: true
+          }
+        },
           title: {
               display: true,
               text: 'Symptom Visualizer'
@@ -39,11 +45,12 @@ console.log(Object.keys(dataMap).size == 0);
           legend: {
                 display: false,
                 // position: 'right'
-              },
-          scales: {
-            min: 0
-          }
+              }
+
+
       }
   });
+
+
 
 </script>
