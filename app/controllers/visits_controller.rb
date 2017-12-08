@@ -25,8 +25,8 @@ class VisitsController < ApplicationController
   # POST /visits
   # POST /visits.json
   def create
-    # @visit = Visit.new(:time => visit_params[:time],:vtype => params[:vtype])
-    @visit = Visit.new(visit_params)
+    @visit = Visit.new(:time => visit_params[:time],:vtype => params[:vtype])
+    # @visit = Visit.new(visit_params)
     @logs = Log.all
     @results = @logs.where(:user_id => current_user.id)
     @treated = @results.where(:symptom_id => params[:symptom_id], :visit_id =>-1)
@@ -36,7 +36,7 @@ class VisitsController < ApplicationController
         format.html { redirect_to logs_path }
         format.json { render :show, status: :created, location: @visit }
         @visit.update(:vtype =>params[:vtype])
-        @treated.update(:visit_id => @visit.id)        
+        @treated.update(:visit_id => @visit.id)
       else
         format.html { render :new }
         format.json { render json: @visit.errors, status: :unprocessable_entity }
