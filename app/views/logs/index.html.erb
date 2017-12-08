@@ -1,5 +1,6 @@
 <% if not current_user %>
-  <%= render partial: "static_pages/no_login" %>
+  <div class="alert alert-danger">Please log in to view and record logs.</div>
+  <%= render file: "./sessions/new.html.erb" %>
 <% else %>
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--4-col for-log-dropdown-override">

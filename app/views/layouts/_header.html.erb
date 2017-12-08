@@ -10,10 +10,8 @@
     <%= link_to api_path, class: "mdl-navigation__link" do %>
       <i class="material-icons">accessibility</i> <span>Quick Diagnosis</span>
     <% end %>      
-    <% if logged_in? %>
-      <%= link_to logs_path, class: "mdl-navigation__link" do %>
-        <i class="material-icons">favorite</i> <span>My Log</span>
-      <% end %>
+    <%= link_to logs_path, class: "mdl-navigation__link" do %>
+      <i class="material-icons">favorite</i> <span>My Log</span>
     <% end %>
     <%= link_to resources_path, class: "mdl-navigation__link" do %>
       <i class="material-icons">library_books</i> <span>Resources</span>
