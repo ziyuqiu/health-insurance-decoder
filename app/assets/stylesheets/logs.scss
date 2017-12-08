@@ -45,10 +45,9 @@ $light-tan: #F5F5F5;
 }
 
 #log-submit-container {
-    background-color: $light-blue;
-
     .new_log {
 	display: inline;
+	background: $light-blue !important;
     }
 
     h3 {
@@ -212,7 +211,6 @@ div.tab button.active {
 .tabcontent {
     display: none;
     padding: 10px 10px;
-    background-color: aliceblue;
 }
 
 .tabcontent {
