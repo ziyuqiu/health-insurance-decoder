@@ -231,34 +231,34 @@ def setup_demo_user
     user1.save
     id=user1[:id]
     now = DateTime.now
-    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:6, created_at:DateTime.new(now.year, now.month, now.day, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day, now.hour, now.minute, now.second, now.zone), user_id:id)
     log.save
     user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:4, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:4, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
     log.save
     user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:5, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:5, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
     log.save
     user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"fever")[:id], severity:6, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log=Log.new(symptom_id:Symptom.find_by(name:"fever")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
     log.save
     user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"fever")[:id], severity:7, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log=Log.new(symptom_id:Symptom.find_by(name:"fever")[:id], severity:7, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
     log.save
     user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"runny")[:id], severity:5, created_at:DateTime.new(now.year, now.month, now.day-5, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log=Log.new(symptom_id:Symptom.find_by(name:"runny")[:id], severity:5, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-5, now.hour, now.minute, now.second, now.zone), user_id:id)
     log.save
     user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"runny")[:id], severity:6, created_at:DateTime.new(now.year, now.month, now.day-3, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log=Log.new(symptom_id:Symptom.find_by(name:"runny")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-3, now.hour, now.minute, now.second, now.zone), user_id:id)
     log.save
     user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:4, created_at:DateTime.new(now.year, now.month, now.day-3, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:4, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-3, now.hour, now.minute, now.second, now.zone), user_id:id)
     log.save
     user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:6, created_at:DateTime.new(now.year, now.month, now.day-2, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-2, now.hour, now.minute, now.second, now.zone), user_id:id)
     log.save
     user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:6, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
     log.save
     user1.logs << log
 end
