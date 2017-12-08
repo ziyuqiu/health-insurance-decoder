@@ -1,9 +1,14 @@
 <tr>
   <td><%= visit.time %></td>  
-  <td><%= visit.vtype %></td>
+  <td id="tt-<%=visit.id%>" style="cursor: pointer"><%= visit.vtype %></td>
   <td>
     <%= button_to visit, method: :delete, class:"mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" do %>
       <i class="material-icons">close</i>
     <% end %>
   </td>
 </tr>
+
+<!-- Enter tooltip contents (i.e. linked symptoms/logs) in this div: -->
+<div class="mdl-tooltip mdl-tooltip--large" for="tt-<%= visit.id %>">
+  <p>Hello, world! :)</p>
+</div>
