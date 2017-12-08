@@ -5,4 +5,13 @@
       <%= link_to Symptom.find(log.symptom_id).name, edit_log_path(log) %>
     </div>
   <% end %>
+
+  <% if not @visits_today.nil? %>
+	  <% @visits_today.each do |visit|%>
+	  	<div id="visit_log">
+	      <%= visit.vtype %>
+	    </div>
+	  <% end %>
+  <% end %>
+
 <% end %>
