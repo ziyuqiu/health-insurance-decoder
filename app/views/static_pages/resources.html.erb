@@ -1,18 +1,26 @@
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
   <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-    <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+    <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800" style="cursor:pointer">
       <a class="mdl-navigation__link" onclick="showTabContent(event, 'emer_lvl')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Emergency Level</a>
       <a class="mdl-navigation__link" onclick="showTabContent(event, 'pain_lvl')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i> Pain Chart</a>
       <a class="mdl-navigation__link" onclick="showTabContent(event, 'clinic_lst')" id="defaultOpen"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">room</i> Nearby Clinics</a>
       <a class="mdl-navigation__link" onclick="showTabContent(event, 'events')" id="eventsOpen"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">event</i> Events</a>
       <a class="mdl-navigation__link" onclick="showTabContent(event, 'groups')" ><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i> Student Groups</a>
+      <% if current_user %>
+        <% unless current_user.plans == nil %>
+	  <% @plan = current_user.plans.first %>
+	    <% unless @plan == nil %>
+            <a class="mdl-navigation__link" href="<%plan_path(@plan)%>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">money</i> Copay Calculator</a>
+	    <% end %>
+	  <% end %>
+      <% end %>
       <div class="mdl-layout-spacer"></div>
       <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
     </nav>
   </div>
   <main class="mdl-layout__content mdl-color--grey-100" id ="contents">
     <br/>
-    <div id = "emer_lvl" class = "tabcontent">
+    <div id = "emer_nlvl" class = "tabcontent">
       <%= render file: "./static_pages/emergency_level" %>
     </div>
     <div id = "pain_lvl" class = "tabcontent">
