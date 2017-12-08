@@ -1,7 +1,6 @@
 class LogsController < ApplicationController
   before_action :set_log, only: [:show, :edit, :update, :destroy]
   respond_to :html, :js, :json  
-
   # GET /logs
   # GET /logs.json
   def index
@@ -9,7 +8,7 @@ class LogsController < ApplicationController
     @log = Log.new
     @symptoms = Symptom.all
     if current_user != nil
-      @results = @logs.where(:user_id => current_user.id)
+      @results = @logs.where(:user_id => current_user.id, :visit_id => -1)
     end
     if !params[:symptom_name].nil?
       @results = Log.joins(:symptom).where(:symptoms => {:name => params[:symptom_name]})
@@ -17,6 +16,9 @@ class LogsController < ApplicationController
 
     @visit = Visit.new
     @visits = Visit.all.order(:time)
+    if not @visits_today.nil?
+      @visits_today = @visit.where(:date => Date.today)
+    end
   end
 
   # GET /logs/1
@@ -40,6 +42,7 @@ class LogsController < ApplicationController
   	puts log_params
     puts params
     @log = Log.new(:symptom_id => params[:symptom_id],:severity =>log_params[:severity], :user_id => current_user.id, :visit_id => -1)
+
     respond_to do |format|
       if @log.save
         format.html { redirect_to logs_path, notice: 'Log was successfully created.' }
