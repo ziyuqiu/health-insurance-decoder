@@ -9,13 +9,13 @@
           order: [:month, :day, :year] %>
     </div>
   </div>
- 
-  <!-- Select treatment --> 
+
+  <!-- Select treatment -->
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col" style="margin-top: 0px; margin-bottom:0px;margin-top:0px;">
       <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label" style="width:100%" id="symptom-dropdown">
-        <select class="mdl-selectfield__select" id="sym-filter" name="symptom_id">
-          <option value=""></option>	  
+        <select class="mdl-selectfield__select" id="sym-filter" name="vtype">
+          <option value=""></option>
           <option value="Pill">Pill</option>
           <option value="Clinic">Clinic</option>
           <option value="Doctor">Doctor</option>
@@ -41,7 +41,7 @@
     </div>
   </div>
 
-  <!-- Submit button -->    
+  <!-- Submit button -->
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col" style="margin-top: 0px; margin-bottom:0px;">
       <div style="float:right">
@@ -49,5 +49,5 @@
       </div>
     </div>
   </div>
-  
+
 <% end %>
