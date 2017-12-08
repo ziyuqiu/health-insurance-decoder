@@ -2100,7 +2100,7 @@ var mode = "diagnosis";
                     //TODO possible implementations:
                     //"href": specUrl + "/" + this.Name + "/" + this.ID
                     //"href": specUrl + "?specId=" + this.SpecialistID
-					"href": specUrl  + "/" + "specId" + this.SpecialistID + ".html"
+					"href": specUrl  //+ "/" + "specId" + this.SpecialistID + ".html"
                 });
 
                 specListElement.append(spec);
