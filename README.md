@@ -35,4 +35,4 @@ The Health Decoder was created using Ruby on Rails, as well as numerous other to
 
 ## Moving Forward
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat est nec enim placerat, id fermentum enim maximus. In suscipit rhoncus leo nec maximus. Nam sagittis, ante eget fermentum bibendum, nisl ante scelerisque quam, at efficitur dui orci in libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In consequat lorem quis porta eleifend. Aliquam dignissim lacus ut elit commodo, eu commodo dui vulputate. Integer vel arcu vehicula, bibendum quam nec, cursus est. Etiam viverra viverra dui, non faucibus arcu commodo id. Donec nec porta erat. Donec at consequat elit. Nam pulvinar a velit ut feugiat.
+We would like to further customize the app to have different flavors pertinent to other academic institutions outside of Brandeis University, companies, or unaffiliated users.  We would like to customize the MedicAPI code to provide a more streamlined experience and integrate directly into the health log.  The health log symptoms list would be populated by symptoms taken from MedicAPI.
