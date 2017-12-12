@@ -17,11 +17,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat est nec
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In consequat lorem quis porta eleifend. Aliquam dignissim lacus ut elit commodo, eu commodo dui vulputate. Integer vel arcu vehicula, bibendum quam nec, cursus est. 
 
-## Feature 2
+### Feature 2
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In consequat lorem quis porta eleifend. Aliquam dignissim lacus ut elit commodo, eu commodo dui vulputate. Integer vel arcu vehicula, bibendum quam nec, cursus est. 
 
-## Feature 3
+### Feature 3
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In consequat lorem quis porta eleifend. Aliquam dignissim lacus ut elit commodo, eu commodo dui vulputate. Integer vel arcu vehicula, bibendum quam nec, cursus est. 
 
