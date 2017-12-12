@@ -30,7 +30,7 @@ Users who have created a profile can also access a copay calculator tool. This t
 
 ## Technology
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat est nec enim placerat, id fermentum enim maximus. In suscipit rhoncus leo nec maximus. Nam sagittis, ante eget fermentum bibendum, nisl ante scelerisque quam, at efficitur dui orci in libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In consequat lorem quis porta eleifend. Aliquam dignissim lacus ut elit commodo, eu commodo dui vulputate. Integer vel arcu vehicula, bibendum quam nec, cursus est. Etiam viverra viverra dui, non faucibus arcu commodo id. Donec nec porta erat. Donec at consequat elit. Nam pulvinar a velit ut feugiat.
+The Health Decoder was created using Ruby on Rails, as well as numerous other tools and assets. We incorporated Ajax into our design in order to accomplish smooth transitions between tabs on the resources and logs pages, as well as to provide feedback on the copay calculator page and quick diagnosis page. We used Material Designs to style the majority of our application’s components such as buttons, sliders, tabs, headers, and tooltips. Our quick diagnosis page was powered by ApiMedic and their vast database of symptoms and diagnosis tools. We also integrated Google maps into the resources page, along with the Brandeis campus RSS feed.
 
 
 ## Moving Forward
