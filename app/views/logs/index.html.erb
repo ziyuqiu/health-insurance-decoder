@@ -1,5 +1,6 @@
 <% if not current_user %>
   <div class="alert alert-danger">Please log in to view and record logs.</div>
+  <% @flag = 1%>
   <%= render file: "./sessions/new.html.erb" %>
 <% else %>
   <div class="mdl-grid">

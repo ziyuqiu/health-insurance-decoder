@@ -1,9 +1,13 @@
 class LogsController < ApplicationController
   before_action :set_log, only: [:show, :edit, :update, :destroy]
-  respond_to :html, :js, :json  
+  respond_to :html, :js, :json
+
   # GET /logs
   # GET /logs.json
   def index
+    $flag = 1
+    puts "------------"
+    puts $flag
     @logs = Log.all
     @log = Log.new
     @symptoms = Symptom.all
@@ -84,7 +88,7 @@ class LogsController < ApplicationController
     if current_user != nil
       @results = @logs.where(:user_id => current_user.id)
     end
-    
+
     if !params[:symptom_name].nil?
       if params[:symptom_name].eql? ""
         @results = @logs.where(:user_id => current_user.id)
@@ -92,7 +96,7 @@ class LogsController < ApplicationController
         @results = Log.joins(:symptom).where("symptoms.name LIKE '%#{params[:symptom_name]}%'")
       end
     end
-    
+
     respond_to do |format|
       format.js
     end
