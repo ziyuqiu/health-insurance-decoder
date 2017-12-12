@@ -18,8 +18,8 @@
     </div>
     <!-- _symptoms_list -->
     <div class="mdl-cell mdl-cell--3-col mdl-shadow--2dp body-background">
-        <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title" id="selectSymptomsTitle">
-            <h4>Symptoms</h4>
+        <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title" > <!--id="selectSymptomsTitle"-->
+            <h4>Select Symptoms</h4>
             <div class="mdl-layout-spacer"></div>
             <%= image_tag "broken-bone.png", class: "custom-font-icon", height: '30px' %>   
         </div>
@@ -38,7 +38,8 @@
             <%= image_tag "broken-bone.png", class: "custom-font-icon", height: '30px' %>   
         </div>
         <div class="mdl-card__supporting-text">    
-            <p>You can add further conditions. Please select one/multiple medical condition(s) by clicking the appropriate body part on the picture.</p>
+            <p id="noSymptomSelectedMessage">You can add further conditions. Please select one/multiple medical condition(s) by clicking the appropriate body part on the picture.</p>
+            <p id="terms"></p>
         </div>
         <div id="diagram_results_symptoms" class="mdl-card__actions mdl-card--border" >
             <div id="selectedSymptomList"></div>
@@ -52,7 +53,7 @@
             <%= image_tag "sneeze.png", class: "custom-font-icon", height: '30px' %>      
         </div>
         <div class="mdl-card__supporting-text">
-            <p>Click on an ailment to view more information.</p>
+            <p id="diagnosisMessage">In the following you will find recommended doctor specialization based on your disease pattern. If you think you may have a medical, life-threatening emergency, you should immediately go to or contact emergency.</p>
         </div>
         <div id="diagram_results_ailments" class="mdl-card__actions mdl-card--border">
             <div id="diagnosisList"></div>
