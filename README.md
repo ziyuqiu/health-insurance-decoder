@@ -1,12 +1,12 @@
 # Health Decoder
 
-Service to help people utilize and understand their health insurance plans.
+A service to help patients utilize healthcare.
 
 https://health-insurance-decoder.herokuapp.com/
 
 ## Motivation
 
-Health care in the United States is expensive and complex.  In 2015, individuals in the U.S. spent roughly $9,990 on health-related expenses, 32% of which was for hospital care. We sought to create an app to help users better utilized the health care options available to them by better informing them about their own symptoms and the things that can help them, as well as the presence and affordability of local medical services.
+Health care in the United States is expensive and complex.  In 2015, individuals in the U.S. spent roughly $9,990 on health-related expenses, 32% of which was for hospital care. We sought to create an app that will help users utilize their available health care options by informing them about the presence and affordability of local medical services in conjunction with a personal health log.
 
 
 ## Key Features
@@ -15,7 +15,7 @@ The Health Decoder is a combination of three key features: a self-diagnostic too
 
 ### Quick Diagnosis
 
-The quick diagnosis tool is an interactive body diagram with clickable parts for targeting symptoms and generating suggestions for possible ailments.  Users can enter an unlimited number of symptoms from and receive a range of ailments with percentages of how likely the ailment is depending on the symptoms provided by the user.
+The quick diagnosis tool is an interactive body diagram built using [ApiMedic](http://apimedic.com/) with clickable parts for targeting symptoms and generating suggestions for possible ailments.  Users can enter an unlimited number of symptoms from and receive a range of ailments with percentages of how likely the ailment is depending on the symptoms provided by the user.
 
 ### Health Log
 
@@ -30,7 +30,7 @@ Users who have created a profile can also access a copay calculator tool. This t
 
 ## Technology
 
-The Health Decoder was created using Ruby on Rails, as well as numerous other tools and assets. We incorporated Ajax into our design in order to accomplish smooth transitions between tabs on the resources and logs pages, as well as to provide feedback on the copay calculator page and quick diagnosis page. We used Material Designs to style the majority of our application’s components such as buttons, sliders, tabs, headers, and tooltips. Our quick diagnosis page was powered by ApiMedic and their vast database of symptoms and diagnosis tools. We also integrated Google maps into the resources page, along with the Brandeis campus RSS feed. We utilized Codeship to accomplish automated testing and deployment of our code.
+The Health Decoder was created using Ruby on Rails, as well as numerous other tools and assets. We incorporated Ajax into our design in order to accomplish smooth transitions between tabs on the resources and logs pages, as well as to provide feedback on the copay calculator page and quick diagnosis page. We used Material Designs to style the majority of our application’s components such as buttons, sliders, tabs, headers, and tooltips. Our quick diagnosis page was powered by [ApiMedic](http://apimedic.com/) and their vast database of symptoms and diagnosis tools. We also integrated Google maps into the resources page, along with the Brandeis campus RSS feed. We utilized Codeship to accomplish automated testing and deployment of our code.
 
 
 ## Moving Forward
