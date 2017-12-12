@@ -1,21 +1,68 @@
-
-<table class="container-table">
-    <tr>
-        <td valign="middle" colspan="2" class="td-header box-white bordered-box width50"><h4 class="header" id="selectSymptomsTitle"><span class="badge pull-left badge-primary visible-lg margin5R">1</span></h4></td>
-        <td valign="middle" class="td-header bordered-box box-white width25"><h4 class="header" id="selectedSymptomsTitle"><span class="badge pull-left badge-primary visible-lg margin5R">2</span></h4></td>
-        <td valign="middle" class="td-header bordered-box box-white width25"><h4 class="header" id="possibleDiseasesTitle"><span class="badge pull-left badge-primary visible-lg margin5R">3</span></h4></td>
-    </tr>
-    <tr>
-        <td valign="top" class="selector_container bordered-box box-white width25"><div id="symptomSelector"></div></td>
-        <td valign="top" class="selector_container bordered-box box-white width25"><div id="symptomList"></div></td>
-        <td valign="top" class="selector_container bordered-box box-white width25"><div id="selectedSymptomList"></div></td>
-        <td valign="top" class="selector_container bordered-box box-white width25"><div id="diagnosisList"></div></td>
-    </tr>
-</table>
+<div class="mdl-grid"> 
+    <div class="mdl-cell mdl-cell--3-col body-diagram-block mdl-shadow--2dp plain-background">
+        <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title" >    
+            <h4>Body Diagram</h4>
+            <div class="mdl-layout-spacer"></div>      
+            <%= image_tag "body.png", class: "custom-font-icon", height: '35px' %>                  
+        </div>
+        <div class="mdl-card__supporting-text">
+            <p style="float:right;">Click on a part to see a list of symptoms.</p>      
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12">
+                    <div id="symptomSelector"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- _symptoms_list -->
+    <div class="mdl-cell mdl-cell--3-col mdl-shadow--2dp body-background">
+        <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title" id="selectSymptomsTitle">
+            <h4>Symptoms</h4>
+            <div class="mdl-layout-spacer"></div>
+            <%= image_tag "broken-bone.png", class: "custom-font-icon", height: '30px' %>   
+        </div>
+        <div class="mdl-card__supporting-text">    
+            <p >Click on a symptom to view a list of ailments.</p>
+        </div>
+        <div id="diagram_results_symptoms" class="mdl-card__actions mdl-card--border" >
+            <div id="symptomList"></div>
+        </div>
+    </div>
+    <!-- selected_symptoms_list -->
+    <div class="mdl-cell mdl-cell--3-col mdl-shadow--2dp body-background">
+        <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title" > <!--id="selectedSymptomsTitle"-->
+            <h4>Selected Symptoms</h4>
+            <div class="mdl-layout-spacer"></div>
+            <%= image_tag "broken-bone.png", class: "custom-font-icon", height: '30px' %>   
+        </div>
+        <div class="mdl-card__supporting-text">    
+            <p>You can add further conditions. Please select one/multiple medical condition(s) by clicking the appropriate body part on the picture.</p>
+        </div>
+        <div id="diagram_results_symptoms" class="mdl-card__actions mdl-card--border" >
+            <div id="selectedSymptomList"></div>
+        </div>
+    </div>
+    <!-- _ailments_list (diseases) -->
+    <div class="mdl-cell mdl-cell--3-col mdl-shadow--2dp body-background-offset-right">
+        <div class="card-header-color mdl-color-text--grey-600 mdl-shadow--2dp mdl-card__title" > <!--id="possibleDiseasesTitle"-->
+            <h4>Possible Ailments</h4>
+            <div class="mdl-layout-spacer"></div>      
+            <%= image_tag "sneeze.png", class: "custom-font-icon", height: '30px' %>      
+        </div>
+        <div class="mdl-card__supporting-text">
+            <p>Click on an ailment to view more information.</p>
+        </div>
+        <div id="diagram_results_ailments" class="mdl-card__actions mdl-card--border">
+            <div id="diagnosisList"></div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
 
-    var userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3RAcHJpYWlkLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTI0IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoiMTAxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9saW1pdCI6Ijk5OTk5OTk5OSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcCI6IlByZW1pdW0iLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZGUtY2giLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDAwLTAxLTAxIiwiaXNzIjoiaHR0cHM6Ly9hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTEyNzI3OTkxLCJuYmYiOjE1MTI3MjA3OTF9.-7PPeuFxb2iah9tsMb6uYc6WaK395shpR3g0Q8xuJeg';
+    var userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3RAcHJpYWlkLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTI0IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoiMTAyIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9saW1pdCI6Ijk5OTk5OTk5OSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcCI6IlByZW1pdW0iLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZGUtY2giLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDAwLTAxLTAxIiwiaXNzIjoiaHR0cHM6Ly9hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTEzMTE3MjY1LCJuYmYiOjE1MTMxMTAwNjV9.v0kW3UjM03RW65j4MKr5nfjN6iqmwNgzBRs7VYh_Uww';
     
     $(document).ready(function () {
         $("#symptomSelector").symptomSelector(
