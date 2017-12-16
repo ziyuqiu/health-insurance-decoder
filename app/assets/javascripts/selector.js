@@ -1458,7 +1458,7 @@ var mode = "diagnosis";
         _selectedList.parent().addClass("box-inactive");
 
         _selectedList.append(jQuery("<ul/>", { "class": "selected_list" }));
-        _selectedList.append(_createNoSymptomsSelectedMessage());
+        // _selectedList.append(_createNoSymptomsSelectedMessage());
         _selectedList.append(_createTermsElement());
         _selectedList.append(_createTermsNotAcceptedMessage());
         _selectedList.append(_proposedListHeader);
@@ -1985,7 +1985,7 @@ var mode = "diagnosis";
         });
         if (diagnosis.length > 0) {
             _plugin.parent().removeClass("box-inactive");
-            _setDiagnosisMessage(diagnosisMessage);
+            // _setDiagnosisMessage(diagnosisMessage);
         }
         else {
             _plugin.parent().addClass("box-inactive");
@@ -2306,7 +2306,7 @@ var mode = "diagnosis";
         });
         if (specialisations.length > 0) {
             _plugin.parent().removeClass("box-inactive");
-            _setDiagnosisMessage(diagnosisMessage);
+            // _setDiagnosisMessage(diagnosisMessage);
         }
         else {
             _plugin.parent().addClass("box-inactive");

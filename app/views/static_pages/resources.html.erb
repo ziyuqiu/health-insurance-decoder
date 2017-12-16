@@ -8,13 +8,13 @@
       <a class="mdl-navigation__link" onclick="showTabContent(event, 'groups')" ><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i> Student Groups</a>
       <% if current_user %>
         <% unless current_user.plans == nil %>
-	  <% @plan = current_user.plans.first %>
-	    <% unless @plan == nil %>
+    <% @plan = current_user.plans.first %>
+      <% unless @plan == nil %>
             <a class="mdl-navigation__link" onclick="showTabContent(event, 'calc')">
               <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">money</i>Copay Calculator
             </a>
-	    <% end %>
-	  <% end %>
+      <% end %>
+    <% end %>
       <% end %>
       <div class="mdl-layout-spacer"></div>
       <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>

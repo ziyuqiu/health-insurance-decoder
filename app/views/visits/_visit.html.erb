@@ -10,5 +10,9 @@
 
 <!-- Enter tooltip contents (i.e. linked symptoms/logs) in this div: -->
 <div class="mdl-tooltip mdl-tooltip--large" for="tt-<%= visit.id %>">
-  <p>Hello, world! :)</p>
+  <% @vid = visit.id %>
+  <% @sid = Log.all.where(:user_id => current_user.id, :visit_id => @vid ).distinct(:symptom_id).pluck(:symptom_id)%>
+  <% @sid.each do |s|%>
+  	<p>You treated  <strong style="color:red"><%= Symptom.find(s).name %></strong> by this visit.</p>
+  <% end %>
 </div>
