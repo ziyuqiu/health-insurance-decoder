@@ -17,10 +17,12 @@ var dataMap = {};
 
 // var symMap = {};
 <%=puts "userrrrrrr"%>
-  <% current_user.logs.each do |log| %>
+
+  <% current_user.logs.sort_by { |obj| obj.created_at }.each do |log| %>
     console.log("log",log);
     symptomSet.add("<%= escape_javascript(Symptom.find(log.symptom_id).name) %>");
     var date = "<%= escape_javascript(log.created_at.strftime("%m-%d")) %>";
+    console.log("date",date);
     var s = "<%= escape_javascript(Symptom.find(log.symptom_id).name) %>";
     //console.log("s = "+s);
     if (date in dataMap) {
@@ -60,7 +62,7 @@ var dataMap = {};
           dataset.data.push(dataMap[Object.keys(dataMap)[i]][symptoms[line]]);
         }
       }
-    //console.log("dataset:",dataset);
+      console.log("dataset:",dataset);
       lineChartData.datasets.push(dataset); //create a new line dataset
     }
 console.log(lineChartData.label);
@@ -83,6 +85,7 @@ console.log(lineChartData.label);
               yAxes: [{
                   ticks: {
                       beginAtZero:true,
+                      stepSize: 1
                   }
               }]
           }
