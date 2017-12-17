@@ -89,3 +89,12 @@ $white: #FFF;
     from {opacity: 0;}
     to {opacity: 1;}
 }
+
+#welcome-card {
+    width: 100%;
+    #welcome-card-title {
+	color: #fff;
+	height: 176px;
+	background: url('header_image.jpg') center / cover;
+    }
+}
