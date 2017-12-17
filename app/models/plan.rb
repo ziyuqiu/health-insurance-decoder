@@ -1,5 +1,4 @@
 class Plan < ApplicationRecord
-    # validates :coinsurance, presence:true
     has_and_belongs_to_many :users
     has_many :copays
     has_many :treatments, through: :copays

@@ -1,4 +1,5 @@
 happy:
+  id: 999
   name: Happy HealthCare
   category: FooBar
   in_deductible: 0.0

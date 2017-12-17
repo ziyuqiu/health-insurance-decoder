@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  # before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
-  #before_action :admin_user,     only: :destroy
+
   # GET /users
   # GET /users.json
   def index
@@ -31,9 +30,6 @@ class UsersController < ApplicationController
      @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        # unless Plan.find_by(name:"Brandeis Insurance Plan").nil?
-        #     @user.plans << Plan.find_by(name:"Brandeis Insurance Plan")
-        # end
         log_in @user
         flash[:success] = "Welcome! User was successfully created."
         format.html { redirect_to @user }
@@ -49,10 +45,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     @user = User.find(params[:id])
-    puts "-------------"
-    puts @user.plans
     if (params[:plan_id] != nil)
-      # if (@user.plan)
       if (@user.plans.count != 0)
         @user.plans.delete(@user.plans.all.first.id)
         @user.plans << Plan.find_by(id:params[:plan_id])
@@ -129,9 +122,4 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
-
-    #def admin_user
-    #  redirect_to(root_url) unless current_user(@user)#.admin?
-    #end
-
 end
