@@ -28,7 +28,6 @@ class HomeController < ApplicationController
                 :link => result.link, 
                 :category => result.category,
                 :description => result.description.split("<br/>")[2],
-                :date => result.description.split("<br/>").first,
                 :weekday => result.description.split("<br/>").first.split(",").first,
                 :date => result.description.split("<br/>").first.split(",")[1..2].join,
                 :time => result.description.split("<br/>").first.split(",").last,
