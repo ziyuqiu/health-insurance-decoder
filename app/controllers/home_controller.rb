@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def show
   end
   def index
+    $flag = 0 # do not redirect to the user logs page on login
     if current_user
       @user = User.find(current_user.id)
       @logs = Log.all

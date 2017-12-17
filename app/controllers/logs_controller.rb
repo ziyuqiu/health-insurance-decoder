@@ -5,9 +5,7 @@ class LogsController < ApplicationController
   # GET /logs
   # GET /logs.json
   def index
-    $flag = 1
-    puts "------------"
-    puts $flag
+    $flag = 1 # redirect to logs page on user login
     @logs = Log.all
     @log = Log.new
     @symptoms = Symptom.all
