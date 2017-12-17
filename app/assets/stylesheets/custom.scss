@@ -23,6 +23,17 @@ body {
 
 }
 
+#name {
+  position: relative;
+  left :15px;
+  font-weight: bold;
+}
+
+#edit {
+    position: relative;
+    left: 5px;
+    top: 4px;
+}
 
 $white: #FFF;
 
