@@ -157,7 +157,7 @@ after meeting your deductible and copay")
 end
 
 def setup_generic_plan
-    generic=Plan.new(name:"My Work Plan", in_deductible:100.00, out_deductible:350.00)
+    generic=Plan.new(name:"Bently University Plan", in_deductible:100.00, out_deductible:350.00)
     generic.save
     treatment=Treatment.new(resource_category:"coinsurance", name:"Co insurance-you pay this amount of a bill
 after meeting your deductible and copay")
@@ -187,7 +187,7 @@ after meeting your deductible and copay")
 end
 
 def setup_fake_plan
-    fake=Plan.new(name:"My Parent's Plan", in_deductible:50.00, out_deductible:500.00)
+    fake=Plan.new(name:"Boston University Plan", in_deductible:50.00, out_deductible:500.00)
     fake.save
     treatment=Treatment.new(resource_category:"coinsurance", name:"Co insurance-you pay this amount of a bill
 after meeting your deductible and copay")
@@ -230,37 +230,37 @@ def setup_demo_user
     user1.password_digest=User.digest("password")
     user1.save
     id=user1[:id]
-    now = DateTime.now
-    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day, now.hour, now.minute, now.second, now.zone), user_id:id)
-    log.save
-    user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:4, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
-    log.save
-    user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:5, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
-    log.save
-    user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"fever")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
-    log.save
-    user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"fever")[:id], severity:7, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
-    log.save
-    user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"runny")[:id], severity:5, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-5, now.hour, now.minute, now.second, now.zone), user_id:id)
-    log.save
-    user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"runny")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-3, now.hour, now.minute, now.second, now.zone), user_id:id)
-    log.save
-    user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:4, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-3, now.hour, now.minute, now.second, now.zone), user_id:id)
-    log.save
-    user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-2, now.hour, now.minute, now.second, now.zone), user_id:id)
-    log.save
-    user1.logs << log
-    log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
-    log.save
-    user1.logs << log
+    # now = DateTime.now
+    # log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day, now.hour, now.minute, now.second, now.zone), user_id:id)
+    # log.save
+    # user1.logs << log
+    # log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:4, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    # log.save
+    # user1.logs << log
+    # log=Log.new(symptom_id:Symptom.find_by(name:"cough")[:id], severity:5, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    # log.save
+    # user1.logs << log
+    # log=Log.new(symptom_id:Symptom.find_by(name:"fever")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    # log.save
+    # user1.logs << log
+    # log=Log.new(symptom_id:Symptom.find_by(name:"fever")[:id], severity:7, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    # log.save
+    # user1.logs << log
+    # log=Log.new(symptom_id:Symptom.find_by(name:"runny")[:id], severity:5, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-5, now.hour, now.minute, now.second, now.zone), user_id:id)
+    # log.save
+    # user1.logs << log
+    # log=Log.new(symptom_id:Symptom.find_by(name:"runny")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-3, now.hour, now.minute, now.second, now.zone), user_id:id)
+    # log.save
+    # user1.logs << log
+    # log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:4, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-3, now.hour, now.minute, now.second, now.zone), user_id:id)
+    # log.save
+    # user1.logs << log
+    # log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-2, now.hour, now.minute, now.second, now.zone), user_id:id)
+    # log.save
+    # user1.logs << log
+    # log=Log.new(symptom_id:Symptom.find_by(name:"chills")[:id], severity:6, visit_id: -1, created_at:DateTime.new(now.year, now.month, now.day-1, now.hour, now.minute, now.second, now.zone), user_id:id)
+    # log.save
+    # user1.logs << log
 end
 # BEGIN SEEDING
 
