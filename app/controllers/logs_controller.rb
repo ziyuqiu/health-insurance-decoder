@@ -41,8 +41,6 @@ class LogsController < ApplicationController
   # POST /logs
   # POST /logs.json
   def create
-  	puts log_params
-    puts params
     @log = Log.new(:symptom_id => params[:symptom_id],:severity =>log_params[:severity], :user_id => current_user.id, :visit_id => -1)
 
     respond_to do |format|
@@ -81,7 +79,6 @@ class LogsController < ApplicationController
   end
 
   def display_log_search_results
-    puts "#{params[:symptom_name]}"
     @logs = Log.all
     if current_user != nil
       @results = @logs.where(:user_id => current_user.id)
@@ -91,7 +88,8 @@ class LogsController < ApplicationController
       if params[:symptom_name].eql? ""
         @results = @logs.where(:user_id => current_user.id)
       else
-        @results = Log.joins(:symptom).where("symptoms.name LIKE '%#{params[:symptom_name]}%'")
+        # Use parameterized query to prevent SQL injection
+        @results = Log.joins(:symptom).where("symptoms.name LIKE ?", "%#{params[:symptom_name]}%")
       end
     end
 
